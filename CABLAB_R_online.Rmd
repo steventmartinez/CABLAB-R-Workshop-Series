@@ -197,7 +197,7 @@ library(ggplot2)
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week2_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week2_exercise.R)
 
 
 
@@ -385,7 +385,7 @@ View(df_wide)
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week3_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week3_exercise.R)
 
 
 
@@ -558,7 +558,7 @@ df2 <- subset(df, select=c(PID, Section, Stage, Fear.rating, TOAccuracy))
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week4_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week4_exercise.R)
 
 
 ## Missing data 
@@ -705,7 +705,7 @@ df$Year <- ifelse(df$Section == "Infirmary" | df$Section == "GhostlyGrounds", "2
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week5_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week5_exercise.R)
 
 
 
@@ -917,7 +917,7 @@ for (i in 1:length(x3)) {
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week6_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week6_exercise.R)
 
 
 
@@ -1121,7 +1121,7 @@ df_long <- df_wide_exercise %>% pivot_longer(
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week7_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week7_exercise.R)
 
 
 
@@ -1250,7 +1250,7 @@ merged_data <- merge(low.df, high.df, by=c("PID", "Section", "Stage", "Threat", 
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week8_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week8_exercise.R)
 
 
 ## Week 8 Assignment: Merging data frames
@@ -1495,7 +1495,7 @@ report(m1)
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week9_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week9_exercise.R)
 
 
 
@@ -1534,7 +1534,7 @@ report(model2)
 ```
 
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week9_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week9_exercise.R)
 
 
 
@@ -1726,7 +1726,7 @@ report(m1)
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week10_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week10_exercise.R)
 
 
 
@@ -1873,7 +1873,7 @@ ggplot(data = df_plot, aes(x = Condition, y = TOAccuracy, fill = Condition)) + #
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week11_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week11_exercise.R)
 
 
 So we already learned how to add a plot title, an x-axis title, and a y-axis title, as well as how to change x-axis text labels and legend text labels. We can still customize additional plot aesthetics that we'll talk about below.
