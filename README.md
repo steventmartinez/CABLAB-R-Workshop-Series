@@ -23,4 +23,4 @@ We will cover a breadth of topics including data cleaning, data visualizations, 
 - Learn how to visualize data
 
 ## Workshop Materials
-- [Notebook Viewer](https://tu-coding-outreach-group.github.io/intro-to-coding-2023/R/index.html)
+- [Notebook Viewer](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/index.html)
