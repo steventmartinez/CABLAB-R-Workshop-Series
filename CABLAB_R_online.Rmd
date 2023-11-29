@@ -197,7 +197,7 @@ library(ggplot2)
 
 ```
 
-[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2023/blob/main/R/exercise_solutions/week2_exercise.r)
+[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week2_exercise.r)
 
 
 
@@ -256,10 +256,10 @@ Pressing tab again will enter into a directory, thus showing me the contents of 
 ```{r Assign working directory to object called "Path"}
 
 # For Windows
-Path <- "C:/datasets/"
+Path <- "C:/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
 
 # For Mac
-Path <- "datasets/"
+Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
 
 ```
 
@@ -281,13 +281,11 @@ There were also 3 experimental conditions: Control, Share, and Test.
 
 For the first two segments (Delirium and Take 13), all participants toured the segment in the Control condition. However, in the last two segments (Crypt and Machine Shop), some participants toured the segments in the Control condition, other participants toured Machine Shop in the Share condition and Crypt in the Test condition, while other participants toured Machine Shop in the Test condition and Crypt in the Share condition.
 
-After completing the haunted house tour, participants were assessed at two time points: immediately afterwards and again 1-week later. During the Immediate assessments, participants completed a recency discrimination task and freely recalled their memory for 1 low-threat and 1-high threat haunted house segment. During the one week-delay assessments, participants completed a recency discrimination task and freely recalled their memory for *all* haunted house segments. Check out the study design below.
+After completing the haunted house tour, participants were assessed at two time points: immediately afterwards and again 1-week later. During the Immediate assessments, participants completed a recency discrimination task and freely recalled their memory for 1 low-threat and 1-high threat haunted house segment. During the one week-delay assessments, participants completed a recency discrimination task and freely recalled their memory for *all* haunted house segments. Check out the study design below as well as the vignette illustrating when the three experimental conditions (i.e., Control, Share, and Test) took place throughout the haunted house tour.
 
 
 ![](images/fright night study design.png){width=70%}
 
-
-Here is a quick vignette illustrating when the three experimental conditions (i.e., Control, Share, and Test) took place throughout the haunted house tour.
 
 
 ![](images/fright night study design conditions.png){width=60%}
@@ -365,7 +363,7 @@ Amazing! Now we have hundreds of columns of data, like we should. We might also 
 
 2) Print out the first few rows using the head() function
 
-3) Open up the df_wide dataframe by using the View() function OR by clicking on the df_wide dataframe in the global enviroment
+3) Open up the df_wide dataframe by using the View() function OR by clicking on the df_wide dataframe in the global environment
 ```{r Week 3 Exercise, code="'\n\n\n\n'", results=F}
 
 
@@ -385,7 +383,7 @@ View(df_wide)
 
 ```
 
-[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2023/blob/main/R/solutions/week3_exercise.r)
+[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week3_exercise.r)
 
 
 
@@ -401,6 +399,21 @@ By looking at the dataframe, we can see that we aren’t working with a perfectl
 So how do we access rows? How do we access columns? And how can we check what data is missing?
 
 dataframe$column will print out all the rows in that column. Let's print out all the participant IDs that exist in the data frame.
+
+For the purposes of this week's workshop, let's read in the frightnight_practice csv file
+
+```{r}
+
+# For Mac
+Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
+
+setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
+
+df <- read.csv(file = "frightnight_practice.csv") #Load in the fright night practice csv file
+
+
+```
+
 
 ```{r}
 
@@ -543,7 +556,7 @@ df2 <- subset(df, select=c(PID, Section, Stage, Fear.rating, TOAccuracy))
 
 ```
 
-[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2023/blob/main/R/solutions/week4_exercise.r)
+[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week4_exercise.r)
 
 
 ## Missing data 
@@ -690,7 +703,7 @@ df$Year <- ifelse(df$Section == "Infirmary" | df$Section == "GhostlyGrounds", "2
 
 ```
 
-[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2023/blob/main/R/solutions/week5_exercise.r)
+[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week5_exercise.r)
 
 
 
@@ -902,7 +915,7 @@ for (i in 1:length(x3)) {
 
 ```
 
-[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2023/blob/main/R/solutions/week6_exercise.r)
+[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week6_exercise.r)
 
 
 
@@ -1106,7 +1119,7 @@ df_long <- df_wide_exercise %>% pivot_longer(
 
 ```
 
-[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2023/blob/main/R/solutions/week7_exercise.r)
+[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week7_exercise.r)
 
 
 
@@ -1235,7 +1248,7 @@ merged_data <- merge(low.df, high.df, by=c("PID", "Section", "Stage", "Threat", 
 
 ```
 
-[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2023/blob/main/R/solutions/week8_exercise.r)
+[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week8_exercise.r)
 
 
 ## Week 8 Assignment: Merging data frames
@@ -1480,7 +1493,7 @@ report(m1)
 
 ```
 
-[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2023/blob/main/R/solutions/week9_exercise.r)
+[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week9_exercise.r)
 
 
 
@@ -1519,7 +1532,7 @@ report(model2)
 ```
 
 
-[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2023/blob/main/R/solutions/week9_exercise.r)
+[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week9_exercise.r)
 
 
 
@@ -1711,7 +1724,7 @@ report(m1)
 
 ```
 
-[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2023/blob/main/R/solutions/week10_exercise.r)
+[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week10_exercise.r)
 
 
 
@@ -1858,7 +1871,7 @@ ggplot(data = df_plot, aes(x = Condition, y = TOAccuracy, fill = Condition)) + #
 
 ```
 
-[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2023/blob/main/R/solutions/week11_exercise.r)
+[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week11_exercise.r)
 
 
 So we already learned how to add a plot title, an x-axis title, and a y-axis title, as well as how to change x-axis text labels and legend text labels. We can still customize additional plot aesthetics that we'll talk about below.
