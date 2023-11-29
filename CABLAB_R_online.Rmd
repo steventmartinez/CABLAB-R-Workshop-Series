@@ -281,13 +281,15 @@ There were also 3 experimental conditions: Control, Share, and Test.
 
 For the first two segments (Delirium and Take 13), all participants toured the segment in the Control condition. However, in the last two segments (Crypt and Machine Shop), some participants toured the segments in the Control condition, other participants toured Machine Shop in the Share condition and Crypt in the Test condition, while other participants toured Machine Shop in the Test condition and Crypt in the Share condition.
 
-After completing the haunted house tour, participants were assessed at two time points: immediately afterwards and again 1 -week later. During the Immediate assessments, participants completed a recency discrimination task and freely recalled their memory for 1 low-threat and 1-high threat haunted house segment. During the one week-delay assessments, participants completed a recency discrimination task and freely recalled their memory for *all* haunted house segments. Check out the study design below.
+After completing the haunted house tour, participants were assessed at two time points: immediately afterwards and again 1-week later. During the Immediate assessments, participants completed a recency discrimination task and freely recalled their memory for 1 low-threat and 1-high threat haunted house segment. During the one week-delay assessments, participants completed a recency discrimination task and freely recalled their memory for *all* haunted house segments. Check out the study design below.
 
 
 ![](images/fright night study design.png){width=70%}
 
 
 Here is a quick vignette illustrating when the three experimental conditions (i.e., Control, Share, and Test) took place throughout the haunted house tour.
+
+
 ![](images/fright night study design conditions.png){width=60%}
 
 
@@ -1344,13 +1346,13 @@ df_analyses <- df_analyses[complete.cases(df_analyses), ]
 
 A T-Test can be used when both the predictor variable consists of two categorical options and the outcome or dependent variable is numeric in value. A T-Test tells you how significant the differences between these categories or groups are. In other words, it lets you know if the differences between the means of two groups could have observed by chance. We could imagine a situation where an evil teacher told half of the class before a test the right chapter to study from and told the other half of the class the wrong chapter to study from. The two categories or groups might be Right Chapter and Wrong Chapter and the outcome variable would be Test Score. Using a T-Test, we could determine whether studying from the right materials produces higher test scores. Within the context of our data, we could ask a question like whether participants assigned to an Experimental condition (e.g., Role-assigned) or Control condition (e.g., Control) demonstrate significant differences in temporal memory accuracy?
 
-QUESTION: Do role-assigned and control participants differ significantly in their temporal memory accuracy?
+**QUESTION**: Do role-assigned and control participants differ significantly in their temporal memory accuracy?
 
-HYPOTHESIS: "On average, role-assigned participants who were assigned to a specific goal while touring the haunted house segment will have better temporal memory accuracy compared to control participants"
+**HYPOTHESIS**: "On average, role-assigned participants who were assigned to a specific goal while touring the haunted house segment will have better temporal memory accuracy compared to control participants"
 
-RELEVANT VARIABLES: Dependent: TOAccuracy (numeric) Independent: Group (Factor)
+**RELEVANT VARIABLES**: Dependent: TOAccuracy (numeric) Independent: Group (Factor)
 
-ANALYSIS: Two-Sample T-Test
+**ANALYSIS**: Two-Sample T-Test
 
 
 ```{r t-tests}
@@ -1388,13 +1390,13 @@ report(model1)
 
 An ANOVA, or Analysis of Variance, can be used when both the predictor variable or variables consist of two or more *categorical* options and the outcome or dependent variable is *numeric* in value. Much like a T-Test, ANOVA tells you how significant the differences between these categories or groups are. The advantage over T-tests is that we can compare multiple groups or categories in one analysis. We could revisit our last horrible example and imagine that the evil teacher tells one group right chapter to study from, one group the wrong chapter to study from, and one group to not study at all. An ANOVA test will tell us whether any of these three groups are different from one another (but not necessarily which specific groups are different from one another). Within the context of our data, we could use this type of test to determine whether there are any condition-related differences in temporal memory accuracy.
 
-QUESTION: Are there differences in gray matter volume by experimental condition?
+**QUESTION**: Are there differences in gray matter volume by experimental condition?
 
-HYPOTHESIS: Differences will exist in temporal memory accuracy by condition
+**HYPOTHESIS**: Differences will exist in temporal memory accuracy by condition
 
-RELEVANT VARIABLES: Dependent: TOAccuracy (numeric) Independent: Condition (Factor)
+**RELEVANT VARIABLES**: Dependent: TOAccuracy (numeric) Independent: Condition (Factor)
 
-ANALYSIS: ANOVA
+**ANALYSIS**: ANOVA
 
 Pay close attention to the formatting of the syntax here. It is the standard way in which we specify most statistical models in R, whether for regression, ANOVA, hierarchical modeling etc.
 
@@ -1448,7 +1450,7 @@ summary(model3)
 All of a sudden, when we add Section into the model, we see that there is a significant difference in Temporal Memory Accuracy by Section. That’s pretty interesting! Of course, we don’t yet know whether Temporal Memory Accuracy was better for Devils Den or Ghostly Grounds.
 
 
-# Week 9 Exercise: Analyzing Data w/ Categorical Independent Variables
+## Week 9 Exercise: Analyzing Data w/ Categorical Independent Variables
 
 1) Conduct an ANOVA test assessing whether experimental condition predicted differences in how Analytically someone recalls their memory and store the model in an object called m1
 
@@ -1486,13 +1488,13 @@ report(m1)
 
 I’m curious whether differences in Group (Role-assignment versus Control) is associated with differences in how Authentically someone recalls their memory.
 
-1) Run a t-test to test whether differences in Group (Role-assignment versus Control) is associated with differences in how Authentically someone recalls their memory.
+**1)** Run a t-test to test whether differences in Group (Role-assignment versus Control) is associated with differences in how Authentically someone recalls their memory.
 
-2) Store the t-test in a model called "model2"
+**2)** Store the t-test in a model called "model2"
 
-3) Print model 2 and try to interpret the output yourself.
+**3)** Print model 2 and try to interpret the output yourself.
 
-4) Run the report() function to try to see whether your interpretation matches.
+**4)** Run the report() function to try to see whether your interpretation matches.
 
 ```{r Week 9 Assignment, code="'\n\n\n\n'", results=F}
 
@@ -1569,13 +1571,13 @@ report(m1) #use report() function to print report for m1 bivariate linear model
 ## Multivariate Linear Regression
 A multivariate linear regression builds upon bivariate regression by allowing for multiple predictors. If we measured temperature, ice cream sales, and the time since someone last ate, we might find that our previously specified model is now even more accurate because of the addition of the “time since last ate” variable. Within the context of our data, let’s examine how the time of the haunted house tour interacts with Temporal Memory Accuracy to predict Authenticity during memory recall.
 
-QUESTION: Does the interaction of Temporal Memory Accuracy and Time of Haunted House Tour predict how Authentically someone will recall their memory?
+**QUESTION**: Does the interaction of Temporal Memory Accuracy and Time of Haunted House Tour predict how Authentically someone will recall their memory?
 
-HYPOTHESIS: The time of the haunted house tour will interact with temporal memory accuracy to predict differences in how Authentically people recall their memory
+**HYPOTHESIS**: The time of the haunted house tour will interact with temporal memory accuracy to predict differences in how Authentically people recall their memory
 
-RELEVANT VARIABLES: Dependent: Authentic (numeric) Independent: Temporal Memory Accuracy (numeric) Independent: Time_HH (factor)
+**RELEVANT VARIABLES**: Dependent: Authentic (numeric) Independent: Temporal Memory Accuracy (numeric) Independent: Time_HH (factor)
 
-ANALYSIS: Multivariate Linear Regression
+**ANALYSIS**: Multivariate Linear Regression
 
 
 ```{r}
@@ -1618,13 +1620,13 @@ However, linear mixed effects models work a bit differently than linear regressi
 
 For this analyses, we will use a different dataset that includes multiple measures per subject.
 
-QUESTION: Do differences in Threat lead to differences in Temporal Memory Accuracy?
+**QUESTION**: Do differences in Threat lead to differences in Temporal Memory Accuracy?
 
-HYPOTHESIS: People will remember the order of high-threat events better compared to low-threat events.
+**HYPOTHESIS**: People will remember the order of high-threat events better compared to low-threat events.
 
-RELEVANT VARIABLES: Dependent: TOAccuracy (numeric) Independent: Threat (factor) 
+**RELEVANT VARIABLES**: Dependent: TOAccuracy (numeric) Independent: Threat (factor) 
 
-ANALYSIS: Mixed effects regression
+**ANALYSIS**: Mixed effects regression
 
 
 ```{r}
@@ -1653,13 +1655,13 @@ It also may be helpful to recognize that in this example, Threat is the fixed ef
 
 We can also add in more fixed effects!
 
-QUESTION: Does temporal memory accuracy interact with threat and lead to differences in how Authentically someone communicates their memory?
+**QUESTION**: Does temporal memory accuracy interact with threat and lead to differences in how Authentically someone communicates their memory?
 
-HYPOTHESIS: Temporal memory accuracy will interact with threat to predict differences in how people Authentically recall their memory.
+**HYPOTHESIS**: Temporal memory accuracy will interact with threat to predict differences in how people Authentically recall their memory.
 
-RELEVANT VARIABLES: Dependent: Authentic (numeric) Independent: TOAccuracy (numeric) Independent: Threat (factor) 
+**RELEVANT VARIABLES**: Dependent: Authentic (numeric) Independent: TOAccuracy (numeric) Independent: Threat (factor) 
 
-ANALYSIS: Mixed effects regression
+**ANALYSIS**: Mixed effects regression
 
 ```{r}
 
@@ -1680,13 +1682,13 @@ In this case, TOAccuracy and Threat are our fixed effects, whereas (1|PID) is ou
 
 ## Week 10 Exercise: Analyzing Data w/ Continuous Independent Variables
 
-1) Conduct a multiple linear regression assessing whether Time of Haunted house and Temporal Memory Accuracy independently predicted differences in how Analytically someone recalled their memory and store the model in an object called m1.
+**1)** Conduct a multiple linear regression assessing whether Time of Haunted house and Temporal Memory Accuracy independently predicted differences in how Analytically someone recalled their memory and store the model in an object called m1.
 
-2) Focus on these relevant variables: Dependent: Analytic (numeric) Independent: Temporal Memory Accuracy (numeric), Independent: Time of Haunted House (Factor)
+**2)** Focus on these relevant variables: Dependent: Analytic (numeric) Independent: Temporal Memory Accuracy (numeric), Independent: Time of Haunted House (Factor)
 
-3) Use the summary() function to print the model output and try to interpret the model yourself
+**3)** Use the summary() function to print the model output and try to interpret the model yourself
 
-4) Use the report() function to print the model interpretation
+**4)** Use the report() function to print the model interpretation
 
 ```{r Week 10 Exercise, code="'\n\n\n\n'", results=F}
 
@@ -1718,24 +1720,24 @@ report(m1)
 
 As part of the week 10 R assignment, let's explore a new research question.
 
-QUESTION: Does temporal memory accuracy OR threat interact predict differences in how negatively someone communicates their memory?
+**QUESTION**: Does temporal memory accuracy OR threat interact predict differences in how negatively someone communicates their memory?
 
-HYPOTHESIS: Temporal memory accuracy will not predict differences in how negatively people recall their memory. Threat will predict differences in how negatively people recall their memory.
+**HYPOTHESIS**: Temporal memory accuracy will not predict differences in how negatively people recall their memory. Threat will predict differences in how negatively people recall their memory.
 
-RELEVANT VARIABLES: Dependent: Tone (numeric) Independent: TOAccuracy (numeric) Independent: Threat (factor) 
+**RELEVANT VARIABLES**: Dependent: Tone (numeric) Independent: TOAccuracy (numeric) Independent: Threat (factor) 
 
-ANALYSIS: Mixed effects regression
+**ANALYSIS**: Mixed effects regression
 
 
-1) Create a new dataframe that includes the following columns: PID, Section, Stage, Threat, Group, Condition, Recall, Time_HH, Fear.rating, TOAccuracy, Analytic, Authentic, Clout, Tone
+**1)** Create a new dataframe that includes the following columns: PID, Section, Stage, Threat, Group, Condition, Recall, Time_HH, Fear.rating, TOAccuracy, Analytic, Authentic, Clout, Tone
 
-2) Run a linear mixed effects model that assesses the relationship between Tone and Temporal Memory Accuracy and Threat. Make sure to include a random effect that accounts for individual differences.
+**2)** Run a linear mixed effects model that assesses the relationship between Tone and Temporal Memory Accuracy and Threat. Make sure to include a random effect that accounts for individual differences.
 
-3) Store the model in a data object called "m5"
+**3)** Store the model in a data object called "m5"
 
-4) Print the summary of the model and try to interpret the model yourself
+**4)** Print the summary of the model and try to interpret the model yourself
 
-5) Use the report() function to print out an interpretation of the model and see if your interpretation matches
+**5)** Use the report() function to print out an interpretation of the model and see if your interpretation matches
 
 ```{r Week 10 Assignment, code="'\n\n\n\n'", results=F}
 
@@ -2097,25 +2099,25 @@ While we've only covered bar plots and violin plots in this section, there are t
 
 Let's create a violin plot that plots Temporal Memory Accuracy Scores by Condition! Let's customize this plot to meet the following criteria:
 
-1) Plot Temporal Memory Accuracy Score by Condition
+**1)** Plot Temporal Memory Accuracy Score by Condition
 
-2) Use the geom_violin() and geom_jiter() arguments to generate a violin plot
+**2)** Use the geom_violin() and geom_jiter() arguments to generate a violin plot
 
-3) Update the colors of each violin to reflect the following colors: "#555599", "#66BBBB", "#DD4444"
+**3)** Update the colors of each violin to reflect the following colors: "#555599", "#66BBBB", "#DD4444"
 
-4) Change the title of the legend to "Experimental Condition"
+**4)** Change the title of the legend to "Experimental Condition"
 
-5) Change the legend labels to: "Baseline Condition", "Share Condition", "Test Condition"
+**5)** Change the legend labels to: "Baseline Condition", "Share Condition", "Test Condition"
 
-6) Apply the theme_minimal() background to the plot
+**6)** Apply the theme_minimal() background to the plot
 
-7) Change the plot title to "Temporal Memory Accuracy by Condition", the x-axis title to "Experimental Condition", and the y-axis title to "Temporal Memory Accuracy".
+**7)** Change the plot title to "Temporal Memory Accuracy by Condition", the x-axis title to "Experimental Condition", and the y-axis title to "Temporal Memory Accuracy".
 
-8) Change the x-axis text labels to "1) Baseline", "2) Share", "3) Test"
+**8)** Change the x-axis text labels to "1) Baseline", "2) Share", "3) Test"
 
-9) Change the plot title, x-axis title, y-axis title, x-axis text, y-axis text font size to 17
+**9)** Change the plot title, x-axis title, y-axis title, x-axis text, y-axis text font size to 17
 
-10) Change the legend title and legend text font size to 15
+**10)** Change the legend title and legend text font size to 15
 
 ```{r Week 11 Assignment, code="'\n\n\n\n'", results=F}
 
