@@ -1,0 +1,11 @@
+install.packages("naniar")
+install.packages("report")
+install.packages("tidyverse")
+install.packages("dplyr")
+install.packages("ggplot2")
+
+library(naniar)
+library(report)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)

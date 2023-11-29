@@ -1,0 +1,9 @@
+PID,Group,Asylum.WordCount,GhostlyGrounds.WordCount,DevilsDen.WordCount,Infirmary.WordCount
+1001,Control,69,74,27,22
+1002,Experimental,131,128,19,23
+1003,Control,86,92,41,32
+1004,Experimental,80,67,154,32
+1005,Control,124,50,144,67
+1006,Experimental,51,62,42,31
+1007,Control,37,86,139,41
+1008,Experimental,80,102,62,12

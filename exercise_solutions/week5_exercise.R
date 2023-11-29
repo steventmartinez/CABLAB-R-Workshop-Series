@@ -1,0 +1,1 @@
+df$Year <- ifelse(df$Section == "Infirmary" | df$Section == "GhostlyGrounds", "2019", "2021")

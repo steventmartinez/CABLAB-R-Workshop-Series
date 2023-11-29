@@ -1,0 +1,9 @@
+PID,Group,Asylum_TOAccuracy,GhostlyGrounds_TOAccuracy,DevilsDen_TOAccuracy,Infirmary_TOAccuracy
+1001,Control,0.6,0.7,0.1,0.6
+1002,Experimental,0.8,0.6,0.5,0.6
+1003,Control,0.2,0.8,0.5,0.4
+1004,Experimental,0.2,0.4,0.6,0.5
+1005,Control,0.5,0.3,0.4,0.2
+1006,Experimental,0.4,1,0.9,0.2
+1007,Control,0.9,0.9,0.9,1
+1008,Experimental,1,0.2,1,0.8
