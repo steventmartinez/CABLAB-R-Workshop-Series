@@ -2,7 +2,6 @@
 11/27/2023  
 
 __**Instructor:**__ Steven Martinez
-__**Content Creator:**__ Steven Martinez
 
 ## Description
 This workshop will review basic R coding skills for an audience that has ***little to no experience in R***. 
@@ -25,4 +24,3 @@ We will cover a breadth of topics including data cleaning, data visualizations, 
 ## Workshop Materials
 - [Notebook Viewer](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/index.html)
 
-#https://tu-coding-outreach-group.github.io/intro-to-coding-2023/R/index.html
