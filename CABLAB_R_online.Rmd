@@ -197,7 +197,7 @@ library(ggplot2)
 
 ```
 
-[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week2_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week2_exercise.r)
 
 
 
@@ -280,6 +280,8 @@ There were also 3 experimental conditions: Control, Share, and Test.
 **Test condition**: Participants were instructed to tour the huaunted house segment in anticipation of being tested on their knowledge of the haunted house segment afterwards.
 
 For the first two segments (Delirium and Take 13), all participants toured the segment in the Control condition. However, in the last two segments (Crypt and Machine Shop), some participants toured the segments in the Control condition, other participants toured Machine Shop in the Share condition and Crypt in the Test condition, while other participants toured Machine Shop in the Test condition and Crypt in the Share condition.
+
+![](images/Halloween Nights.png){width=60%}
 
 After completing the haunted house tour, participants were assessed at two time points: immediately afterwards and again 1-week later. During the Immediate assessments, participants completed a recency discrimination task and freely recalled their memory for 1 low-threat and 1-high threat haunted house segment. During the one week-delay assessments, participants completed a recency discrimination task and freely recalled their memory for *all* haunted house segments. Check out the study design below as well as the vignette illustrating when the three experimental conditions (i.e., Control, Share, and Test) took place throughout the haunted house tour.
 
@@ -383,7 +385,7 @@ View(df_wide)
 
 ```
 
-[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week3_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week3_exercise.r)
 
 
 
@@ -556,7 +558,7 @@ df2 <- subset(df, select=c(PID, Section, Stage, Fear.rating, TOAccuracy))
 
 ```
 
-[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week4_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week4_exercise.r)
 
 
 ## Missing data 
@@ -703,7 +705,7 @@ df$Year <- ifelse(df$Section == "Infirmary" | df$Section == "GhostlyGrounds", "2
 
 ```
 
-[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week5_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week5_exercise.r)
 
 
 
@@ -915,7 +917,7 @@ for (i in 1:length(x3)) {
 
 ```
 
-[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week6_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week6_exercise.r)
 
 
 
@@ -1119,7 +1121,7 @@ df_long <- df_wide_exercise %>% pivot_longer(
 
 ```
 
-[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week7_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week7_exercise.r)
 
 
 
@@ -1248,7 +1250,7 @@ merged_data <- merge(low.df, high.df, by=c("PID", "Section", "Stage", "Threat", 
 
 ```
 
-[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week8_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week8_exercise.r)
 
 
 ## Week 8 Assignment: Merging data frames
@@ -1493,7 +1495,7 @@ report(m1)
 
 ```
 
-[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week9_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week9_exercise.r)
 
 
 
@@ -1532,7 +1534,7 @@ report(model2)
 ```
 
 
-[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week9_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week9_exercise.r)
 
 
 
@@ -1724,7 +1726,7 @@ report(m1)
 
 ```
 
-[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week10_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week10_exercise.r)
 
 
 
@@ -1871,7 +1873,7 @@ ggplot(data = df_plot, aes(x = Condition, y = TOAccuracy, fill = Condition)) + #
 
 ```
 
-[Click for solution](https://steventmartinez.github.io/CABLAB-R-Workshop-Series/exercise_solutions/week11_exercise.r)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week11_exercise.r)
 
 
 So we already learned how to add a plot title, an x-axis title, and a y-axis title, as well as how to change x-axis text labels and legend text labels. We can still customize additional plot aesthetics that we'll talk about below.
