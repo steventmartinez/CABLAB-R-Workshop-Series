@@ -1346,7 +1346,7 @@ Next, let's re-order the columns in a way that's more readable. Although there a
 
 ```{r subset raw}
 
-df_raw <- subset(df_raw, select=c(PID, Group, Condition, Aslyum.WordCount, GhostlyGrounds.WordCount, DevilsDen.WordCount, Infirmary.WordCount, Aslyum_TOAccuracy, GhostlyGrounds_TOAccuracy, DevilsDen_TOAccuracy, Infirmary_TOAccuracy))
+df_raw <- subset(df_raw, select=c(PID, Group, Aslyum.WordCount, GhostlyGrounds.WordCount, DevilsDen.WordCount, Infirmary.WordCount, Aslyum_TOAccuracy, GhostlyGrounds_TOAccuracy, DevilsDen_TOAccuracy, Infirmary_TOAccuracy))
 
 ```
 
@@ -1409,7 +1409,7 @@ df_complete_clean <- df_complete_clean %>% relocate(Threat, .after = Group)
 Look at how nice our data frame looks now! If we wanted to, we could move forward with conducting some analyses. Speaking of analyses, we'll start talking about how to complete statistical analyses in R starting next week!
 
 
-## Week 9 Exercise: Data cleaning
+## Week 9 Assignment: Data cleaning
 
 1) Read in the frightnight_raw_assignment CSV file
 
@@ -1421,27 +1421,52 @@ Look at how nice our data frame looks now! If we wanted to, we could move forwar
 
 5) Pivot the data from long to wide such that you end up with a data frame that has 4 columns: PID, Group, Section, Fear
 
-6) Re-organize the position of the columns so that it 
+6) Re-organize the position of the columns so that the final data frame appears as follows: PID, Section, Group, Fear
 
-```{r Week 10 Exercise, code="'\n\n\n\n'", results=F}
+```{r Week 9 Assignment, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
-```{r Week 10 Exercise - hidden, eval=T, include=F}
+```{r Week 9 Assignment - hidden, eval=T, include=F}
 
-# For Mac
+#1) Read in the frightnight_raw_assignment CSV file
 Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
 
 setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
 
-df_raw <- read.csv(file = "frightnight_raw_assignment.csv") #Load in the fright night raw csv file
+df_raw_assignment <- read.csv(file = "frightnight_raw_assignment.csv") #Load in the fright night raw csv file
+
+
+#2) Rename the columns in a way that makes sense to you
+#Approach 2: Create a vector of column names and replace the old column names with the new column names
+cols <- c("PID", "Asylum_Fear", "Infirmary_Fear", "DevilsDen_Fear", "GhostlyGrounds_Fear", "Group")
+
+#Use the colnames() function to replace the old column names with the new column names stored in the "cols" vector
+colnames(df_raw_assignment) <- cols
+
+
+#3) Remove the second row since we no longer need the column headers
+df_raw_assignment <- df_raw_assignment[-1,]
+
+
+#4) Remove any row that has a missing value in any column!
+df_raw_assignment_complete <- df_raw_assignment[complete.cases(df_raw_assignment), ]
+
+
+#5) Pivot the data from long to wide such that you end up with a data frame that has 4 columns: PID, Group, Section, Fear
+df_raw_assignment_long <- df_raw_assignment_complete %>% pivot_longer(
+                          cols = grep("_", colnames(df_raw_assignment_complete)),
+                          names_to = c("Section", ".value"), 
+                          names_sep = "_",
+                          values_drop_na = TRUE)
+
+#6) Re-organize the position of the columns so that the final data frame appears as follows: PID, Section, Group, Fear
+df_assignment.comp <- subset(df_raw_assignment_long, select=c(PID, Section, Group, Fear))
 
 
 ```
-
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week10_exercise.R)
 
 
 

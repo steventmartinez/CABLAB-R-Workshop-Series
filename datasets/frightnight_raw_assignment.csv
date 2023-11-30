@@ -1,12 +1,12 @@
-Q1,Q6,Q2,Q3,Q4,Q5
-Participant ID,Experimental Group,Fear Rating for Asylum,Fear Rating for Infirmary,Fear Rating for Ghostly Grounds,Fear Rating for Devil's Den
-1001,Control,2,3,5,5
-1002,Role-assigned,1,4,5,5
-1003,Control,3,3,2,4
-1004,Role-assigned,1,2,3,NA
-1005,Control,3,NA,5,4
-1006,Role-assigned,2,4,4,2
-1007,Control,4,3,2,5
-1008,Role-assigned,4,NA,3,5
-1009,Control,1,1,4,3
-1010,Role-assigned,2,3,4,5
+Q1,Q2,Q3,Q4,Q5,Q6
+Participant ID,Fear Rating for Asylum,Fear Rating for Infirmary,Fear Rating for Ghostly Grounds,Fear Rating for Devil's Den,Experimental Group
+1001,2,3,5,5,Control
+1002,1,4,5,5,Role-assigned
+1003,3,3,2,4,Control
+1004,1,2,3,NA,Role-assigned
+1005,3,NA,5,4,Control
+1006,2,4,4,2,Role-assigned
+1007,4,3,2,5,Control
+1008,4,NA,3,5,Role-assigned
+1009,1,1,4,3,Control
+1010,2,3,4,5,Role-assigned
