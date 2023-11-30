@@ -1291,7 +1291,7 @@ data.merged <- merge(ID.df, DA.df, by=c("PID", "Section", "Stage", "Threat", "Gr
 
 
 
-## Week 9: Data cleaning
+# Week 9: Data cleaning
 
 Up until now, we've learned a lot of isolated functions, but we haven't really 'cleaned up' any data in the traditional sense. This workshop will focus on cleaning up data and for that, we'll plan to use the frightnight_raw.csv file, so let's read it in!
 
