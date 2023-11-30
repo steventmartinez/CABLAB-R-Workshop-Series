@@ -1,0 +1,12 @@
+Q1,Q6,Q2,Q3,Q4,Q5
+Participant ID,Experimental Group,Fear Rating for Asylum,Fear Rating for Infirmary,Fear Rating for Ghostly Grounds,Fear Rating for Devil's Den
+1001,Control,2,3,5,5
+1002,Role-assigned,1,4,5,5
+1003,Control,3,3,2,4
+1004,Role-assigned,1,2,3,NA
+1005,Control,3,NA,5,4
+1006,Role-assigned,2,4,4,2
+1007,Control,4,3,2,5
+1008,Role-assigned,4,NA,3,5
+1009,Control,1,1,4,3
+1010,Role-assigned,2,3,4,5

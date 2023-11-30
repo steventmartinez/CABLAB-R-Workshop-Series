@@ -4,7 +4,7 @@
 __**Instructor:**__ Steven Martinez
 
 ## Description
-This workshop will review basic R coding skills for an audience that has ***little to no experience in R***. 
+This workshop will introduce basic R coding skills for an audience that has ***little to no experience in R***. 
 
 We will cover a breadth of topics including data cleaning, data visualizations, and carrying out statistical analyses. While a background in statistical theory is *helpful*, the module was designed such that it should not be *necessary* to follow along.
 
@@ -15,9 +15,9 @@ We will cover a breadth of topics including data cleaning, data visualizations, 
          https://posit.co/download/rstudio-desktop/
 
 ## Workshop objectives:
-- Learn R syntax relating to dataframes
-- Get familiar with RStudio and R markdown (and more generally notebook style coding)
-- Learn how to work with data
+- Learn how to navigate the RStudio environment
+- Get familiar with R markdown (and more generally notebook style coding)
+- Learn how to clean data
 - Learn how to complete statistical analyses
 - Learn how to visualize data
 

@@ -1,10 +1,10 @@
-Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11
-Participant ID,Word Count for Asylum,Word Count for Ghostly Grounds,Word Count for Devils Den,Word Count for Infirmary,Experimental Manipulation,Temporal Order Accuracy for Asylum,Temporal Order Accuracy for Ghostly Grounds,Temporal Order Accuracy for Devils Den,Temporal Order Accuracy for Infirmary,Experimental Condition
-1001,69,74,27,22,Control,0.6,0.7,0.1,0.6,Baseline
-1002,131,128,19,23,Experimental,0.8,0.6,0.5,0.6,Share
-1003,86,92,41,32,Control,0.2,0.8,0.5,0.4,Test
-1004,80,NA,154,32,Experimental,0.2,0.4,0.6,0.5,Baseline
-1005,124,50,144,67,Control,0.5,0.3,0.4,0.2,Test
-1006,51,62,NA,31,Experimental,0.4,1,0.9,0.2,Share
-1007,NA,86,139,41,Control,0.9,0.9,0.9,1,Test
-1008,80,102,62,12,Experimental,1,0.2,1,0.8,Baseline
+Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10
+Participant ID,Word Count for Asylum,Word Count for Ghostly Grounds,Word Count for Devils Den,Word Count for Infirmary,Experimental Group,Temporal Order Accuracy for Asylum,Temporal Order Accuracy for Ghostly Grounds,Temporal Order Accuracy for Devils Den,Temporal Order Accuracy for Infirmary
+1001,69,74,27,22,Control,0.6,0.7,0.1,0.6
+1002,131,128,19,23,Role-assigned,0.8,0.6,0.5,0.6
+1003,86,92,41,32,Control,0.2,0.8,0.5,0.4
+1004,80,NA,154,32,Role-assigned,0.2,0.4,0.6,0.5
+1005,124,50,144,67,Control,0.5,0.3,0.4,0.2
+1006,51,62,NA,31,Role-assigned,0.4,1,0.9,0.2
+1007,NA,86,139,41,Control,0.9,0.9,0.9,1
+1008,80,102,62,12,Role-assigned,1,0.2,1,0.8
