@@ -19,6 +19,7 @@ knit: (function(inputFile, encoding) {
 ---
 
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE, error = FALSE)
 
 ```
@@ -27,7 +28,7 @@ knitr::opts_chunk$set(echo = TRUE, error = FALSE)
 ```{r establish root directory, include=FALSE}
 
 require(knitr)
-opts_knit$set(root.dir = '/Users/tuh20985/Desktop/CABLAB R Workshops/')
+opts_knit$set(root.dir = '/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/')
 
 ```
 
