@@ -44,12 +44,12 @@ By the end of the workshop series, my hope is that you will feel comfortable eno
 ```{r Intro Video, echo = FALSE}
 vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
 ```
-[Coding expectations versus reality]
+[**Coding expectations versus reality**]
 
 
 ## Outline
 
-| **Pre-Workshop**: Downloading R Software | **R**: https://cran.r-project.org/ **RStudio**: https://posit.co/download/rstudio-desktop/
+| **Pre-Workshop**: Downloading R Software | **R**: https://ftp.osuosl.org/pub/cran/ **RStudio**: https://posit.co/download/rstudio-desktop/
 | **Week 1: Intro to R** | Learning how to navigate the software: R, RStudio, Console, and creating scripts in R Markdown
 | **Week 2: Installing and Loading Packages** | Continue orienting to the software environment using the "swirl" package
 | **Week 3: Working Directories** | Learn how to navigate working directories and read in data into R
@@ -78,14 +78,17 @@ Before the workshop:
 
 2. Download **RStudio**, which is the main software that we will be using to work with R. https://posit.co/download/rstudio-desktop/
 
-3. Download the 'CABLAB R Workshop' folder from the CABLAB R Workshop Github. This is the folder containing the all the files we will be working with for the purposes of this workshop.
+3. Download the 'CABLAB-R-Workshop-Series' folder from the CABLAB R Workshop Github by pressing the green 'Code' button and downloading the ZIP folder. This is the folder containing the all the files we will be working with for the purposes of this workshop.
+
+
+![](images/zip folder.png){width=100%}
 
 
 # Week 1: Intro to R 
 
 ## Opening a new R Markdown File
 
-To get things started, open R Studio. Then, let's try opening a new R Markdown document, by clicking File > New File > R Markdown…
+To get things started, open R Studio. Then, let's try opening a new R Markdown document, by clicking File > New File > R Markdown...
 
 ![](images/R Markdown.png){width=100%}
 
@@ -101,22 +104,13 @@ Next, let's clear out all of the default text that appears in a new R Markdown d
 
 ## Intro to R Markdown
 
-In a typical coding script, every line must contain code that the language could interpret. If you want to include notes, you have to include a hash mark (#_ before any code in order for the program to “ignore this line”. So, in order to leave ourselves any notes, we had to use hash marks, which can get a bit annoying. However, an R Markdown script does the same things as a typical coding script, but it's more user friendly.
+In a typical coding script, every line must contain code that the language could interpret. If you want to include notes, you have to include a hash mark (#) before any code in order for the program to “ignore this line”. So, in order to leave ourselves any notes, we had to use hash marks, which can get a bit annoying. However, an R Markdown script does the same things as a typical coding script, but it's more user friendly.
 
 With R Markdown, any code that you would like R to interpret belongs in the coding chunk as illustrated below!
 
 ![](images/R Markdown insert code.png){width=35%}
 
 If we want to leave notes, we don’t have to “comment it out”. We can just write long-winded narration that can help others understand why we coded what we coded and what that code does. 
-
-Below are examples of R accepting notes when it's commented out
-
-![](images/R Script hashtag.png){width=40%}
-
-
-and rejecting code notes when it's not commented out!
-
-![](images/R Script no hashtag.png){width=40%}
 
 That’s because a typical script will interpret any text as a command, unless the text is otherwise marked by a hashtag (#). An R markdown script only interprets things as code when we tell it to, and we tell it what is code by creating a chunk. Chunks are marked by three backticks (```) followed by a {r} and, on another line, three more backticks.
 
@@ -132,22 +126,23 @@ R Markdown grants us greater control over what we see and when we see it. To dem
 
 ```
 
-With a typical script, if we want to know the output of a line we ran awhile ago, we either have to rerun it or scroll through the console to find it. With Markdown we can minimize entire chunks and their output by using the minimization button [ Minimization Arrow ] on the left side of the window. 
 
-If we want to hide output, we can use the expand/collapse button [ Minimize Command ] on the right side of the output window.
+With a typical script, if we want to know the output of a line we ran awhile ago, we either have to rerun it or scroll through the console to find it. With Markdown we can minimize entire chunks and their output by using the minimization button [![Minimization Arrow](images/ChunkMin.png)] on the left side of the window. 
 
-We can choose exactly what we want to run using the the “Run” command [ Run Command ] in the upper right corner of the chunk. 
+If we want to hide output, we can use the expand/collapse button [![Minimize Command](images/OutputMin.png)] on the right side of the output window.
 
-Also of note, the down-facing arrow (second icon in the upper right corner of the code block) will tell R “Run all of the blocks of command that I have before this block” [ Run All Chunks Command ]. It can be helpful if you make a mistake and don’t want to manually rerun all of the previous blocks one by one to get back to where you were. It also makes your code very easy for other people to run. They can quite literally do it with the click of a button! 
+We can choose exactly what we want to run using the the "*Run*" command [![Run Command](images/ChunkRun.png)] in the upper right corner of the chunk.
 
-If we click the cog icon in the same tray, we can access the output options and manipulate where output appears and what it looks like, but that’s beyond the scope of this workshop [ Settings Command ].
+Also of note, the down-facing arrow (second icon in the upper right corner of the code block) will tell R "Run all of the blocks of command that I have before this block" [![Run All Chunks Command](images/ChunkRunAll.png)]. It can be helpful if you make a mistake and don't want to manually rerun all of the previous blocks one by one to get back to where you were. It also makes your code very easy for other people to run. They can quite literally do it with the click of a button! 
+
+If we click the cog icon in the same tray, we can access the output options and manipulate where output appears and what it looks like, but that's beyond the scope of this review [![Settings Command](images/ChunkSettings.png)].
 
 
 # Week 2: Installing and Loading Packages
 
 ## What's a "Package"?
 
-Packages in R are synonymous with libraries in other languages. They are more or less convenient short-cuts or functions someone else already programmed to save us some work. Somebody else already figured out a very quick way to compute a regression so now we don’t have to! We just use their tools to do it.
+Packages in R are synonymous with libraries in other languages. They are more or less convenient short-cuts or functions someone else already programmed to save us some work. Somebody else already figured out a very quick way to compute a function so now we don’t have to! We just use their tools to do it.
 
 Every new package is centralized in R’s repository, so even though thousands of people are working on these things independently, you don’t need to leave R to find them. Before they can be used, they must be installed, and you can do that pretty simply:
 
@@ -162,7 +157,7 @@ If you need to update a package, you can just re-run the above code. If you’re
 ![**Packages tab of viewer window where one can visualize previously installed packages**](images/R Packages.png){width=50%}
 
 
-Now we’ve installed a package, but that doesn’t mean we can use it yet. We need to tell R “We want access to the functions this package has during this session by calling it with the library() command.
+Now we’ve installed a package, that doesn’t mean we can use it yet. We need to tell R “We want access to the functions this package has during this session" by calling it with the library() command.
 
 ```{r load package via library, eval = F}
 
@@ -170,22 +165,23 @@ library(PACKAGENAME)
 
 ```
 
-Notice that we drop the quotation marks now. We just specify the (case-sensitive) package name and it let’s R know we are planning on using that this session.
+Notice that we drop the quotation marks now. We just specify the (case-sensitive) package name and it lets R know we are planning on using that this session.
 
 You might be wondering why we need to take this extra step. Sometimes different packages use the same commands, so having more than one of those active at the same time could confuse R (When this does happen, R will usually tell you). Sometimes packages take up a lot of disk space, so having ALL of your packages initialized at once might leave your computer running extremely slow. It’s the same for most languages.
 
 If we ever want to explore the functions contained within a package in conjunction with examples, we can either go to the R documentation website or type ‘??PackageName’ into the Console, which will then populate the Help Tab of the Viewer Window with information on the package.
 
-Let's try installing and loading in a few package for practice. Let's install and load the following packages in R: naniar, report, tidyverse, dplyr, and ggplot2
+Let's try installing and loading in a few package for practice. Let's install and load the following packages in R: naniar, report, tidyverse, dplyr, Matrix, lme4, lmerTest, and ggplot2
 
 ## Week 2 Exercise: Installing and Loading Packages
-```{r Exercise 1, code="'\n\n\n\n'", results=F}
+```{r Week 2 Exercise, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
-```{r Exercise 1 - hidden, eval=T, include=F}
+
+```{r Week 2 Exercise - hidden, eval=T, include=F}
 
 install.packages("naniar", repos = "http://cran.us.r-project.org")
 install.packages("report", repos = "http://cran.us.r-project.org")
@@ -212,7 +208,9 @@ library(ggplot2)
 
 
 ##  Week 2 Assignment: Install and Load "swirl" library and complete "R Programming: The basics of programming in R"  
-Swirl is a really cool package in R that teaches you R programming and data science interactively, at your own pace, and right in the R console! Complete the "R Programming: The basics of programming in R" modules 1 (Basic Building Blocks) - 7 (Matrices and Data Frame) in swirl. Some of it will make sense, and some of it won't, but I think swirl does a pretty good job of orienting people to how basic operations in R work, and I think this is especially helpful before we start working with any actual data. 
+Swirl is a really cool package in R that teaches you R programming and data science interactively, at your own pace, and right in the R console! For our first assignment, I think swirl explains some fundamental concepts in a way better than I can, so let's complete the **"R Programming: The basics of programming in R"** which includes modules 1 (Basic Building Blocks) - 7 (Matrices and Data Frame) in swirl.
+
+Some of it will make sense, and some of it won't (and that's okay!), but I think swirl does a pretty good job of orienting people to how basic operations in R work, and I think this is especially helpful before we start working with any actual data. 
 
 Let's give this a try and we can talk through any problems people ran into during our next workshop. I've attached some screenshots below demonstrating how to install and load swirl().
 
@@ -226,8 +224,11 @@ Let's give this a try and we can talk through any problems people ran into durin
 
 ## Working Directories in R: What is a Working Directory?
 
+Hopefully swirl() has helped you feel a bit more comfortable in navigating R. Today we will focus on working with directories in R.
+
 A working directory is a fancy term that refers to the default location where R will look for files you want to load and where it will put any files you save. Like any other language or program, R needs to be told where the data that we’d like to work with is located on our computer. It doesn’t just know automatically. 
-Here's how to check out where where your current working directory is using the getwd() command.
+
+Below we'll use the getwd() command to check out where where your current working directory is.
 
 Using the list.files() command will show you what files exist in your current working directory.
 
@@ -243,11 +244,10 @@ list.files() #Use list.files() to check the contents of your working directory
 
 ## Working Directories in R: Specifying your Working Directory
 
-In order to work with the data that we want to work with, we’ll have to tell R where the files are located, so we can create a new variable containing a filepath to make this process simple so we aren’t writing it out multiple times. I’m using a Windows computer, so nearly everything is contained within my C:/ Drive. If I were on a Mac, I’d start with a forward slash. If I wasn’t sure of my path, R makes it relatively easy to find it. 
+In order to work with the data that we want to work with, we’ll have to tell R where the files are located, so we can create a new variable containing a filepath to make this process simple so we aren’t writing it out multiple times. Filepaths will differ based on whether you are using a Windows versus a Mac. If you're using a Windows computer, it's likely your file path will exist within your "C:/ Drive". If you're on a Mac, it's likely your file path will start with a forward slash "/". If you're not sure of your path, R makes it relatively easy to find it.
 
-If I start by entering this: Path <- "/
+You can press tab when your cursor is to the left of the slash to see a list of directories contained within your computer.
 
-I can press tab when my cursor is to the left of the slash to see a list of directories contained within my C:/ Drive.
 ```{r Setting Working Directory Example, eval=FALSE,include=TRUE, message=FALSE, warning=FALSE, error=FALSE}
 # For Windows
 Path <- "C:/"
@@ -261,7 +261,9 @@ Here’s an example of what you should see:
 ![**An example of R’s Tab-Controlled drop-down menus**](images/R tab.png){width=40%}
 
 
-Pressing tab again will enter into a directory, thus showing me the contents of that directory. From there, I can keep hitting tab until I get to the directory, or folder, that contains the files I want to work with. I can then save this filepath, which is just what we call a string (i.e., text containing not quantiative value), as an object named Path. We do so by placing the object on the left of an equal sign (=) or an arrow (<-) and the value that object is taking on the right side of it.
+Pressing tab again will enter into a directory, thus showing me the contents of that directory. From there, I can keep hitting tab until I get to the directory, or folder, that contains the files I want to work with. I can then save this filepath, which is just what we call a string (i.e., text that does not contain a quantitative value), as an object named Path. We do so by placing the object on the left of an equal sign (=) or an arrow (<-) and the value that object is taking on the right side of it.
+
+Below, let's assign the filepath where our CABLAB R Workshop Series folder exists to an object called "Path".
 
 ```{r Assign working directory to object called "Path"}
 
@@ -273,15 +275,36 @@ Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
 
 ```
 
-This format of assigning a value to an object is really important and we’ll keep coming back to it throughout this tutorial.
+This format of assigning a value to an object is really important and we’ll keep coming back to it throughout this tutorial!
 
 
 ## Intro to "Fright Night" dataset
-For the purposes of this project, we are going to work with the fright night dataset! The Fright Night project took place in 2021 at the Eastern State Penententiary annual "Halloween Nights" haunted house event in Philadelphia. n=116 people completed a haunted house tour as part of a research study assessing the relationship between threat and memory. Specifically, we explored 2 main research questions: 1) How does naturalistic threat affect memory accuracy?; and 2) Does naturalistic threat affect the way in which we communicate our memories? 
+For the purposes of this project, we are going to work with the Fright Night dataset! The Fright Night project took place in 2021 at the Eastern State Penitentiary's annual "Halloween Nights" haunted house event in Philadelphia. 116 participants completed a haunted house tour as part of a research study assessing the relationship between threat and memory. 
+
+Specifically, we explored 2 main research questions: 1) How does naturalistic threat affect memory accuracy?; and 2) Does naturalistic threat affect the way in which we communicate our memories? 
 
 ![](images/Halloween Nights.png){width=60%}
 
 Participants toured four haunted house segments (Delirium, Take 13, Machine Shop, and Crypt) that included low-threat and high-threat segments. Delirium and Take 13 were low-threat segments, whereas Machine Shop and Crypt were high-threat segments. 
+
+To assess memory accuracy, we focused on temporal memory accuracy specifically. Temporal memory refers to memory for the order in which events occur. To measure temporal memory within our study, we focused on accuracy on the recency discrimination task that participants completed for each haunted house segment. As part of the recency discrimination task, participants were shown pairs of trial-unique events within each haunted house segment and asked to select which event came first. In this way, we can determine the accuracy of people's temporal memory for the order of the events they experienced. 
+
+
+![](images/fright night study design.png){width=70%}
+
+
+
+![](images/recency discrimination example.png){width=70%}
+
+
+
+![](images/recency discrimination full.png){width=70%}
+
+
+To assess communication styles during memory recall, we focused on the free recall memory task where we asked participants to freely recall their memory for each haunted house segments. We fed the free recall memory transcripts into a natural language processing instrument called the Linguistic Inquiry and Word Count (LIWC) software. LIWC calculates the percentage of words in a given text that belong to linguistic categories that have been shown to index psychosocial constructs. In the example attached below, you can see the percentage of words that contribute to a linguistic category called "Authenticity" which is thought to reflect perceived honesty and genuineness, and the percentage of words that belong to a linguistic category called "Analytical Thinking", which is thought to reflect formal or logical thinking.
+
+![](images/LIWC example.png){width=70%}
+
 
 There were also 3 experimental conditions: Control, Share, and Test.
 
@@ -295,26 +318,8 @@ For the first two segments (Delirium and Take 13), all participants toured the s
 
 After completing the haunted house tour, participants were assessed at two time points: immediately afterwards and again 1-week later. During the Immediate assessments, participants completed a recency discrimination task and freely recalled their memory for 1 low-threat and 1-high threat haunted house segment. During the one week-delay assessments, participants completed a recency discrimination task and freely recalled their memory for *all* haunted house segments. Check out the study design below as well as the vignette illustrating when the three experimental conditions (i.e., Control, Share, and Test) took place throughout the haunted house tour.
 
-
-![](images/fright night study design.png){width=70%}
-
-
-
 ![](images/fright night study design conditions.png){width=60%}
 
-
-To assess memory accuracy, we focused on temporal memory accuracy specifically. Temporal memory refers to memory for the order in which events occur. To measure temporal memory within our study, we focused on accuracy on the recency discrimination task that participants completed for each haunted house segment. As part of the recency discrimination task, participants were shown pairs of trial-unique events within each haunted house segment and asked to select which event came first. In this way, we can determine the accuracy of people's temporal memory for the order of the events they experienced. 
-
-![](images/recency discrimination example.png){width=70%}
-
-
-
-![](images/recency discrimination full.png){width=70%}
-
-
-To assess communication styles during memory recall, we focused on the free recall memory task where we asked participants to freely recall their memory for each haunted house segments. We fed the free recall memory transcripts into a natural language processing instrument called the Linguistic Inquiry and Word Count (LIWC) software. LIWC calculates the percentage of words in a given text that belong to linguistic categories that have been shown to index psychosocial constructs. In the example attached below, you can see the percentage of words that contribute to a linguistic category called "Authenticity" which is thought to reflect perceived honesty and genuineness, and the percentage of words that belong to a linguistic category called "Analytical Thinking", which is thought to reflect formal or logical thinking.
-
-![](images/LIWC example.png){width=70%}
 
 Now that we have a better idea about the study design, we can finally start working with some data!
 
@@ -326,6 +331,8 @@ Before we load in the data, I want to highlight a little terminology. The data t
 
 ## How do I load data into R?
 There are many ways to load data into R and they all depend upon what format the data is in. R can handle data from .csv, .xlsx, .txt, .html, .json, SPSS, Stata, SAS, among others. R also has it’s own data format (.RDA, .Rdata). With the exception of .RDA, .csv is often the cleanest means of reading in data. We won’t cover the other formats, but they are fairly exhaustively covered *<hyperlink/in this tutorial/>*. https://www.datacamp.com/tutorial/r-data-import-tutorial
+
+Before reading in our fright night practice data CSV file, we need to use the setwd() function to tell R where to look for our CSV file. Let's use the Path object that we created earlier.
 
 In the most basic sense, we can load our fright night practice data CSV data file using the read.csv() function like this:
 ```{r setting working directory}
