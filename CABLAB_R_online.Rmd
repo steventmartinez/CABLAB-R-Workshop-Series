@@ -41,7 +41,11 @@ R is a popular programming language that many researchers use for organizing dat
 By the end of the workshop series, my hope is that you will feel comfortable enough to work independently in R!
 
 
-![](R memes/psychology statistics.jpeg)
+```{r Intro Video, echo = FALSE}
+vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
+```
+[Coding expectations versus reality]
+
 
 ## Outline
 
@@ -59,6 +63,11 @@ By the end of the workshop series, my hope is that you will feel comfortable eno
 | **Week 11: Visualizing data: Intro to ggplot** | Learn how to create ggplot visualizations and customize plots
 | **Final Project?** | TBD 
 | **Conclusion** | Closing and general notes
+
+
+
+![](R memes/psychology statistics.jpeg)
+
 
 
 # Pre-Workshop: Downloading R Software 

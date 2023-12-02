@@ -10,8 +10,8 @@ We will cover a breadth of topics including data cleaning, data visualizations, 
 
 ## To-do before the tutorial
 1. Download R (version will depend on whether you have Mac or Windows)
-         https://cran.r-project.org/
-2. Download RStudio (which allows us to navigate R, but is a different program from R)  
+         https://ftp.osuosl.org/pub/cran/
+2. Download RStudio (which allows us to navigate R, but is a different program than R)  
          https://posit.co/download/rstudio-desktop/
 
 ## Workshop objectives:
