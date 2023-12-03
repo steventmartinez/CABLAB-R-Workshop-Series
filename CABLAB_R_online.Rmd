@@ -367,7 +367,7 @@ Amazing! Now we have hundreds of columns of data, like we should. We might also 
 
 **Stage** column -- Whether the assessment was immediately afterwards or 1 week later.
 
-**Condition** column -- You'll also see that there are 3 conditions: Baseline, Share, and Test. Participants completed the haunted house segment in the Baseline, Share, or Test condition.
+**Condition** column -- Participants completed the haunted house segment in the Baseline, Share, or Test condition.
 
 **Fear.rating** column -- Participants were also asked to rate how fearful they found each haunted house segment immediately afterwards.
 
@@ -379,11 +379,11 @@ Amazing! Now we have hundreds of columns of data, like we should. We might also 
 
 ## Week 3 Exercise: Working Directories
 
-1) Read in the df_wide CSV file and store it in an object called "df_wide"
+**1)** Read in the df_wide CSV file and store it in an object called "df_wide"
 
-2) Print out the first few rows using the head() function
+**2)** Print out the first few rows using the head() function
 
-3) Open up the df_wide dataframe by using the View() function OR by clicking on the df_wide dataframe in the global environment
+**3)** Open up the df_wide dataframe by using the View() function OR by clicking on the df_wide dataframe in the global environment
 ```{r Week 3 Exercise, code="'\n\n\n\n'", results=F}
 
 
@@ -420,7 +420,7 @@ So how do we access rows? How do we access columns? And how can we check what da
 
 dataframe$column will print out all the rows in that column. Let's print out all the participant IDs that exist in the data frame.
 
-For the purposes of this week's workshop, let's read in the frightnight_practice csv file
+For the purposes of this week's workshop, let's read in the frightnight_practice CSV file
 
 ```{r}
 
@@ -480,7 +480,7 @@ df$Section == "Infirmary"
 
 ```
 
-Notice the two equals signs (==). When two value operators (=, >, <, !) are placed next to each other in R, and many other languages, we aren’t assigning a value to an object; we are comparing the values between two different objects. In this instance, using two equals signs, if the two values are equal, it would produce a TRUE value; if not, then a FALSE. This variable which can only take the value of either True or False is called a boolean. When we tell R to compare the value on the right with this specific column, what it is mechanically doing is iterating through each row within this column, comparing the column present, and noting whether the conditional is True or False
+Notice the two equals signs (==). When two value operators (=, >, <, !) are placed next to each other in R, and many other languages, we aren’t assigning a value to an object; we are comparing the values between two different objects. In this instance, using two equals signs, if the two values are equal, it would produce a TRUE value; if not, then a FALSE. This variable which can only take the value of either True or False is called a boolean. When we tell R to compare the value on the right with this specific column, what it is mechanically doing is iterating through each row within this column, comparing the column value, and noting whether the conditional is True or False
 
 
 ## Subsetting rows!
@@ -523,7 +523,7 @@ df_multiple_conditions <- subset(df, Section == "Infirmary" | Section == "Asylum
 ```
 
 
-Here, we are telling R to subset all rows where Section is equal to Infirmary OR Asylum. As you can tell, leveraging the OR (|) or ANd (&) operators within the subset() function can be especially flexible.
+Here, we are telling R to subset all rows where Section is equal to Infirmary OR Asylum. As you can tell, leveraging the OR (|) or ANd (&) operators within the subset() function can be especially powerful.
 
 
 Now that we've talked about subsetting rows, let's talk about subsetting columns.
@@ -554,9 +554,11 @@ df_sub <- subset(df, select=c(PID, Section, Stage, Recall))
 
 ## Week 4 Exercise: Subsetting data
 
-Create a new data frame called "df2" and subset the following columns from the df data frame: PID, Section, Stage, Fear.rating, and TOAccuracy.
+**1)** Create a new data frame called "df2" and subset the following columns from the df data frame: PID, Section, Stage, Fear.rating, and TOAccuracy.
 
-Do this twice: Once using bracket notation and another time using the subset() function.
+**2)** Do this using bracket notation
+
+**3)** Repeating this using the subset() function.
 ```{r Week 4 Exercise, code="'\n\n\n\n'", results=F}
 
 
@@ -623,11 +625,11 @@ Here, we are again using bracket notation to tell R, within the df data frame, r
 
 For this week's assignment, let's continue focusing on subsetting in R.
 
-1) Create a new data frame and subset the following columns from the df data frame: PID, Section, Stage, Recall, TOAccuracy
+**1)** Create a new data frame and subset the following columns from the df data frame: PID, Section, Stage, Recall, TOAccuracy
 
-2) Create a subset of the data that only contains TOAccuracy scores greater than .40
+**2)** Create a subset of the data that only contains TOAccuracy scores greater than .40
 
-3) Remove any rows that have a missing value in any column
+**3)** Remove any rows that have a missing value in any column
 
 ```{r Week 4 Assignment, code="'\n\n\n\n'", results=F}
 
@@ -654,9 +656,9 @@ df_clean <- df_clean[complete.cases(df_clean), ]
 
 ## If else statements
 
-Let's use an If Else statement to create a new column that represents whether a Section was a High Threat or "Low Threat section
+Let's use an If Else statement to create a new column that represents whether a Section was a high threat or low threat section.
 
-The structure for ifelse() statements is as follows: dataframe$name_of_new_column <- if the value in the Section column has a cell that = "Infirmary", we will insert a value of "Low" in the new Threat column for that cell, else, if the value in the Section column is anything other than "Infirmary", insert a value of "High" to represent high threat
+The structure for ifelse() statements is as follows: dataframe$name_of_new_column <- if the value in the Section column has a cell that = "Infirmary", we will insert a value of "Low" in the new Threat column for that cell, else, insert a value of "High" to represent high threat. 
 
 ```{r}
 
@@ -664,8 +666,9 @@ df$Threat <- ifelse(df$Section == "Infirmary", "Low", "High")
 
 ```
 
+However, Infirmary wasn't the only Low threat column! We need to find a way to use the ifelse() function to tell R if the Section is equal to Infirmary OR Asylum, assign a value of "Low", else, assign a value of "High".
 
-We can also do this with more than one conditions using the OR (i.e., |) operator or the AND (i.e., &) operator.
+We can do this with more than one conditions using the OR (i.e., |) operator or the AND (i.e., &) operator.
 
 The "|" operator means OR in R language. Using the "|" operator allows you to include multiple conditions.
 
@@ -676,20 +679,20 @@ df$Threat <- ifelse(df$Section == "Infirmary" | df$Section == "Asylum", "Low Thr
 
 ```
 
-Here, if Section == "Infirmary" OR if Section == "Asylum", assign a "Low" value in the Threat column. Else, assign a "High" value.
+Here, if Section == "Infirmary" OR if Section == "Asylum", assign a "Low" value in the Threat column. Else, assign a "High" value. 
 
 
 ## Re-organizing the position of columns
 
 So we just created this Threat column. Any time you create a new column, it appears at the end of the data frame.
 
-What if we want to organize our columns in a certain order.
+What if we wanted to organize our columns in a certain order?
 
 We can do this in multiple ways:
 
-Approach 1: Re-organize multiple columns in a data frame
+Approach 1: Re-organize multiple columns in a data frame using the subset() function.
 
-Approach 2: Re-organize one specific column in a data frame
+Approach 2: Re-organize one specific column in a data frame using the relocate() function.
 
 ```{r}
 
@@ -697,9 +700,8 @@ Approach 2: Re-organize one specific column in a data frame
 df_reorganized <- subset(df, select=c(PID, Stage, Section, Group, Threat, Recall)) #if we want to include all the columns, this may take a while...
 
 #Approach 2: Re-organize one specific column in a data frame
-df_reorganized <- df %>% relocate(Threat, .after = Group)
-df_reorganized <- df %>% relocate(Threat, .before = Recall)
-
+df_reorganized <- df %>% relocate(Threat, .after = Group) #Can relocate columns *after* a certain column
+df_reorganized <- df %>% relocate(Threat, .before = Recall) #Can relocate columns *before* a certain column
 
 ```
 
@@ -707,7 +709,9 @@ df_reorganized <- df %>% relocate(Threat, .before = Recall)
 
 ## Week 5 Exercise: If Else statements
 
-Use the ifelse() function to create a new column called Year, where, if the Section was equal to Infirmary or Ghostly Grounds, assign a value of "2019", else, assign a value of "2021".
+Given that Eastern State Penitentiary updates its haunted house segments every year, let's clarify which year haunted house segments were introduced. Infirmary and Ghostly Grounds were introduced in 2019, whereas Asylum and Devil's Den are newer segments and were introduced in 2021.
+
+**1)** Use the ifelse() function to create a new column called Year, where, if the Section was equal to Infirmary or Ghostly Grounds, assign a value of "2019", else, assign a value of "2021".
 
 ```{r Week 5 Exercise, code="'\n\n\n\n'", results=F}
 
@@ -727,7 +731,6 @@ df$Year <- ifelse(df$Section == "Infirmary" | df$Section == "GhostlyGrounds", "2
 
 
 ## Week 5: More advanced ifelse statements
-
 
 For the purposes of this example, let's subset a data frame with the following columns: PID, Section, Stage, Condition, TOAccuracy.
 
@@ -759,11 +762,11 @@ df_memory$MemoryStrength <-ifelse(df_memory$TOAccuracy >= .7, "High", df_memory$
 
 ## Week 5 Assignment: If Else statements
 
-1) Create a new data frame and subset the following columns from the df data frame: PID, Section, Stage, Recall, WordCount
+**1)** Create a new data frame and subset the following columns from the df data frame: PID, Section, Stage, Recall, WordCount
 
-2) We need to categorize Word Count during free recall in 3 groups: Long, Medium, or Short.
+**2)** We need to categorize Word Count during free recall in 3 groups: Long, Medium, or Short.
 
-3) Use the ifelse() function to create a new column called "RecallLength" that meets the following criteria: Word count less than or equal to 40 is "Short", word count in between 40 and 60 is "Medium", and word count greater than oe equal to 60 is "Long"
+**3)** Use the ifelse() function to create a new column called "RecallLength" that meets the following criteria: Word count less than or equal to 40 is "Short", word count in between 40 and 60 is "Medium", and word count greater than oe equal to 60 is "Long"
 
 ```{r Week 5 Assignment, code="'\n\n\n\n'", results=F}
 
@@ -888,25 +891,25 @@ for (i in 1:length(x2)) {
 
 Lets break this code down in some more detail.
 
-1) for (i in 1:length(x2)) { --- "i" is a temporary variable that store the values of the current position in the range of the for loop. In this case, we are telling R that we want "i" to represent each position within the length of the x2 vector, starting at 1 and going up until 10. "i" will iterate across each of these values (1-10)
+**1)** for (i in 1:length(x2)) { --- "i" is a temporary variable that store the values of the current position in the range of the for loop. In this case, we are telling R that we want "i" to represent each position within the length of the x2 vector, starting at 1 and going up until 10. "i" will iterate across each of these values (1-10)
 
-2) if (x2[i] == 1) { --- This if statement is saying: if the value of i within x2 == 1. Add a new { to indicate the start of the if statement 
+**2)** if (x2[i] == 1) { --- This if statement is saying: if the value of i within x2 == 1. Add a new { to indicate the start of the if statement 
 
-3) print("The if condition is TRUE") } --- print the result if the if statement is true and add a bracket } to signify that its the end of the if statement
+**3)** print("The if condition is TRUE") } --- print the result if the if statement is true and add a bracket } to signify that its the end of the if statement
 
-4) else { --- add a new bracket { to signify that its the start of the else statement.
+**4)** else { --- add a new bracket { to signify that its the start of the else statement.
 
-5) print("The if condition is FALSE") } -- print the result if the if statement is false and add a bracket } to signify that its the end of the ifelse statement.
+**5)** print("The if condition is FALSE") } -- print the result if the if statement is false and add a bracket } to signify that its the end of the ifelse statement.
 
-6) } --- add a last } to indicate the end of the for loop!
+**6)** } --- add a last } to indicate the end of the for loop!
 
 
 
 ## Week 6 Exercise: Intro to For Loops
 
-1) Create a vector that includes the following letters: "A", "B", "C", "D", "E", "F"
+**1)** Create a vector that includes the following letters: "A", "B", "C", "D", "E", "F"
 
-2) Create a for loop where, if i = A, print This value represents A", else, print "This value does not represent A"
+**2)** Create a for loop where, if i = A, print This value represents A", else, print "This value does not represent A"
 ```{r Week 6 Exercise, code="'\n\n\n\n'", results=F}
 
 
@@ -934,9 +937,8 @@ for (i in 1:length(x3)) {
 [Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week6_exercise.R)
 
 
+Next, let's map the for loop onto the data we've been using! I'll also try to convert the structure of the ifelse() function into the structure of a for loop "if else" statement in case that context would be helpful.
 
-
-Next, let's map the for loop onto the dataset we've been using! I'll also try to convert the structure of the ifelse() function into the structure of a for loop "if else" statement in case that context would be helpful.
 ```{r}
 
 #An if else statement using the ifelse() function like we did earlier
@@ -967,15 +969,15 @@ for (i in 1:nrow(df_example)) {
 
 Let's break down this for loop code in some more detail:
 
-1) i in 1:nrow will iterate over the amount of rows in the df_example data frame
+**1)** i in 1:nrow will iterate over the amount of rows in the df_example data frame
 
-2) if the value in the df_example$Section column is equal to GhostlyGrounds
+**2)** if the value in the df_example$Section column is equal to GhostlyGrounds
 
-3) Assign a value of 1 to the "newcolumn" column
+**3)** Assign a value of 1 to the "newcolumn" column
 
-4) else
+**4)** else
 
-5) Assign a value of 0 to the newcolumn column.
+**5)** Assign a value of 0 to the newcolumn column.
 
 
 Hopefully these examples provide a helpful understanding of how for loops actually work in R! 
@@ -984,8 +986,9 @@ Hopefully these examples provide a helpful understanding of how for loops actual
 
 ## Week 6 Assignment: Intro to For Loops
 
-1) Let's create a vector called x4 that contains the following values: "A", "B", "A", "D", "A", "F"
-2) Create a for loop that iterates across all values in x3. If the value == A, print "This value represents A", else, print "This value represents, B, D, or F"
+**1)** Let's create a vector called x4 that contains the following values: "A", "B", "A", "D", "A", "F"
+
+**2)** Create a for loop that iterates across all values in x4. If the value == A, print "This value represents A", else, print "This value represents, B, D, or F"
 
 ```{r Week 6 Assignment, code="'\n\n\n\n'", results=F}
 
@@ -1023,7 +1026,7 @@ When data exists in a "long" format, that means that each participant has more t
 
 For the purposes of understanding how to pivot data frames, we will be using a new CSV file where each participant will only have 1 row and for illustrative purposes, the columns will reflect each participant's Temporal Memory Accuracy score for a given haunted house segment.
 
-Importantly, in order to do most of the analyses that we did earlier (e.g., bivariate linear regression, multiple linear regression, linear mixed effects regression), we need to have the data in long format. The pivot_longer() function from the tidyr package in R can be used to pivot a data frame from a wide format to a long format.
+Importantly, in order to do most of the analyses that we did earlier (e.g., bivariate linear regression, multiple linear regression, linear mixed effects regression), we need to have the data in **long** format. The pivot_longer() function from the tidyr package in R can be used to pivot a data frame from a wide format to a long format.
 
 So let's walk through how to convert data from wide format to long format using the new CSV file.
 
@@ -1102,11 +1105,11 @@ Another row that reflects the participant's Temporal Memory Accuracy score durin
 
 ## Week 7 Exercise: Pivoting data from wide to long and long to wide
 
-1) Read in the df_wide_exercise CSV file
+**1)** Read in the df_wide_exercise CSV file
 
-2) Pivot the data frame from wide to long
+**2)** Pivot the data frame from wide to long
 
-3) You should end up with 4 columns: PID, Group, Section, and TOAccuracy 
+**3)** You should end up with 4 columns: PID, Group, Section, and TOAccuracy 
 ```{r Week 7 Exercise, code="'\n\n\n\n'", results=F}
 
 
@@ -1141,11 +1144,11 @@ df_long <- df_wide_exercise %>% pivot_longer(
 
 ## Week 7 Assignment: Pivoting data from wide to long and long to wide
 
-1) Read in the df_wide_assignment CSV file
+**1)** Read in the df_wide_assignment CSV file
 
-2) Use the pivot_longer function to convert the data from wide to long format
+**2)** Use the pivot_longer function to convert the data from wide to long format
 
-3) You should end up with a dataframe that has 4 columns: PID, Group, Section, and Word Count. 
+**3)** You should end up with a dataframe that has 4 columns: PID, Group, Section, and Word Count. 
 
 ```{r Week 7 Assignment, code="'\n\n\n\n'", results=F}
 
@@ -1182,12 +1185,13 @@ df_long <- df_wide_assignment %>% pivot_longer(
 
 Learning how to merge multiple data frames is another integral part of data cleaning.
 
-Let's create a data frame called "df_merge" that has the following columns from the df data frame: "PID", "Section", "Stage", "Threat", "Group", "Condition", and "TOAccuracy"
+Let's create a data frame called "df_new" that has the following columns from the df data frame: "PID", "Section", "Stage", "Threat", "Group", "Condition", and "TOAccuracy"
 
-Next, let's subset and creating two new data frames from the df_new data frame: 1 data frame that only has assessments from the Immediate study visit, and a second data frame that has all the assessments from the 1 week Delay data frame.
+Next, let's subset and creating two new data frames from the df_new data frame: 1 data frame that only has assessments from the Immediate study visit, and a second data frame that has all the assessments from the 1 week Delay study visit.
 
 ```{r}
 
+#Subset a data frame with the following columns: "PID", "Section", "Stage", "Threat", "Group", "Condition", and "TOAccuracy"
 df_new <- subset(df, select=c("PID", "Section", "Stage", "Threat", "Group", "Condition", "TOAccuracy"))
 
 #Create data frame that only has assessments from the Immediate study visit
@@ -1231,9 +1235,7 @@ As we can see, Approach 1 yielded duplicate columns for all columns except PID, 
 
 In Approach 2, because we fed all of the columns that are shared across the Immediate.df data frame and the Delay.df data frame, R understood that we wanted to merge the two data frames by those columns.
 
-Here's some more info about the all.x and all.y arguments in the merge() function
-all.x=TRUE is logical; which means if TRUE, then all extra rows that exist in one data frame but not the other, will be added to the data frame. In other words, each row in X data frame that has no matching row in Y data frame will be added to the new data frame.
-Same philosophy applies for all.y=TRUE
+Here's some more info about the all.x and all.y arguments in the merge() function that may be helpful: all.x=TRUE is logical; which means if TRUE, then all extra rows that exist in one data frame but not the other, will be added to the data frame. In other words, each row in X data frame that has no matching row in Y data frame will be added to the new data frame. Same philosophy applies for all.y=TRUE
 
 The main takeaway here is that R needs to understand which columns you wish to merge the two data frames by. In other words, if columns from two different data frames share the same column name, we need to tell R that those columns are in fact the same, which we can do by feeding R the exact column names that we wish to merge by. Importantly, there are many different ways to go about merging data frames (some don't involve writing each individual column name, which saves a lot of time), but for the purposes of an introduction into this space, it's super important to be mindful of how R merges columns.
 
@@ -1241,9 +1243,9 @@ The main takeaway here is that R needs to understand which columns you wish to m
 
 ## Week 8 Exercise: Merging data frames
 
-1) Subset two data frames from the df_new data frame: 1 data frame called "low_df" that only contains rows where the Temporal Memory Accuracy score is less than .5. A second data frame that only contains rows where the Temporal Memory Accuracy score is greater than .5.
+**1)** Subset two data frames from the df_new data frame that we created earlier: 1 data frame called "low_df" that only contains rows where the Temporal Memory Accuracy score is less than .5. A second data frame that only contains rows where the Temporal Memory Accuracy score is greater than .5.
 
-2) Merge the two data frames back together and create a new data frame called "merged_data"
+**2)** Merge the two data frames back together and create a new data frame called "merged_data"
 
 ```{r Week 8 Exercise, code="'\n\n\n\n'", results=F}
 
@@ -1252,6 +1254,9 @@ The main takeaway here is that R needs to understand which columns you wish to m
 ```
 
 ```{r Week 8 Exercise - hidden, eval=T, include=F}
+
+#Subset a data frame with the following columns: "PID", "Section", "Stage", "Threat", "Group", "Condition", and "TOAccuracy"
+df_new <- subset(df, select=c("PID", "Section", "Stage", "Threat", "Group", "Condition", "TOAccuracy"))
 
 #Subset rows where the TOAccuracy score is less than .5
 low.df <- subset(df_new, TOAccuracy < .5)
@@ -1269,13 +1274,13 @@ merged_data <- merge(low.df, high.df, by=c("PID", "Section", "Stage", "Threat", 
 
 ## Week 8 Assignment: Merging data frames
 
-1) Subset the following columns from the original df data frame: PID, Stage, Section, Recall.
+**1)** Subset the following columns from the original df data frame: PID, Stage, Section, Recall.
 
-2) Create two new data frames. One data frame will contain rows that reflect touring the Infirmary or Devil's Den haunted house sections. The other data frame will contain rows that reflect touring Asylumn or Ghostly Grounds haunted house sections.
+**2)** Create two new data frames. One data frame will contain rows that reflect touring the Infirmary or Devil's Den haunted house sections. The other data frame will contain rows that reflect touring Asylumn or Ghostly Grounds haunted house sections.
 
-3) Create a new column called fear_level in both data frames. If the Section is equal to Devil's Den, assign a value of "scary" to the new fear_level column, else, assign a value of "not scary". For the second data frame, if the Section is equal to Ghostly Grounds, assign a value of "scary" to the new fear_level column, else, assign a value of "not scary".
+**3)** Create a new column called fear_level in both data frames. If the Section is equal to Devil's Den, assign a value of "scary" to the new fear_level column, else, assign a value of "not scary". For the second data frame, if the Section is equal to Ghostly Grounds, assign a value of "scary" to the new fear_level column, else, assign a value of "not scary".
 
-4) Merge the two data frames back together!
+**4)** Merge the two data frames back together and store it in a new data frame!
 
 ```{r Week 8 Assignment, code="'\n\n\n\n'", results=F}
 
@@ -1326,9 +1331,9 @@ df_raw <- read.csv(file = "frightnight_raw.csv") #Load in the fright night raw c
 ```
 
 
-As we can see, this data frame is pretty messy! No column names, columns are not in order, there are missing values, and the data is in wide format! Let's work on cleaning this up and start by adding some column names.
+As we can see, this data frame is pretty messy! No column names, columns are not in order, there are missing values, and the data is in wide format! Let's work on cleaning this up and start by adding some column names (which we haven't talked about, yet!).
 
-```{r colum names}
+```{r column names}
 
 #Use the colnames() function to print out the column names in an existing data frame
 colnames(df_raw)
@@ -1355,7 +1360,6 @@ Okay, now that we have some decent column names, it looks like we don't need tha
 ```{r remove first row}
 
 df_raw <- df_raw[-1,]
-
 
 ```
 
@@ -1429,17 +1433,17 @@ Look at how nice our data frame looks now! If we wanted to, we could move forwar
 
 ## Week 9 Assignment: Data cleaning
 
-1) Read in the frightnight_raw_assignment CSV file
+**1)** Read in the frightnight_raw_assignment CSV file
 
-2) Rename the columns in a way that makes sense to you
+**2)** Rename the columns in a way that makes sense to you
 
-3) Remove the second row since we no longer need the column headers
+**3)** Remove the second row since we no longer need the column headers
 
-4) Remove any row that has a missing value in any column!
+**4)** Remove any row that has a missing value in any column!
 
-5) Pivot the data from long to wide such that you end up with a data frame that has 4 columns: PID, Group, Section, Fear
+**5)** Pivot the data from long to wide such that you end up with a data frame that has 4 columns: PID, Group, Section, Fear
 
-6) Re-organize the position of the columns so that the final data frame appears as follows: PID, Section, Group, Fear
+**6)** Re-organize the position of the columns so that the final data frame appears as follows: PID, Section, Group, Fear
 
 ```{r Week 9 Assignment, code="'\n\n\n\n'", results=F}
 
@@ -1493,7 +1497,7 @@ df_assignment.comp <- subset(df_raw_assignment_long, select=c(PID, Section, Grou
 
 Before we start talking about different types of analyses in R, it's super important to recognize the different data types that R acknowledges.
 
-Some of the more common data types include: character, factor, numeric, integer.
+Some of the common data types include: character, factor, numeric, integer.
 
 We can use the str() function to help which columns are which data types across the entire data frame.
 
@@ -1663,13 +1667,13 @@ All of a sudden, when we add Section into the model, we see that there is a sign
 
 ## Week 10 Exercise: Analyzing Data w/ Categorical Independent Variables
 
-1) Conduct an ANOVA test assessing whether experimental condition predicted differences in how Analytically someone recalls their memory and store the model in an object called m1
+**1)** Conduct an ANOVA test assessing whether experimental condition predicted differences in how Analytically someone recalls their memory and store the model in an object called m1
 
-2) Focus on these relevant variables: Dependent: Analytic (numeric) Independent: Condition (Factor)
+**2)** Focus on these relevant variables: Dependent: Analytic (numeric) Independent: Condition (Factor)
 
-3) Use the summary() function to print the model output and try to intepret the model yourself
+**3)** Use the summary() function to print the model output and try to intepret the model yourself
 
-4) Use the report() function to print the model interpretation
+**4)** Use the report() function to print the model interpretation
 
 ```{r Week 10 Exercise, code="'\n\n\n\n'", results=F}
 
@@ -1743,13 +1747,13 @@ We just finished covering analyses that use qualitative, categorical predictors.
 ## Bivariate Linear Regression
 A bivariate linear regression can be used when both the predictor variable (X) and outcome variable(Y) consist of continuous numeric values. A linear regression tells us how predictive of Y that X is. In other words, if we measured temperature and ice cream sales, we might find, using linear regression that as temperature increases, we could predict with decent accuracy that ice cream sales would increase as well, and we could predict how many ice cream sales we expect to see for any one value of temperature. Within the context of our data, we could ask a question like whether the accuracy of someone's memory (i.e., temporal memory accuracy) predicts how authentically the person would communicate their memory. 
 
-QUESTION: Does temporal memory accuracy predict an Authentic style of communication?
+**QUESTION**: Does temporal memory accuracy predict an Authentic style of communication?
 
-HYPOTHESIS: As temporal memory accuracy increases, Authenticity during memory recall will increase.
+**HYPOTHESIS**: As temporal memory accuracy increases, Authenticity during memory recall will increase.
 
-RELEVANT VARIABLES: Dependent: Temporal Memory Accuracy (numeric) Independent: Authentic (numeric)
+**RELEVANT VARIABLES**: Dependent: Temporal Memory Accuracy (numeric) Independent: Authentic (numeric)
 
-ANALYSIS: Bivariate Linear Regression
+**ANALYSIS**: Bivariate Linear Regression
 
 You’re going to notice right off the bat that the structure of the syntax here looks awfully similar to what we just did in ANOVA. We start by noting our method with the lm() function (Linear Modeling). We then note our outcome variable, add a tilde (~), note our predictor(s), and finally note our datasource.
 
@@ -2045,9 +2049,9 @@ ggplot(data = df_plot, aes(x = Group, y = TOAccuracy, fill = Group)) + #Using fi
 
 ## Week 12 Exercise: Visualizing data: Intro to ggplot
 
-1) Create a bar plot visualizing how Temporal Memory Accuracy scores differ by experimental condition across The Immediate and 1-week Delay study visits
+**1)** Create a bar plot visualizing how Temporal Memory Accuracy scores differ by experimental condition across The Immediate and 1-week Delay study visits
 
-2) Add a plot title, x-axis title, and y-axis title
+**2)** Add a plot title, x-axis title, and y-axis title
 
 ```{r Week 12 Exercise, code="'\n\n\n\n'", results=F}
 
