@@ -48,9 +48,6 @@ vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
 
 
 
-<blockquote class="twitter-tweet" data-media-max-width="560"><p lang="en" dir="ltr">My code getting the job done <a href="https://t.co/F6NXLICs0Z">pic.twitter.com/F6NXLICs0Z</a></p>&mdash; gavin jones (@ecologyofgavin) <a href="https://twitter.com/ecologyofgavin/status/1456975465197883394?ref_src=twsrc%5Etfw">November 6, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
 ## Outline
 
 | **Pre-Workshop**: Downloading R Software | **R**: https://ftp.osuosl.org/pub/cran/ **RStudio**: https://posit.co/download/rstudio-desktop/
@@ -2370,3 +2367,7 @@ TBD :)
 # Conclusion
 
 Congrats! You made it through an entire R workshop series! Hopefully you feel like you're starting to pick up on some things! It's also totally okay if things aren't clicking just yet, but regardless of how you may be feeling, I will always be happy to work with you 1 on 1 if you have any specific questions as you move forward on your coding journey. My email is stevent.martinez@temple.edu or you can always send me a Slack!
+
+
+![**So real**](R memes/twitter video.gif)
+
