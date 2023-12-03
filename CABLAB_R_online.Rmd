@@ -47,6 +47,10 @@ vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
 [**Coding expectations versus reality**]
 
 
+
+<iframe src="https://x.com/ecologyofgavin/status/1456975465197883394?s=46" data-external= "1" > </iframe>
+
+
 ## Outline
 
 | **Pre-Workshop**: Downloading R Software | **R**: https://ftp.osuosl.org/pub/cran/ **RStudio**: https://posit.co/download/rstudio-desktop/
