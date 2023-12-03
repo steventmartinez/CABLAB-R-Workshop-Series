@@ -48,7 +48,7 @@ vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
 
 
 
-<iframe src="https://x.com/ecologyofgavin/status/1456975465197883394?s=46" data-external= "1" > </iframe>
+<blockquote class="twitter-tweet" data-media-max-width="560"><p lang="en" dir="ltr">My code getting the job done <a href="https://t.co/F6NXLICs0Z">pic.twitter.com/F6NXLICs0Z</a></p>&mdash; gavin jones (@ecologyofgavin) <a href="https://twitter.com/ecologyofgavin/status/1456975465197883394?ref_src=twsrc%5Etfw">November 6, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
 ## Outline
