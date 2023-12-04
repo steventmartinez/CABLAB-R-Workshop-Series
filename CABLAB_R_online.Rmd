@@ -158,6 +158,7 @@ If you need to update a package, you can just re-run the above code. If you’re
 ![**Packages tab of viewer window where one can visualize previously installed packages**](images/R Packages.png){width=50%}
 
 
+
 Now we’ve installed a package, that doesn’t mean we can use it yet. We need to tell R “We want access to the functions this package has during this session" by calling it with the library() command.
 
 ```{r load package via library, eval = F}
