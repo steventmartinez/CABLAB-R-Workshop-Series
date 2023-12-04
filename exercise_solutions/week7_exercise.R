@@ -1,5 +1,11 @@
-#Read in the df_wide.csv file
-df_wide_exercise <- read.csv(file = "df_wide_exercise.csv")
+# For Mac
+Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
+
+#set working directory
+setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
+
+#Read in the df_wide_exercise.csv file
+df_wide_exercise <- read.csv(file = "frightnight_wide_exercise.csv")
 
 
 #Approach 1: Basic Pivot longer
