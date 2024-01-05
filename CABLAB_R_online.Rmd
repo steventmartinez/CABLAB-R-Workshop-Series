@@ -83,7 +83,7 @@ Before the workshop:
 
 2. Download **RStudio**, which is the main software that we will be using to work with R. https://posit.co/download/rstudio-desktop/
 
-3. Download the 'CABLAB-R-Workshop-Series' folder from the CABLAB R Workshop Github by pressing the green 'Code' button and downloading the ZIP folder. This is the folder containing the all the files we will be working with for the purposes of this workshop.
+3. Download the **CABLAB-R-Workshop-Series** folder from the CABLAB R Workshop Github by pressing the green 'Code' button and downloading the ZIP folder. This is the folder containing the all the files we will be working with for the purposes of this workshop.
 
 
 ![](images/zip folder.png){width=100%}
@@ -1845,7 +1845,7 @@ report(m2)
 Hmm, so it looks like something is happening with the 7:30PM time slot of the haunted house tours! The relationship between Temporal Memory Accuracy and the 7:30PM time slot leads to differences in Authenticity compared to the relationship between Temporal Memory Accuracy and the 6:30PM or 8:30PM time slots.
 
 
-While linear regression is a very popular statistical analysis, sometimes it's preferable to use a linear mixed effects analysis.
+While linear regression is a very popular statistical analysis, sometimes it's preferable to use a linear mixed effects model!
 
 
 ![](R memes/theoffice.jpeg)
