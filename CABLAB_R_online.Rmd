@@ -67,10 +67,14 @@ vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
 
 
 
+
+
+
+
 **Are you ready to start learning R?!**
 
 
-![](R memes/Learning_R.jpeg)
+![](R memes/Learning_R.jpeg){width=70%}
 
 
 
@@ -1523,10 +1527,10 @@ df_assignment.comp <- subset(df_raw_assignment_long, select=c(PID, Section, Grou
 
 # Week 10: Analyzing Data w/ Categorical Independent Variables
 
-Next, we are going to start talking about different types of analyses in R!
+**Next, we are going to start talking about different types of statistical analyses in R!**
 
 
-![](R memes/psychology statistics.jpeg)
+![](R memes/psychology statistics.jpeg){width=80%}
 
 
 Before we do that, it's super important to recognize the different data types that R uses.
