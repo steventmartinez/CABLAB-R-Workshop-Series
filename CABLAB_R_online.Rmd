@@ -69,7 +69,7 @@ vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
 
 
 
-## Are you ready to start learning R?
+# Are you ready to start learning R?!
 
 ![](R memes/Learning_R.jpeg){width=80%}
 
