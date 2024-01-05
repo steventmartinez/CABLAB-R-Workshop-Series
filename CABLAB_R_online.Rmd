@@ -67,7 +67,10 @@ vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
 
 
 
-![](R memes/psychology statistics.jpeg)
+**Are you ready to start learning R?!**
+
+
+![](R memes/Learning_R.jpeg)
 
 
 
@@ -1520,7 +1523,13 @@ df_assignment.comp <- subset(df_raw_assignment_long, select=c(PID, Section, Grou
 
 # Week 10: Analyzing Data w/ Categorical Independent Variables
 
-Before we start talking about different types of analyses in R, it's super important to recognize the different data types that R acknowledges.
+Next, we are going to start talking about different types of analyses in R!
+
+
+![](R memes/psychology statistics.jpeg)
+
+
+Before we do that, it's super important to recognize the different data types that R uses.
 
 Some of the common data types include: character, factor, numeric, integer.
 
@@ -1560,7 +1569,7 @@ As you can see, converting columns into different data types isn't too tricky at
 
 
 ## Create data frame for analyses
-Next, we will move forward with learning some common statistical analyses in R including t-tests, ANOVAs, linear regressions, and multiple linear regressions.
+Next, we will move forward with learning some common statistical analyses in R including t-tests, ANOVAs, linear regressions, and multiple linear regressions. As a reminder, this workshop won't dive too deep into the statistical theory behind each analysis, but will help us learn how to run these analyses in R.
 
 Before we start any analyses, let's subset a dataframe with the columns we want to focus on as we explore some research questions.
 
@@ -1833,6 +1842,12 @@ report(m2)
 
 
 Hmm, so it looks like something is happening with the 7:30PM time slot of the haunted house tours! The relationship between Temporal Memory Accuracy and the 7:30PM time slot leads to differences in Authenticity compared to the relationship between Temporal Memory Accuracy and the 6:30PM or 8:30PM time slots.
+
+
+While linear regression is a very popular statistical analysis, sometimes it's preferable to use a linear mixed effects analysis.
+
+
+![](R memes/theoffice.jpeg)
 
 
 
