@@ -214,7 +214,7 @@ library(ggplot2)
 
 
 ##  Week 2 Assignment: Install and Load "swirl" library and complete "R Programming: The basics of programming in R"  
-Swirl is a really cool package in R that teaches you R programming and data science interactively, at your own pace, and right in the R console! For our first assignment, I think swirl explains some fundamental concepts in a way better than I can, so let's complete the **"R Programming: The basics of programming in R"** which includes modules 1 (Basic Building Blocks) - 7 (Matrices and Data Frame) in swirl.
+Swirl is a really cool package in R that teaches you R programming and data science interactively, at your own pace, and right in the R console! For our first assignment, I think swirl explains some fundamental concepts in a way better than I can, so let's tackle the **"R Programming: The basics of programming in R"** course and complete **Module 1: Basic Building Blocks** in swirl.
 
 Some of it will make sense, and some of it won't (and that's okay!), but I think swirl does a pretty good job of orienting people to how basic operations in R work, and I think this is especially helpful before we start working with any actual data. 
 
@@ -264,7 +264,7 @@ Path <- "/"
 
 Here’s an example of what you should see:
 
-![**An example of R’s Tab-Controlled drop-down menus**](images/R tab.png){width=40%}
+![**An example of R’s Tab-Controlled drop-down menus**](images/R tab.png){width=30%}
 
 
 Pressing tab again will enter into a directory, thus showing me the contents of that directory. From there, I can keep hitting tab until I get to the directory, or folder, that contains the files I want to work with. I can then save this filepath, which is just what we call a string (i.e., text that does not contain a quantitative value), as an object named Path. We do so by placing the object on the left of an equal sign (=) or an arrow (<-) and the value that object is taking on the right side of it.
