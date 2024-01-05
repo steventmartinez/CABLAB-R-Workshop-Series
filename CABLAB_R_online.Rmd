@@ -44,7 +44,7 @@ By the end of the workshop series, my hope is that you will feel comfortable eno
 ```{r Intro Video, echo = FALSE}
 vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
 ```
-[**Coding expectations versus reality**]
+[**What people think coding is versus what it actually is**]
 
 
 
