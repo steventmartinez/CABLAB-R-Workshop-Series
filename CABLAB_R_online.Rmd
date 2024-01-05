@@ -2414,5 +2414,5 @@ TBD :)
 Congrats! You made it through an entire R workshop series! Hopefully you feel like you're starting to pick up on some things! It's also totally okay if things aren't clicking just yet, but regardless of how you may be feeling, I will always be happy to work with you 1 on 1 if you have any specific questions as you move forward on your coding journey. My email is stevent.martinez@temple.edu or you can always send me a Slack!
 
 
-![**So real**](R memes/twitter video.gif)
-
+![](R memes/twitter video.gif)
+[**So real**]
