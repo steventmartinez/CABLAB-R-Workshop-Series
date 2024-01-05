@@ -59,9 +59,10 @@ vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
 | **Week 6: Intro to For Loops in R** | Learning the structure and application of For loops in R
 | **Week 7: Pivoting data from wide to long and long to wide** | Understanding the differences between data in wide-format and long-format
 | **Week 8: Merging data frames** | Merging two data frames together
-| **Week 9: Analyzing Data w/ Categorical Independent Variables** | Conducting statistical analyses with categorical predictors
-| **Week 10: Analyzing Data w/ Continuous Independent Variables** | Conducting statistical analyses with continuous and categorical predictors
-| **Week 11: Visualizing data: Intro to ggplot** | Learn how to create ggplot visualizations and customize plots
+| **Week 9: Data cleaning** | Learning how to apply previously learned functions toward cleaning a raw dataset
+| **Week 10: Analyzing Data w/ Categorical Independent Variables** | Conducting statistical analyses with categorical predictors
+| **Week 11: Analyzing Data w/ Continuous Independent Variables** | Conducting statistical analyses with continuous and categorical predictors
+| **Week 12: Visualizing data: Intro to ggplot** | Learn how to create ggplot visualizations and customize plots
 | **Final Project?** | TBD 
 | **Conclusion** | Closing and general notes
 
@@ -214,7 +215,7 @@ library(ggplot2)
 
 
 ##  Week 2 Assignment: Install and Load "swirl" library and complete "R Programming: The basics of programming in R"  
-Swirl is a really cool package in R that teaches you R programming and data science interactively, at your own pace, and right in the R console! For our first assignment, I think swirl explains some fundamental concepts in a way better than I can, so let's tackle the **"R Programming: The basics of programming in R"** course and complete **Module 1: Basic Building Blocks** in swirl.
+Swirl is a really cool package in R that teaches you R programming and data science interactively, at your own pace, and right in the R console! For our first assignment, I think swirl explains some fundamental concepts in a better way than I can, so let's tackle the **"R Programming: The basics of programming in R"** course and complete **Module 1: Basic Building Blocks** in swirl.
 
 Some of it will make sense, and some of it won't (and that's okay!), but I think swirl does a pretty good job of orienting people to how basic operations in R work, and I think this is especially helpful before we start working with any actual data. 
 
@@ -287,7 +288,9 @@ This format of assigning a value to an object is really important and we’ll ke
 ## Intro to "Fright Night" dataset
 For the purposes of this project, we are going to work with the Fright Night dataset! The Fright Night project took place in 2021 at the Eastern State Penitentiary's annual "Halloween Nights" haunted house event in Philadelphia. 116 participants completed a haunted house tour as part of a research study assessing the relationship between threat and memory. 
 
-Specifically, we explored 2 main research questions: 1) How does naturalistic threat affect memory accuracy?; and 2) Does naturalistic threat affect the way in which we communicate our memories? 
+Specifically, we explored 2 main research questions: 
+**1)** How does naturalistic threat affect memory accuracy?
+**2)** Does naturalistic threat affect the way in which we communicate our memories? 
 
 ![](images/Halloween Nights.png){width=60%}
 
@@ -329,7 +332,7 @@ After completing the haunted house tour, participants were assessed at two time 
 
 Now that we have a better idea about the study design, we can finally start working with some data!
 
-The dataset that we will be working with for the purposes of the workshop is titled **frightnight_practice.csv**.
+The dataset that we start off working with for the purposes of the workshop is titled **frightnight_practice.csv**.
 
 ## What is a "data frame"?
 Before we load in the data, I want to highlight a little terminology. The data that R works with is always contained within what we call a ‘dataframe’. A dataframe represents the same thing that a spreadsheet represents in Excel. It contains many cells that are situated into columns (which have names) and rows (which may or may not have names). 
@@ -338,7 +341,7 @@ Before we load in the data, I want to highlight a little terminology. The data t
 ## How do I load data into R?
 There are many ways to load data into R and they all depend upon what format the data is in. R can handle data from .csv, .xlsx, .txt, .html, .json, SPSS, Stata, SAS, among others. R also has it’s own data format (.RDA, .Rdata). With the exception of .RDA, .csv is often the cleanest means of reading in data. We won’t cover the other formats, but they are fairly exhaustively covered *<hyperlink/in this tutorial/>*. https://www.datacamp.com/tutorial/r-data-import-tutorial
 
-Before reading in our fright night practice data CSV file, we need to use the setwd() function to tell R where to look for our CSV file. Let's use the Path object that we created earlier.
+Before reading in our fright night practice data CSV file, we need to use the setwd() function to tell R where to look for our CSV file. Let's use the Path object that we created earlier to set our working directory to where the frightnight_practice.csv file is located on our computer.
 
 In the most basic sense, we can load our fright night practice data CSV data file using the read.csv() function like this:
 ```{r setting working directory}
@@ -353,8 +356,7 @@ The setwd() command accepts our Path variable and tells R where to look for our 
 
 ![](images/df environment.png){width=70%} 
 
-A visualization of the Environment Window. Note that the number of observations and variables may be different from the dataframe you are currently reading in.
-If you click on df in the environment, it will open in a new tab of your Source Window (The same window you are likely writing script in) where you can view it. However, we can also look at the data in our markdown file though by entering the head() command from base R, which will show us the first few lines:
+A visualization of the Environment Window. Since we're all using the same dataset, the number of observations and variables should be the same as in the picture above. Here, you can think of observations as "rows" and variables as "columns". If you click on df in the environment, it will open in a new tab of your Source Window (The same window you are likely writing script in) where you can view it. However, we can also look at the data in our markdown file though by entering the head() command from base R, which will show us the first few lines:
 
 ```{r eval = FALSE}
 
@@ -388,7 +390,7 @@ Amazing! Now we have hundreds of columns of data, like we should. We might also 
 
 **2)** Print out the first few rows using the head() function
 
-**3)** Open up the df_wide dataframe by using the View() function OR by clicking on the df_wide dataframe in the global environment
+**3)** Open up the df_wide dataframe by using the View() function **OR** by clicking on the df_wide dataframe in the global environment
 ```{r Week 3 Exercise, code="'\n\n\n\n'", results=F}
 
 
@@ -425,12 +427,6 @@ There will be no week 3 assignment :)
 
 # Week 4: Subsetting data
 
-By looking at the dataframe, we can see that we aren’t working with a perfectly clean dataset: some of the rows have missing data! And we don't really need all of the columns in the dataframe to do the analyses that we're interested in doing.
-
-So how do we access rows? How do we access columns? And how can we check what data is missing?
-
-dataframe$column will print out all the rows in that column. Let's print out all the participant IDs that exist in the data frame.
-
 For the purposes of this week's workshop, let's read in the frightnight_practice CSV file
 
 ```{r}
@@ -447,6 +443,13 @@ df <- read.csv(file = "frightnight_practice.csv") #Load in the fright night prac
 ```
 
 
+By looking at the dataframe, we can see that we aren’t working with a perfectly clean dataset: some of the rows have missing data! And we don't really need all of the columns in the dataframe to do the analyses that we're interested in doing.
+
+So how do we access rows? How do we access columns? And how can we check what data is missing? Learning how to access specific elements of a data frame is an extremely important part of learning R!
+
+dataframe$column will print out all the rows in that column. Let's print out all the participant IDs that exist in the data frame.
+
+
 ```{r}
 
 df$PID 
@@ -454,7 +457,7 @@ df$PID
 ```
 
 
-What if we want to see a specific row? Let’s say row 2 within that column? To reference a specific row in a given column, I can add brackets and the number of that row behind it:
+What if we want to see a specific row? Let’s say row 2 within the PID column? To reference a specific row in a given column, I can add brackets and the number of that row behind it:
 
 The code below will print out the second row in the PID column.
 
@@ -466,7 +469,7 @@ df$PID[2]
 ```
 
 
-However, we can also index the column using it’s relative position. Knowing that the PID column is the first column, I can use bracket notation. Bracket notation is super helpful once you understand its structure. It helps me to think of it as [rows, columns]. Any number that appears before the comma will reference rows, and any number that appears after the comma will reference columns.
+However, we can also index the column using it’s relative position. Knowing that the PID column is the first column, I can use bracket notation. Bracket notation is super helpful once you understand its structure. It helps me to think of it as [rows, columns]. Any number that appears before the comma will access rows, and any number that appears after the comma will access columns.
 
 By including the name of the data frame before the bracket notation, we can pull certain rows and columns from that data frame
 
@@ -479,7 +482,8 @@ df[1,2] # print the first row in column 2
 
 ```
 
-Now that we know how to reference rows and columns, let's talk about subsetting! Subestting is when we filter rows or columns in a given data frame.
+
+Now that we know how to access rows and columns, let's talk about subsetting! Subestting is a technique for filtering rows or columns in a given data frame.
 
 ## Conditional Subsetting
 
@@ -492,7 +496,7 @@ df$Section == "Infirmary"
 
 ```
 
-Notice the two equals signs (==). When two value operators (=, >, <, !) are placed next to each other in R, and many other languages, we aren’t assigning a value to an object; we are comparing the values between two different objects. In this instance, using two equals signs, if the two values are equal, it would produce a TRUE value; if not, then a FALSE. This variable which can only take the value of either True or False is called a boolean. When we tell R to compare the value on the right with this specific column, what it is mechanically doing is iterating through each row within this column, comparing the column value, and noting whether the conditional is True or False
+Notice the two equals signs (==). When two value operators (=, >, <, !) are placed next to each other in R, and many other languages, we aren’t assigning a value to an object; we are comparing the values between two different objects. In this instance, using two equals signs, if the two values are equal, it would produce a TRUE value; if not, then a FALSE. This variable which can only take the value of either TRUE or FALSE is called a boolean. When we tell R to compare the value on the right with this specific column, what it is mechanically doing is iterating through each row within this column, comparing the column value, and noting whether the conditional is TRUE or FALSE.
 
 
 ## Subsetting rows!
