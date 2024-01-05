@@ -427,7 +427,7 @@ There will be no week 3 assignment :)
 
 # Week 4: Subsetting data
 
-For the purposes of this week's workshop, let's read in the frightnight_practice CSV file
+For the Week 4 workshop, let's read in the frightnight_practice CSV file
 
 ```{r}
 
@@ -529,9 +529,9 @@ nrow(df_1001)
 
 What if, rather than subsetting based on one condition (i.e., rows that belong to participant 1001), we wanted to subset based on multiple conditions? 
 
-We can take advantage of OR (i.e., |) and AND (i.e., &) operators.
+We can take advantage of OR ( **|** ) and AND ( **&** ) operators.
 
-Below, we will be subsetting all rows where the assessment is based on the Infirmary or Asylum haunted house segments.
+Below, we will be subsetting all rows where the assessment is based on the Infirmary **OR** Asylum haunted house segments.
 ```{r}
 
 df_multiple_conditions <- subset(df, Section == "Infirmary" | Section == "Asylum")
@@ -539,18 +539,17 @@ df_multiple_conditions <- subset(df, Section == "Infirmary" | Section == "Asylum
 ```
 
 
-Here, we are telling R to subset all rows where Section is equal to Infirmary OR Asylum. As you can tell, leveraging the OR (|) or ANd (&) operators within the subset() function can be especially powerful.
-
+Here, we are telling R to subset all rows where Section is equal to Infirmary OR Asylum. As you can tell, leveraging the OR ( **|** ) and AND ( **&** ) operators within the subset() function can be especially powerful.
 
 Now that we've talked about subsetting rows, let's talk about subsetting columns.
 
 ## Subsetting columns!
 
-As mentioned above, we can also subset columns! We can use the same 2 approaches (bracket notation and subset() function) to subset columns
+As mentioned above, we can also subset columns! We can use the same 2 approaches (bracket notation and subset function) to subset columns
 
 Approach 1 will show how to subset specific columns that we care about using bracket notation.
 
-Approach 2 will show how to subset specific columns using the same subset() function
+Approach 2 will show how to subset specific columns using the subset() function.
 
 Let's subset the following columns: PID, Section, Stage, Recall
 
@@ -570,11 +569,12 @@ df_sub <- subset(df, select=c(PID, Section, Stage, Recall))
 
 ## Week 4 Exercise: Subsetting data
 
-**1)** Create a new data frame called "df2" and subset the following columns from the df data frame: PID, Section, Stage, Fear.rating, and TOAccuracy.
+**2)** Create a new data frame called "df2" and subset the following columns from the df data frame: PID, Section, Stage, Fear.rating, and TOAccuracy.
 
-**2)** Do this using bracket notation
+**3)** Do this using bracket notation
 
-**3)** Repeating this using the subset() function.
+**4)** Repeat this using the subset() function.
+
 ```{r Week 4 Exercise, code="'\n\n\n\n'", results=F}
 
 
@@ -599,9 +599,9 @@ df2 <- subset(df, select=c(PID, Section, Stage, Fear.rating, TOAccuracy))
 
 ## Missing data 
 
-What if we wanted to see which rows had missing values (e.g., NA) or not?
+What if we wanted to see which rows had missing values (e.g., NA) or not? What if, for whatever reason, some participants were not able to complete the temporal memory accuracy assessment for the haunted house events?
 
-Let's use the is.na() function to determine which rows have missing values in the TOAccuracy column
+We can use the is.na() function to determine which rows have missing values in the Temporal Accuracy (TOAccuracy) column
 
 ```{r}
 
@@ -613,7 +613,10 @@ This will produce an array of TRUEs and FALSEs of the same length as the rows in
 
 But how can we create a data frame that does not have any missing data (i.e., rows that are blank or have an 'NA' in it)?
 
-Here, we can use bracket notation to create a new data frame called "df_complete" that only includes data that is NOT missing in the TOAccuracy column in the df data frame. By putting an exclamation point in front of the is.na() function, this is our way of telling R that we want it to do the inverse of the is.na() function!
+Here, we can use bracket notation to create a new data frame called "df_complete" that only includes data that is NOT missing in the TOAccuracy column in the df data frame. By putting an exclamation point in front of the is.na() function, this is our way of telling R that we want it to do the **inverse** of the is.na() function!
+
+This idea of putting an exclamation point before the is.na() is generalizable to many functions, not just is.na().
+
 ```{r}
 
 #is.na() function
@@ -623,7 +626,7 @@ df_complete <- df[!is.na(df$TOAccuracy),]
 ```
 
 
-What if, instead of removing rows that have a missing value in ONE column, we wanted to remove any rows that have a missing value in ANY column?
+What if, instead of removing rows that have a missing value in **ONE** column, we wanted to remove any rows that have a missing value in **ANY** column?
 
 Rather than using the is.na() function, I personally like to use the complete.cases() function for situations like this.
 
@@ -641,11 +644,13 @@ Here, we are again using bracket notation to tell R, within the df data frame, r
 
 For this week's assignment, let's continue focusing on subsetting in R.
 
-**1)** Create a new data frame and subset the following columns from the df data frame: PID, Section, Stage, Recall, TOAccuracy
+**1)** Read in the frightnight_practice.csv dataset
 
-**2)** Create a subset of the data that only contains TOAccuracy scores greater than .40
+**2)** Create a new data frame and subset the following columns from the df data frame: PID, Section, Stage, Recall, TOAccuracy
 
-**3)** Remove any rows that have a missing value in any column
+**3)** Create a subset of the data that only contains TOAccuracy scores greater than .40
+
+**4)** Remove any rows that have a missing value in any column
 
 ```{r Week 4 Assignment, code="'\n\n\n\n'", results=F}
 
@@ -654,6 +659,14 @@ For this week's assignment, let's continue focusing on subsetting in R.
 ```
 
 ```{r Week 4 Assignment - hidden, eval=T, include=F}
+
+#1) Read in the frightnight_raw_assignment CSV file
+Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
+
+setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
+
+df<- read.csv(file = "frightnight_practice.csv") #Load in the fright night raw csv file
+
 
 #Subset the following columns: PID, Section, Stage, Recall, TOAccuracy
 df_clean <- subset(df, select=c(PID, Section, Stage, Recall, TOAccuracy))
@@ -669,6 +682,22 @@ df_clean <- df_clean[complete.cases(df_clean), ]
 
 
 # Week 5: If Else statements 
+
+For the Week 5 workshop, let's read in the frightnight_practice CSV file
+
+```{r}
+
+# For Mac
+Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
+
+#set working directory
+setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
+
+df <- read.csv(file = "frightnight_practice.csv") #Load in the fright night practice csv file
+
+
+```
+
 
 ## If else statements
 
@@ -692,6 +721,7 @@ The "|" operator means OR in R language. Using the "|" operator allows you to in
 ```{r}
 
 df$Threat <- ifelse(df$Section == "Infirmary" | df$Section == "Asylum", "Low Threat", "High Threat")
+
 
 ```
 
@@ -778,11 +808,13 @@ df_memory$MemoryStrength <-ifelse(df_memory$TOAccuracy >= .7, "High", df_memory$
 
 ## Week 5 Assignment: If Else statements
 
-**1)** Create a new data frame and subset the following columns from the df data frame: PID, Section, Stage, Recall, WordCount
+**1)** Read in the frightnight_practice.csv file
 
-**2)** We need to categorize Word Count during free recall in 3 groups: Long, Medium, or Short.
+**2)** Create a new data frame and subset the following columns from the df data frame: PID, Section, Stage, Group, Recall, WordCount
 
-**3)** Use the ifelse() function to create a new column called "RecallLength" that meets the following criteria: Word count less than or equal to 40 is "Short", word count in between 40 and 60 is "Medium", and word count greater than oe equal to 60 is "Long"
+**3)** We need to categorize Word Count during free recall in 3 groups: Long, Medium, or Short.
+
+**4)** Use the ifelse() function to create a new column called "RecallLength" that meets the following criteria: Word count less than or equal to 40 is "Short", word count in between 40 and 60 is "Medium", and word count greater than oe equal to 60 is "Long"
 
 ```{r Week 5 Assignment, code="'\n\n\n\n'", results=F}
 
@@ -792,8 +824,16 @@ df_memory$MemoryStrength <-ifelse(df_memory$TOAccuracy >= .7, "High", df_memory$
 
 ```{r Week 5 Assignment - hidden, eval=T, include=F}
 
-#Subset a data frame with the following columns: PID, Section, Stage, Condition, WordCount
-df_recall <- subset(df, select=c(PID, Section, Stage, Condition, WordCount))
+#1) Read in the frightnight_raw_assignment CSV file
+Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
+
+setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
+
+df<- read.csv(file = "frightnight_practice.csv") #Load in the fright night raw csv file
+
+
+#Subset a data frame with the following columns: PID, Section, Stage, Group, Recall, WordCount
+df_recall <- subset(df, select=c(PID, Section, Stage, Group, Recall, WordCount))
 
 
 #word count less than or equal to 40 is "Short"
@@ -813,6 +853,22 @@ df_recall$RecallLength <-ifelse(df_recall$WordCount >= 60, "Long", df_recall$Rec
 
 
 # Week 6: Intro to For Loops
+
+For the Week 6 workshop, let's read in the frightnight_practice CSV file. Before we start working with actual data, we'll work with some general examples first.
+
+```{r}
+
+# For Mac
+Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
+
+#set working directory
+setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
+
+df <- read.csv(file = "frightnight_practice.csv") #Load in the fright night practice csv file
+
+
+```
+
 
 A for-loop is one of the main control-flow constructs of the R programming language. It is used to iterate over a collection of objects, such as a vector, a list, a matrix, or a dataframe, and apply the same set of operations on each item of a given data structure. 
 
@@ -1044,7 +1100,7 @@ For the purposes of understanding how to pivot data frames, we will be using a n
 
 Importantly, in order to do most of the analyses that we did earlier (e.g., bivariate linear regression, multiple linear regression, linear mixed effects regression), we need to have the data in **long** format. The pivot_longer() function from the tidyr package in R can be used to pivot a data frame from a wide format to a long format.
 
-So let's walk through how to convert data from wide format to long format using the new CSV file.
+So let's walk through how to convert data from wide format to long format using the new CSV file. Let's read in the frightnight_wide CSV file.
 
 ```{r pivot longer, eval=F, include=T}
 
@@ -1171,7 +1227,7 @@ df_long <- df_wide_exercise %>% pivot_longer(
 
 ## Week 7 Assignment: Pivoting data from wide to long and long to wide
 
-**1)** Read in the df_wide_assignment CSV file
+**1)** Read in the frightnight_wide_assignment CSV file
 
 **2)** Use the pivot_longer function to convert the data from wide to long format
 
@@ -1183,7 +1239,7 @@ df_long <- df_wide_exercise %>% pivot_longer(
   
 ```
 
-```{r Week 7 assignment - hidden, eval=F, include=F}
+```{r Week 7 Assignment - hidden, eval=F, include=F}
 
 # For Mac
 Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
@@ -1216,16 +1272,32 @@ df_long <- df_wide_assignment %>% pivot_longer(
 
 # Week 8: Merging data frames
 
+For the Week 8 workshop, let's read in the frightnight_practice CSV file. 
+
+```{r}
+
+# For Mac
+Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
+
+#set working directory
+setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
+
+df <- read.csv(file = "frightnight_practice.csv") #Load in the fright night practice csv file
+
+
+```
+
+
 Learning how to merge multiple data frames is another integral part of data cleaning.
 
-Let's create a data frame called "df_new" that has the following columns from the df data frame: "PID", "Section", "Stage", "Threat", "Group", "Condition", and "TOAccuracy"
+Let's create a data frame called "df_new" that has the following columns from the df data frame: "PID", "Section", "Stage", "Group", "Condition", and "TOAccuracy"
 
 Next, let's subset and creating two new data frames from the df_new data frame: 1 data frame that only has assessments from the Immediate study visit, and a second data frame that has all the assessments from the 1 week Delay study visit.
 
 ```{r}
 
-#Subset a data frame with the following columns: "PID", "Section", "Stage", "Threat", "Group", "Condition", and "TOAccuracy"
-df_new <- subset(df, select=c("PID", "Section", "Stage", "Threat", "Group", "Condition", "TOAccuracy"))
+#Subset a data frame with the following columns: "PID", "Section", "Stage", "Group", "Condition", and "TOAccuracy"
+df_new <- subset(df, select=c("PID", "Section", "Stage", "Group", "Condition", "TOAccuracy"))
 
 #Create data frame that only has assessments from the Immediate study visit
 Immediate.df <- subset(df_new, Stage == "Immediate")
@@ -1258,7 +1330,7 @@ data.merged <- merge(Immediate.df, Delay.df, by="PID")
 
 
 #Approach 2  -- CORRECT
-data.merged <- merge(Immediate.df, Delay.df, by=c("PID", "Section", "Stage", "Threat", "Group", "Condition", "TOAccuracy", "MemoryStrength"), all.x=TRUE, all.y=TRUE)
+data.merged <- merge(Immediate.df, Delay.df, by=c("PID", "Section", "Stage", "Group", "Condition", "TOAccuracy", "MemoryStrength"), all.x=TRUE, all.y=TRUE)
 
 
 ```
@@ -1288,8 +1360,8 @@ The main takeaway here is that R needs to understand which columns you wish to m
 
 ```{r Week 8 Exercise - hidden, eval=T, include=F}
 
-#Subset a data frame with the following columns: "PID", "Section", "Stage", "Threat", "Group", "Condition", and "TOAccuracy"
-df_new <- subset(df, select=c("PID", "Section", "Stage", "Threat", "Group", "Condition", "TOAccuracy"))
+#Subset a data frame with the following columns: "PID", "Section", "Stage", "Group", "Condition", and "TOAccuracy"
+df_new <- subset(df, select=c("PID", "Section", "Stage", "Group", "Condition", "TOAccuracy"))
 
 #Subset rows where the TOAccuracy score is less than .5
 low.df <- subset(df_new, TOAccuracy < .5)
@@ -1298,7 +1370,7 @@ low.df <- subset(df_new, TOAccuracy < .5)
 high.df <- subset(df_new, TOAccuracy > .5)
 
 #Merge the two data frames back together
-merged_data <- merge(low.df, high.df, by=c("PID", "Section", "Stage", "Threat", "Group", "Condition", "TOAccuracy"), all.x=TRUE, all.y=TRUE)
+merged_data <- merge(low.df, high.df, by=c("PID", "Section", "Stage", "Group", "Condition", "TOAccuracy"), all.x=TRUE, all.y=TRUE)
 
 ```
 
@@ -1307,13 +1379,15 @@ merged_data <- merge(low.df, high.df, by=c("PID", "Section", "Stage", "Threat", 
 
 ## Week 8 Assignment: Merging data frames
 
-**1)** Subset the following columns from the original df data frame: PID, Stage, Section, Recall.
+**1)** Read in the frightnight_practice CSV file.
 
-**2)** Create two new data frames. One data frame will contain rows that reflect touring the Infirmary or Devil's Den haunted house sections. The other data frame will contain rows that reflect touring Asylumn or Ghostly Grounds haunted house sections.
+**2)** Subset the following columns from the original df data frame: PID, Section, Stage, Group, Condition, TOAccuracy
 
-**3)** Create a new column called fear_level in both data frames. If the Section is equal to Devil's Den, assign a value of "scary" to the new fear_level column, else, assign a value of "not scary". For the second data frame, if the Section is equal to Ghostly Grounds, assign a value of "scary" to the new fear_level column, else, assign a value of "not scary".
+**3)** Create two new data frames. One data frame will contain rows that reflect touring the Infirmary or Devil's Den haunted house sections. The other data frame will contain rows that reflect touring Asylumn or Ghostly Grounds haunted house sections.
 
-**4)** Merge the two data frames back together and store it in a new data frame!
+**4)** Create a new column called fear_level in both data frames. If the Section is equal to Devil's Den, assign a value of "scary" to the new fear_level column, else, assign a value of "not scary". For the second data frame, if the Section is equal to Ghostly Grounds, assign a value of "scary" to the new fear_level column, else, assign a value of "not scary".
+
+**5)** Merge the two data frames back together and store it in a new data frame!
 
 ```{r Week 8 Assignment, code="'\n\n\n\n'", results=F}
 
@@ -1323,12 +1397,24 @@ merged_data <- merge(low.df, high.df, by=c("PID", "Section", "Stage", "Threat", 
 
 ```{r Week 8 Assignment - hidden, eval=T, include=F}
 
+#1) Read in the frightnight_raw_assignment CSV file
+Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
+
+setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
+
+df<- read.csv(file = "frightnight_practice.csv") #Load in the fright night raw csv file
+
+
+#Subset the following columns from the original df data frame: PID, Section, Stage, Group, Condition, and TOAccuracy
+df_new <- subset(df, select=c("PID", "Section", "Stage", "Group", "Condition", "TOAccuracy"))
+
+
 #One data frame will contain rows that reflect touring the Infirmary or Devil's Den haunted house sections
-ID.df <- subset(df, Section == "Infirmary" | Section == "DevilsDen")
+ID.df <- subset(df_new, Section == "Infirmary" | Section == "DevilsDen")
 
 
 #The other data frame will contain rows that reflect touring Asylum or Ghostly Grounds haunted house sections.
-DA.df <- subset(df, Section == "Asylum" | Section == "GhostlyGrounds")
+DA.df <- subset(df_new, Section == "Asylum" | Section == "GhostlyGrounds")
 
 
 #Create fear.level column
@@ -1337,7 +1423,7 @@ DA.df$fear.level <- ifelse(DA.df$Section == "GhostlyGrounds", "scary", "not scar
 
 
 #Merge data frames
-data.merged <- merge(ID.df, DA.df, by=c("PID", "Section", "Stage", "Threat", "Group", "Condition", "Recall", "Time_HH", "Fear.rating", "TOAccuracy", "Analytic", "Authentic", "Clout", "Tone", "fear.level"), all.x=TRUE, all.y=TRUE)
+data.merged <- merge(ID.df, DA.df, by=c("PID", "Section", "Stage", "Group", "fear.level", "Condition", "TOAccuracy"), all.x=TRUE, all.y=TRUE)
 
 
 
@@ -1349,7 +1435,8 @@ data.merged <- merge(ID.df, DA.df, by=c("PID", "Section", "Stage", "Threat", "Gr
 
 # Week 9: Data cleaning
 
-Up until now, we've learned a lot of isolated functions, but we haven't really 'cleaned up' any data in the traditional sense. This workshop will focus on cleaning up data and for that, we'll plan to use the frightnight_raw.csv file, so let's read it in!
+
+Up until now, we've learned a lot of isolated functions, but we haven't really 'cleaned up' any data in the traditional sense. This workshop will focus on cleaning up data and for that, we'll plan to use the **frightnight_raw.csv** file, so let's read it in!
 
 ```{r}
 
@@ -1534,15 +1621,29 @@ df_assignment.comp <- subset(df_raw_assignment_long, select=c(PID, Section, Grou
 ![](R memes/psychology statistics.jpeg){width=80%}
 
 
-Before we do that, it's super important to recognize the different data types that R uses.
+Before we do that, let's read in the **frightnight_analyses** CSV file for the purposes of the Week 10 workshop!
 
-Some of the common data types include: character, factor, numeric, integer.
+```{r}
+
+# For Mac
+Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
+
+#set working directory
+setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
+
+df <- read.csv(file = "frightnight_analyses.csv") #Load in the fright night practice csv file
+
+
+```
+
+
+It's super important to recognize the different data types that R uses. Some of the common data types include: character, factor, numeric, integer.
 
 We can use the str() function to help which columns are which data types across the entire data frame.
 
 We'll also learn how to convert columns into different data types ahead of our analyses. For example, the Section column represents 4 haunted house sections: Infirmary, Asylum, Devil's Den, and Ghostly Grounds. When reading in the fright night practice dataset into R, R will treat the Section column as a character column (because the column contains words). However, for the purposes of our analyses, the Section column represents more than just characters. It represents 4 categories that we think could lead to differences in a dependent variable (i.e., TOAccuracy).
 
-The same logic would apply to other columns that R treats as characters, but we actually consider to represent different categories. These columns include: group, Threat, Condition, Time_HH. Let's convert those columns from character to factor.
+The same logic would apply to other columns that R treats as characters, but we actually consider to represent different categories. These columns include: Group, Threat, Condition, Time_HH. Let's convert those columns from character to factor.
 
 We can also treat data types as numeric. Although R correctly treats the TOAccuracy, Authentic, Analytic, Clout, and Tone columns as numeric columns, let's use the as.numeric() function to make sure these columns are treated numerically just for the sake of practice.
 
@@ -1598,11 +1699,11 @@ df_analyses <- df_analyses[complete.cases(df_analyses), ]
 
 ## T-Tests!
 
-A T-Test can be used when both the predictor variable consists of two categorical options and the outcome or dependent variable is numeric in value. A T-Test tells you how significant the differences between these categories or groups are. In other words, it lets you know if the differences between the means of two groups could have observed by chance. We could imagine a situation where an evil teacher told half of the class before a test the right chapter to study from and told the other half of the class the wrong chapter to study from. The two categories or groups might be Right Chapter and Wrong Chapter and the outcome variable would be Test Score. Using a T-Test, we could determine whether studying from the right materials produces higher test scores. Within the context of our data, we could ask a question like whether participants assigned to an Experimental condition (e.g., Role-assigned) or Control condition (e.g., Control) demonstrate significant differences in temporal memory accuracy?
+A T-Test can be used when both the predictor variable consists of two categorical options and the outcome or dependent variable is numeric in value. A T-Test tells you how significant the differences between these categories or groups are. In other words, it lets you know if the differences between the means of two groups could have observed by chance. We could imagine a situation where an evil teacher told half of the class before a test the right chapter to study from and told the other half of the class the wrong chapter to study from. The two categories or groups might be Right Chapter and Wrong Chapter and the outcome variable would be Test Score. Using a T-Test, we could determine whether studying from the right materials produces higher test scores. Within the context of our data, we could ask a question like whether participants assigned to an Experimental condition (e.g., goal-assigned) or Control condition (e.g., Control) demonstrate significant differences in temporal memory accuracy?
 
-**QUESTION**: Do role-assigned and control participants differ significantly in their temporal memory accuracy?
+**QUESTION**: Do goal-assigned and control participants differ significantly in their temporal memory accuracy?
 
-**HYPOTHESIS**: "On average, role-assigned participants who were assigned to a specific goal while touring the haunted house segment will have better temporal memory accuracy compared to control participants"
+**HYPOTHESIS**: "On average, goal-assigned participants who were assigned to a specific goal while touring the haunted house segment will have better temporal memory accuracy compared to control participants"
 
 **RELEVANT VARIABLES**: Dependent: TOAccuracy (numeric) Independent: Group (Factor)
 
@@ -1611,7 +1712,7 @@ A T-Test can be used when both the predictor variable consists of two categorica
 
 ```{r t-tests}
 
-model1 <- t.test(x = df_analyses$TOAccuracy[df_analyses$Group == "Role-assignment"],
+model1 <- t.test(x = df_analyses$TOAccuracy[df_analyses$Group == "Goal-assigned"],
                 y = df_analyses$TOAccuracy[df_analyses$Group == "Control"],
                 paired = FALSE,
                 alternative = "two.sided")
@@ -1619,7 +1720,7 @@ model1 <- t.test(x = df_analyses$TOAccuracy[df_analyses$Group == "Role-assignmen
 ```
 
 
-Okay, so let's run the actual t-test. We'll need to use conditional statements again to specify our variables. What we are comparing here are the mean values of temporal memory accuracy for role-assigned and control participants. As such, we are going to specify we want to see temporal memory accuracy when Group == "Role-assignment" and when Group == "Control. We next have an argument which asks us whether this study is a within-subjects or a between-subjects design. This question is between-subjects, since each participant is either role-assigned or control for this study, so we mark that as FALSE. Lastly, R is asking us to define our alternative hypothesis, which is a little beyond the scope of this review, so you will have to take my word that “two.sided” is the right call. 
+Okay, so let's run the actual t-test. We'll need to use conditional statements again to specify our variables. What we are comparing here are the mean values of temporal memory accuracy for goal-assigned and control participants. As such, we are going to specify we want to see temporal memory accuracy when Group == "Goal-assigned" and when Group == "Control. We next have an argument which asks us whether this study is a within-subjects or a between-subjects design. This question is between-subjects, since each participant is either goal-assigned or control for this study, so we mark that as FALSE. Lastly, R is asking us to define our alternative hypothesis, which is a little beyond the scope of this review, so you will have to take my word that “two.sided” is the right call. 
 
 Lastly, when we look at T-Tests, standard deviations are very important, but the t.test() function won’t automatically generate those. We are using the sd() function to capture the standard deviation of reaction action, and we’re adding the argument (na.rm) that tells R to ignore any row that has a value of N/A.
 
@@ -1654,7 +1755,7 @@ An ANOVA, or Analysis of Variance, can be used when both the predictor variable 
 
 Pay close attention to the formatting of the syntax here. It is the standard way in which we specify most statistical models in R, whether for regression, ANOVA, hierarchical modeling etc.
 
-Due to the study design, the only time participants ever had a Role-assignment was in the last two segments (DevilsDen and GhostlyGrounds). As a result, for these analyses, we'll have to subset rows that reflect either Devils Den or Ghostly Grounds.
+Due to the study design, the only time participants ever had a Goal-assigned was in the last two segments (DevilsDen and GhostlyGrounds). As a result, for these analyses, we'll have to subset rows that reflect either Devils Den or Ghostly Grounds.
 
 ```{r anova model}
 
@@ -1740,15 +1841,23 @@ report(m1)
 
 ## Week 10 Assignment: Analyzing Data w/ Categorical Independent Variables 
 
-I’m curious whether differences in Group (Role-assignment versus Control) is associated with differences in how Authentically someone recalls their memory.
+I’m curious whether differences in Group (Goal-assigned versus Control) is associated with differences in how Authentically someone recalls their memory.
 
-**1)** Run a t-test to test whether differences in Group (Role-assignment versus Control) is associated with differences in how Authentically someone recalls their memory.
+**1)** Read in the frightnight_analyses CSV file.
 
-**2)** Store the t-test in a model called "model2"
+**2)** Subset a new data frame with the following columns:: PID, Section, Stage, Threat, Group, Condition, Recall, Time_HH, Fear.rating, TOAccuracy, Analytic, Authentic, Clout, Tone
 
-**3)** Print model 2 and try to interpret the output yourself.
+**3** Subset rows that reflect assessments for Ghostly Grounds during the Delay study visit.
 
-**4)** Run the report() function to try to see whether your interpretation matches.
+**4** Remove rows with a missing value in ANY column
+
+**5)** Run a t-test to test whether differences in Group (Goal-assigned versus Control) is associated with differences in how Authentically someone recalls their memory.
+
+**6)** Store the t-test in a model called "model2"
+
+**7)** Print model 2 and try to interpret the output yourself.
+
+**8)** Run the report() function to try to see whether your interpretation matches.
 
 ```{r Week 10 Assignment, code="'\n\n\n\n'", results=F}
 
@@ -1758,8 +1867,29 @@ I’m curious whether differences in Group (Role-assignment versus Control) is a
 
 ```{r Week 10 Assignment - hidden, eval=T, include=F}
 
-#Run a t-test to test whether differences in Group (Role-assignment versus Control) is associated with differences in how Authentically someone recalls their memory.
-model2 <- t.test(x = df_analyses$Authentic[df_analyses$Group == "Role-assignment"],
+# For Mac
+Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
+
+#set working directory
+setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
+
+df <- read.csv(file = "frightnight_analyses.csv") #Load in the fright night practice csv file
+
+#Subset the following columns: PID, Section, Stage, Threat, Group, Condition, Recall, Time_HH, Fear.rating, TOAccuracy, Analytic, Authentic, Clout, Tone
+df_analyses <- subset(df, select=c(PID, Section, Stage, Threat, Group, Condition, Recall, Time_HH, Fear.rating, TOAccuracy, Analytic, Authentic, Clout, Tone))
+
+#Subset only the One-Week Delay
+df_analyses <- subset(df_analyses, Stage == "Delay")
+
+#Subset only rows for Ghostly Grounds
+df_analyses <- subset(df_analyses, Section == "GhostlyGrounds")
+
+#Let's also remove rows with NA in any column of data frame
+df_analyses <- df_analyses[complete.cases(df_analyses), ]
+
+
+#Run a t-test to test whether differences in Group (Goal-assigned versus Control) is associated with differences in how Authentically someone recalls their memory.
+model2 <- t.test(x = df_analyses$Authentic[df_analyses$Group == "Goal-assigned"],
                 y = df_analyses$Authentic[df_analyses$Group == "Control"],
                 paired = FALSE,
                 alternative = "two.sided")
@@ -1781,6 +1911,43 @@ report(model2)
 # Week 11: Analyzing Data w/ Continuous Independent Variables
 
 We just finished covering analyses that use qualitative, categorical predictors. Next, we'll cover analyses that use quantitative, numeric predictors, probably most common of which is linear regression. Regression can come in many flavors, including bivariate linear regression, multivariate linear regression, and binary logistic regression. We won’t get too much into the theory, but we'll work through some useful tools and syntax to get you prepared to use R on your own.
+
+For the Week 11 workshop, let's read in the **frightnight_analyses** CSV file!
+
+```{r}
+
+# For Mac
+Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
+
+#set working directory
+setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
+
+df <- read.csv(file = "frightnight_analyses.csv") #Load in the fright night practice csv file
+
+
+```
+
+
+## Create data frame for analyses
+
+And just like we did last week, let's subset a data frame with the columns that we want to focus on for our Week 11 analyses.
+
+```{r}
+
+#Subset the following columns: PID, Section, Stage, Threat, Group, Condition, Recall, Time_HH, Fear.rating, TOAccuracy, Analytic, Authentic, Clout, Tone
+df_analyses <- subset(df, select=c(PID, Section, Stage, Threat, Group, Condition, Recall, Time_HH, Fear.rating, TOAccuracy, Analytic, Authentic, Clout, Tone))
+
+#Subset only the One-Week Delay
+df_analyses <- subset(df_analyses, Stage == "Delay")
+
+#Subset only rows for Ghostly Grounds
+df_analyses <- subset(df_analyses, Section == "GhostlyGrounds")
+
+#Let's also remove rows with NA in any column of data frame
+df_analyses <- df_analyses[complete.cases(df_analyses), ]
+
+
+```
 
 
 ## Bivariate Linear Regression
@@ -1889,6 +2056,10 @@ For this analyses, we will use a different dataset that includes multiple measur
 **ANALYSIS**: Mixed effects regression
 
 
+## Create data frame for analyses
+
+For this analysis, let's create a new data frame that subsets the following columns from the original df data frame: 
+
 ```{r}
 
 #Create a new dataframe that includes the following columns: PID, Section, Stage, Threat, Group, Condition, Recall, Time_HH, Fear.rating, TOAccuracy, Analytic, Authentic, Clout, Tone
@@ -1896,6 +2067,14 @@ df_mixed <- subset(df, select=c(PID, Section, Stage, Threat, Group, Condition, R
 
 #Remove rows that have a missing value in any column
 df_mixed <- df_mixed[complete.cases(df_mixed), ]
+
+
+```
+
+
+Let's establish a baseline model includes our dependent variable (Temporal Memory Accuracy scores) and the random effect (1|PID). Let's also establish a testing model that includes our dependent variable (Temporal Memory Accuracy scores), a fixed effect (Threat), and the random effect (1|PID). In this way, by building two models that differ by one variable (Threat), we can use the anova() function to determine whether the effect of Threat on Temporal Memory Accuracy scores is significant.
+
+```{r}
 
 #Baseline model: Dependent variable and random effect
 m1 <- lmer(TOAccuracy ~ (1|PID), data = df_mixed)
@@ -1909,7 +2088,6 @@ anova(m1, m2)
 
 ```
 
-In this example, we established a baseline model that included our dependent variable (Temporal Memory Accuracy scores) and the random effect (1|PID). We also established a testing model that included our dependent variable (Temporal Memory Accuracy scores), a fixed effect (Threat), and the random effect (1|PID). In this way, by building two models that differ by one variable (Threat), we can use the anova() function to determine whether the effect of Threat on Temporal Memory Accuracy scores is significant.
 
 It also may be helpful to recognize that in this example, Threat is the fixed effect, whereas (1|PID) is a random effect that assumes different random intercepts for each subject. We also see that our hypothesis was correct! People demonstrated greater temporal memory accuracy for high-threat segments (Devil's Den, Ghostly Grounds) compared to low-threat segments (Infirmary, Asylum).
 
@@ -1960,7 +2138,7 @@ In this case, TOAccuracy and Threat are our fixed effects, whereas (1|PID) is ou
 ```{r Week 11 Exercise - hidden, eval=T, include=F}
 
 #Conduct a multiple linear regression assessing whether Time of Haunted house and Temporal Memory Accuracy independently predicted differences in how Analytically someone recalled their memory and store the model in an object called m1.
-m1 <- lm(Authentic ~ TOAccuracy + Time_HH, data = df_analyses)
+m1 <- lm(Authentic ~ TOAccuracy + Time_HH, data = df_mixed)
 
 #Use the summary() function to print the model output and try to intepret the model yourself
 summary(m1)
@@ -1978,7 +2156,7 @@ report(m1)
 
 ## Week 11 Assignment: Analyzing Data w/ Continuous Independent Variables
 
-As part of the week 10 R assignment, let's explore a new research question.
+As part of the Week 11 R assignment, let's explore a new research question.
 
 **QUESTION**: Does temporal memory accuracy OR threat interact predict differences in how negatively someone communicates their memory?
 
@@ -1989,15 +2167,19 @@ As part of the week 10 R assignment, let's explore a new research question.
 **ANALYSIS**: Mixed effects regression
 
 
-**1)** Create a new dataframe that includes the following columns: PID, Section, Stage, Threat, Group, Condition, Recall, Time_HH, Fear.rating, TOAccuracy, Analytic, Authentic, Clout, Tone
+**1)** Read in the frightnight_analyses CSV file 
 
-**2)** Run a linear mixed effects model that assesses the relationship between Tone and Temporal Memory Accuracy and Threat. Make sure to include a random effect that accounts for individual differences.
+**2)** Create a new dataframe that includes the following columns: PID, Section, Stage, Threat, Group, Condition, Recall, Time_HH, Fear.rating, TOAccuracy, Analytic, Authentic, Clout, Tone
 
-**3)** Store the model in a data object called "m5"
+**3)** Remove rows that have a missing value in any column
 
-**4)** Print the summary of the model and try to interpret the model yourself
+**4)** Run a linear mixed effects model that assesses the relationship between Tone and Temporal Memory Accuracy and Threat. Make sure to include a random effect that accounts for individual differences.
 
-**5)** Use the report() function to print out an interpretation of the model and see if your interpretation matches
+**5)** Store the model in a data object called "m5"
+
+**6)** Print the summary of the model and try to interpret the model yourself
+
+**7)** Use the report() function to print out an interpretation of the model and see if your interpretation matches
 
 ```{r Week 11 Assignment, code="'\n\n\n\n'", results=F}
 
@@ -2007,14 +2189,24 @@ As part of the week 10 R assignment, let's explore a new research question.
 
 ```{r Week 11 Assignment - hidden, eval=T, include=F}
 
+
+# For Mac
+Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
+
+#set working directory
+setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
+
+df <- read.csv(file = "frightnight_analyses.csv") #Load in the fright night practice csv file
+
+
 #Create a new dataframe that includes the following columns: PID, Section, Stage, Threat, Group, Condition, Recall, Time_HH, Fear.rating, TOAccuracy, Analytic, Authentic, Clout, Tone
-df_analyses <- subset(df, select=c(PID, Section, Stage, Threat, Group, Condition, Recall, Time_HH, Fear.rating, TOAccuracy, Analytic, Authentic, Clout, Tone))
+df_mixed <- subset(df, select=c(PID, Section, Stage, Threat, Group, Condition, Recall, Time_HH, Fear.rating, TOAccuracy, Analytic, Authentic, Clout, Tone))
 
 #Remove rows that have a missing value in any column
-df_analyses <- df_analyses[complete.cases(df_analyses), ]
+df_mixed <- df_mixed[complete.cases(df_mixed), ]
 
 #Run a linear mixed effects model that assesses the relationship between Tone and Temporal Memory Accuracy and Threat. Make sure to include a random effect that accounts for individual differences.
-m5 <- lmer(Tone ~ TOAccuracy + Threat + (1|PID), data = df_analyses)
+m5 <- lmer(Tone ~ TOAccuracy + Threat + (1|PID), data = df_mixed)
 
 #Print the summary of the model and try to interpret the model yourself
 summary(m5)
@@ -2028,7 +2220,23 @@ report(m5)
 
 # Week 12: Visualizing data: Intro to ggplot
 
-For the purposes of this plotting workshop, let's create a new data frame.
+For the Week 11 workshop, let's read in the frightnight_analyses CSV file!
+
+```{r}
+
+# For Mac
+Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
+
+#set working directory
+setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
+
+df <- read.csv(file = "frightnight_analyses.csv") #Load in the fright night practice csv file
+
+
+```
+
+
+Before we start making any graphs, let's create a new data frame with the following columns from the original df dataframe: PID, Section, Stage, Threat, Group, Condition, Recall, Time_HH, Fear.rating, TOAccuracy, Analytic, Authentic, Clout, Tone
 
 ```{r}
 
@@ -2044,11 +2252,13 @@ df_plot <- df_plot[complete.cases(df_plot), ]
 
 ## Visualizing data! Navigating ggplot2 
 
-ggplot2 is a popular plotting package in R that makes it fairly easy to create complex plots from data in a data frame!
+Next we'll start talking about how to make graphs in R!
+
+ggplot2 is a popular plotting package in R that makes it fairly easy to create complex plots from data in a data frame.
 
 ggplot2 refers to the name of the package itself, whereas we use the function ggplot() to generate the plots. We're going to start off with building a very simple plot, and then we will add in some more lines to organize a plot like you would for a manuscript/publication!
 
-Let's revisit our t-test, where we were interested in whether there were differences in temporal memory accuracy between role-assigned and control participants.
+Let's revisit our t-test, where we were interested in whether there were differences in Temporal Memory Accuracy between Goal-assigned and Control participants.
 
 ```{r}
 
@@ -2057,9 +2267,11 @@ ggplot(data = df_plot, aes(x = Group, y = TOAccuracy)) + #Plot the variables we 
 
 ```
 
-Here, we see that we're plotting how TOAccuracy varies according to Group (Control versus Role-assignment). geom_bar(stat = "identity") is a function within ggplot that is used in order to create bar plots.
+Here, we see that we're plotting how TOAccuracy varies according to Group (Control versus Goal-assigned). 
 
-Now that we know how to plot data, let's try and clean the plot up.
+geom_bar(stat = "identity") is a function within ggplot that is used in order to create bar plots.
+
+Now that we know how to plot data, let's try and clean the plot up. Next, we're going to apply three more arguments to ggplot that will add titles, axis labels, and legend labels.
 
 
 ```{r}
@@ -2067,8 +2279,8 @@ Now that we know how to plot data, let's try and clean the plot up.
 ggplot(data = df_plot, aes(x = Group, y = TOAccuracy, fill = Group)) + #Using fill = Group allows us to color-code the plot according to Group
           geom_bar(stat="identity") + #Generate a bar plot
           labs(x = 'Experimental Group', y = 'Temporal Memory Accuracy', title = "Temporal Memory Accuracy by Group") + #Assign axis titles for the x- and y-axis
-          scale_x_discrete(labels = c("Control", "Role-assigned")) + #Change the x-axis labels
-          scale_fill_discrete("Experimental Group", labels = c("Control", "Role-assigned")) #Change the labels for the legend
+          scale_x_discrete(labels = c("Control", "goal-assigned")) + #Change the x-axis labels
+          scale_fill_discrete("Experimental Group", labels = c("Control", "goal-assigned")) #Change the labels for the legend
 
 ```
 
@@ -2084,8 +2296,8 @@ Let's apply the facet_wrap() function to visualize Temporal Memory Accuracy scor
 ggplot(data = df_plot, aes(x = Group, y = TOAccuracy, fill = Group)) + #Using fill = Group allows us to color-code the plot according to Group
           geom_bar(stat="identity") + #Generate a bar plot
           labs(x = 'Experimental Group', y = 'Temporal Memory Accuracy', title = "Temporal Memory Accuracy by Group") + #Define a plot title, an x-axis title, and a y-axis title
-          scale_x_discrete(labels = c("Control", "Role-assigned")) + #Change the x-axis labels
-          scale_fill_discrete("Experimental Group", labels = c("Control", "Role-assigned")) + #Change the labels for the legend
+          scale_x_discrete(labels = c("Control", "goal-assigned")) + #Change the x-axis labels
+          scale_fill_discrete("Experimental Group", labels = c("Control", "goal-assigned")) + #Change the labels for the legend
           facet_wrap(~Stage) #Split the graphs based on the Stage variable
 
 ```
@@ -2130,9 +2342,9 @@ Let's work on changing the background of the plot, the colors of the bars in the
 
 ggplot(data = df_plot, aes(x = Group, y = TOAccuracy, fill = Group)) + #Using fill = Group allows us to color-code the plot according to Group
           geom_bar(stat="identity") + #Generate a bar plot
-          scale_fill_manual(values = c("#E69F00", "#56B4E9"), name = "Experimental Group", labels = c("Control", "Role-assigned")) + #Customize the colors of the bars in the bar plot, add a legend title, and change the legend labels
+          scale_fill_manual(values = c("#E69F00", "#56B4E9"), name = "Experimental Group", labels = c("Control", "goal-assigned")) + #Customize the colors of the bars in the bar plot, add a legend title, and change the legend labels
           labs(x = 'Experimental Group', y = 'Temporal Memory Accuracy', title = "Temporal Memory Accuracy by Group") + #Assign axis titles for the x- and y-axis
-          scale_x_discrete(labels = c("Control", "Role-assigned")) + #Change the x-axis labels
+          scale_x_discrete(labels = c("Control", "goal-assigned")) + #Change the x-axis labels
 theme_classic() + ## We can use a theme customize the background of the plot. theme_classic makes the background white and removes gridlines
 theme(
 plot.title = element_text(size=15, face = "bold", color="red"), #customize plot title
@@ -2160,12 +2372,12 @@ Okay, now that we've played around with customizing aesthetics in R, we're going
 
 ## Plotting the mean and standard deviation in R
 
-So far, our y-axis has reflected an aggregate score for temporal memory accuracy between groups, rather than the average score between groups. For example, we're not necessarily interested in what the combined score is across Control and Role-assigned groups, but rather whether there are differences in average temporal memory accuracy scores.
+So far, our y-axis has reflected an aggregate score for temporal memory accuracy between groups, rather than the average score between groups. For example, we're not necessarily interested in what the combined score is across Control and goal-assigned groups, but rather whether there are differences in average temporal memory accuracy scores.
 
 ```{r}
 
 #Research Question: On avearge, are there differences in Temporal Memory Accuracy by Group?
-model1 <- t.test(x = df_plot$TOAccuracy[df_plot$Group == "Role-assignment"],
+model1 <- t.test(x = df_plot$TOAccuracy[df_plot$Group == "Goal-assigned"],
                 y = df_plot$TOAccuracy[df_plot$Group == "Control"],
                 paired = FALSE,
                 alternative = "two.sided")
@@ -2182,7 +2394,7 @@ ggplot(data = df_plot, aes(x = Group, y = TOAccuracy, fill = Group)) + #Using fi
 ```
 
 
-By plotting averages in Temporal Memory Accuracy, this is the correct visualization of the t-test that we ran earlier assessing whether there were differences in average temporal memory accuracy between Role-assigned and Control participants.
+By plotting averages in Temporal Memory Accuracy, this is the correct visualization of the t-test that we ran earlier assessing whether there were differences in average temporal memory accuracy between goal-assigned and Control participants.
 
 As the graph shows, this difference is not in large at all, and the t-test affirms that the difference is statistically not significant (p = .409).
 
@@ -2359,25 +2571,31 @@ While we've only covered bar plots and violin plots in this section, there are t
 
 Let's create a violin plot that plots Temporal Memory Accuracy Scores by Condition! Let's customize this plot to meet the following criteria:
 
-**1)** Plot Temporal Memory Accuracy Score by Condition
+**1)** Read in the frightnight_analyses CSV file.
 
-**2)** Use the geom_violin() and geom_jiter() arguments to generate a violin plot
+**2)** Create a new data frame with the following columns from the original df dataframe: PID, Section, Stage, Threat, Group, Condition, TOAccuracy
 
-**3)** Update the colors of each violin to reflect the following colors: "#555599", "#66BBBB", "#DD4444"
+**3)** Remove rows that have a missing value in any column
 
-**4)** Change the title of the legend to "Experimental Condition"
+**3)** Plot Temporal Memory Accuracy Score by Condition
 
-**5)** Change the legend labels to: "Baseline Condition", "Share Condition", "Test Condition"
+**4)** Use the geom_violin() and geom_jiter() arguments to generate a violin plot
 
-**6)** Apply the theme_minimal() background to the plot
+**5)** Update the colors of each violin to reflect the following colors: "#555599", "#66BBBB", "#DD4444"
 
-**7)** Change the plot title to "Temporal Memory Accuracy by Condition", the x-axis title to "Experimental Condition", and the y-axis title to "Temporal Memory Accuracy".
+**6)** Change the title of the legend to "Experimental Condition"
 
-**8)** Change the x-axis text labels to "1) Baseline", "2) Share", "3) Test"
+**7)** Change the legend labels to: "Baseline Condition", "Share Condition", "Test Condition"
 
-**9)** Change the plot title, x-axis title, y-axis title, x-axis text, y-axis text font size to 17
+**8)** Apply the theme_minimal() background to the plot
 
-**10)** Change the legend title and legend text font size to 15
+**9)** Change the plot title to "Temporal Memory Accuracy by Condition", the x-axis title to "Experimental Condition", and the y-axis title to "Temporal Memory Accuracy".
+
+**10)** Change the x-axis text labels to "1) Baseline", "2) Share", "3) Test"
+
+**11)** Change the plot title, x-axis title, y-axis title, x-axis text, y-axis text font size to 17
+
+**12)** Change the legend title and legend text font size to 15
 
 ```{r Week 12 Assignment, code="'\n\n\n\n'", results=F}
 
@@ -2386,6 +2604,22 @@ Let's create a violin plot that plots Temporal Memory Accuracy Scores by Conditi
 ```
 
 ```{r Week 12 Assignment - hidden, eval=T, include=F}
+
+# For Mac
+Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
+
+#set working directory
+setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
+
+df <- read.csv(file = "frightnight_analyses.csv") #Load in the fright night practice csv file
+
+
+#Create a new dataframe that includes the following columns: PID, Section, Stage, Threat, Group, Condition, TOAccuracy
+df_plot <- subset(df, select=c(PID, Section, Stage, Threat, Group, Condition, TOAccuracy))
+
+#Remove rows that have a missing value in any column
+df_plot <- df_plot[complete.cases(df_plot), ]
+
 
 #Violin plot!
 ggplot(data = df_plot, aes(x = Condition, y = TOAccuracy, fill = Condition)) + #Using fill = Group allows us to color-code the plot according to Group
