@@ -38,7 +38,7 @@ This workshop will provide an introduction into R!
 
 R is a popular programming language that many researchers use for organizing data, visualizing data, and carrying out statistical analyses.
 
-By the end of the workshop series, my hope is that you will feel comfortable enough to work independently in R!
+By the end of this workshop series, my hope is that you will feel comfortable enough to work independently in R!
 
 
 ```{r Intro Video, echo = FALSE}
@@ -50,7 +50,7 @@ vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
 
 ## Outline
 
-| **Pre-Workshop**: Downloading R Software | **R**: https://ftp.osuosl.org/pub/cran/ **RStudio**: https://posit.co/download/rstudio-desktop/
+| **Pre-Workshop**: Downloading R and RStudio Software | **R**: https://ftp.osuosl.org/pub/cran/ **RStudio**: https://posit.co/download/rstudio-desktop/
 | **Week 1: Intro to R** | Learning how to navigate the software: R, RStudio, Console, and creating scripts in R Markdown
 | **Week 2: Installing and Loading Packages** | Continue orienting to the software environment using the "swirl" package
 | **Week 3: Working Directories** | Learn how to navigate working directories and read in data into R
@@ -76,9 +76,9 @@ vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
 
 
 
-# Pre-Workshop: Downloading R Software 
+# Pre-Workshop: Downloading R and RStudio Software 
 
-Before the workshop:
+Before the workshop, we'll need to download R and RStudio. Throughout the workshop, we'll be working in RStudio, which will allow us to write code in R. So let's make sure we have both R and RStudio installed before we begin!
 
 1. Download a **R CRAN Mirror**, which basically just hosts the R programming language that we will be using in RStudio. https://cran.r-project.org/
 
