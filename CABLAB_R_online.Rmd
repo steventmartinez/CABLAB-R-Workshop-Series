@@ -147,6 +147,8 @@ If we click the cog icon in the same tray, we can access the output options and 
 
 Packages in R are synonymous with libraries in other languages. They are more or less convenient short-cuts or functions someone else already programmed to save us some work. Somebody else already figured out a very quick way to compute a function so now we don’t have to! We just use their tools to do it.
 
+
+## Installing packages
 Every new package is centralized in R’s repository, so even though thousands of people are working on these things independently, you don’t need to leave R to find them. Before they can be used, they must be installed, and you can do that pretty simply:
 
 ```{r install packages, eval = F}
@@ -160,7 +162,7 @@ If you need to update a package, you can just re-run the above code. If you’re
 ![**Packages tab of viewer window where one can visualize previously installed packages**](images/R Packages.png){width=50%}
 
 
-
+## Loading packages
 Now we’ve installed a package, that doesn’t mean we can use it yet. We need to tell R “We want access to the functions this package has during this session" by calling it with the library() command.
 
 ```{r load package via library, eval = F}
