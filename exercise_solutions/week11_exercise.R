@@ -1,8 +1,7 @@
-#Conduct a multiple linear regression assessing whether Time of Haunted house and Temporal Memory Accuracy independently predicted differences in how Analytically someone recalled their memory and store the model in an object called m1.
-m1 <- lm(Authentic ~ TOAccuracy + Time_HH, data = df_analyses)
+#1) Create a bar plot visualizing how Temporal Memory Accuracy scores differ by experimental condition across The Immediate and 1-week Delay study visits
+#2) Add a plot title, x-axis title, and y-axis title
 
-#Use the summary() function to print the model output and try to intepret the model yourself
-summary(m1)
-
-#Use the report() function to print the model interpretation
-report(m1)
+ggplot(data = df_plot, aes(x = Condition, y = TOAccuracy, fill = Condition)) + #Using fill = Group allows us to color-code the plot according to Group
+  geom_bar(stat="identity") + #Generate a bar plot
+  labs(x = 'Experimental Condition', y = 'Temporal Memory Accuracy', title = "Temporal Memory Accuracy by Condition") + #Define a plot title, an x-axis title, and a y-axis title
+  facet_wrap(~Stage) #Split the graphs based on the Stage variable

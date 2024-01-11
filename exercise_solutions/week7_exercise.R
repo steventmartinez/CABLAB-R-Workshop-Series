@@ -1,23 +1,11 @@
-# For Mac
-Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
+#Subset a data frame with the following columns: "PID", "Section", "Stage", "Threat", "Group", "Condition", and "TOAccuracy"
+df_new <- subset(df, select=c("PID", "Section", "Stage", "Threat", "Group", "Condition", "TOAccuracy"))
 
-#set working directory
-setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
+#Subset rows where the TOAccuracy score is less than .5
+low.df <- subset(df_new, TOAccuracy < .5)
 
-#Read in the df_wide_exercise.csv file
-df_wide_exercise <- read.csv(file = "frightnight_wide_exercise.csv")
+#Subset rows where the TOAccuracy score is greater than .5
+high.df <- subset(df_new, TOAccuracy > .5)
 
-
-#Approach 1: Basic Pivot longer
-df_long <- df_wide_exercise %>% pivot_longer(
-  cols=c("Asylum.TOAccuracy", "GhostlyGrounds.TOAccuracy", "DevilsDen.TOAccuracy", "Infirmary.TOAccuracy"), #The names of the columns to pivot
-  names_to = "Section", #The name for the new character column
-  values_to = "TOAccuracy") #The name for the new values column
-
-
-#Approach 2: Pivot longer using grep function
-df_long <- df_wide_exercise %>% pivot_longer(
-  cols = grep("\\.", colnames(df_wide_exercise)),
-  names_to = c("Section", ".value"), 
-  names_sep = "\\.",
-  values_drop_na = TRUE)
+#Merge the two data frames back together
+merged_data <- merge(low.df, high.df, by=c("PID", "Section", "Stage", "Threat", "Group", "Condition", "TOAccuracy"), all.x=TRUE, all.y=TRUE)

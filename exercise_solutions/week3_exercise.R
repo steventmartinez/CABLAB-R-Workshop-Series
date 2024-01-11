@@ -1,14 +1,8 @@
-# For Mac
-Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
+#Create a new data frame called "df2" and subset the following columns from the df data frame: PID, Section, Stage, Fear.rating, and TOAccuracy
+# Approach 1: Bracket notation
+cols <- c("PID", "Section", "Stage", "Fear.rating", "TOAccuracy") #create a vector of column names that we want to subset
+df2 <- df[, cols] #use bracket notation to pull the columns that we included in the "cols" vector from the df data frame.
 
-#set working directory
-setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
 
-#Read in the df_wide CSV file
-df_wide <- read.csv(file = "df_wide.csv")
-
-#head()
-head(df_wide)
-
-#View()
-View(df_wide)
+#Approach 2: subset() function
+df2 <- subset(df, select=c(PID, Section, Stage, Fear.rating, and TOAccuracy))

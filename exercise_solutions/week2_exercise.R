@@ -1,17 +1,14 @@
-install.packages("naniar")
-install.packages("report")
-install.packages("tidyverse")
-install.packages("dplyr")
-install.packages("Matrix")
-install.packages("lme4")
-install.packages("lmerTest")
-install.packages("ggplot2")
+# For Mac
+Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
 
-library(naniar)
-library(report)
-library(tidyverse)
-library(dplyr)
-library(Matrix)
-library(lme4)
-library(lmerTest)
-library(ggplot2)
+#set working directory
+setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
+
+#Read in the df_wide CSV file
+df_wide <- read.csv(file = "df_wide.csv")
+
+#head()
+head(df_wide)
+
+#View()
+View(df_wide)

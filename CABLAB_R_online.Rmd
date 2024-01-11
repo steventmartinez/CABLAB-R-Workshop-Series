@@ -51,18 +51,17 @@ vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
 ## Outline
 
 | **Pre-Workshop**: Downloading R and RStudio Software | **R**: https://ftp.osuosl.org/pub/cran/ **RStudio**: https://posit.co/download/rstudio-desktop/
-| **Week 1: Intro to R** | Learning how to navigate the software: R, RStudio, Console, and creating scripts in R Markdown
-| **Week 2: Installing and Loading Packages** | Continue orienting to the software environment using the "swirl" package
-| **Week 3: Working Directories** | Learn how to navigate working directories and read in data into R
-| **Week 4: Subsetting in R** | Understand how to access rows and columns and filter observations
-| **Week 5: If Else statements** | Using the ifelse() function to create new columns
-| **Week 6: Intro to For Loops in R** | Learning the structure and application of For loops in R
-| **Week 7: Pivoting data from wide to long and long to wide** | Understanding the differences between data in wide-format and long-format
-| **Week 8: Merging data frames** | Merging two data frames together
-| **Week 9: Data cleaning** | Learning how to apply previously learned functions toward cleaning a raw dataset
-| **Week 10: Analyzing Data w/ Categorical Independent Variables** | Conducting statistical analyses with categorical predictors
-| **Week 11: Analyzing Data w/ Continuous Independent Variables** | Conducting statistical analyses with continuous and categorical predictors
-| **Week 12: Visualizing data: Intro to ggplot** | Learn how to create ggplot visualizations and customize plots
+| **Week 1: Intro to R** | Learning how to navigate the software: R, RStudio, and creating scripts in R Markdown. We will also work on installing and loading packages.
+| **Week 2: Working Directories** | Learn how to navigate working directories and read in data into R
+| **Week 3: Subsetting** | Understand how to access rows and columns and filter observations
+| **Week 4: If Else statements** | Using the ifelse() function to create new columns
+| **Week 5: Intro to For Loops** | Learning the structure and application of For loops in R
+| **Week 6: Pivoting data from wide to long and long to wide** | Understanding the differences between data in wide-format and long-format
+| **Week 7: Merging data frames** | Merging two data frames together
+| **Week 8: Data cleaning** | Learning how to apply previously learned functions toward cleaning a raw dataset
+| **Week 9: Analyzing Data w/ Categorical Independent Variables** | Conducting statistical analyses with categorical predictors
+| **Week 10: Analyzing Data w/ Continuous Independent Variables** | Conducting statistical analyses with continuous and categorical predictors
+| **Week 11: Visualizing data: Intro to ggplot** | Learn how to create ggplot visualizations and customize plots
 | **Final Project?** | TBD 
 | **Conclusion** | Closing and general notes
 
@@ -144,8 +143,6 @@ Also of note, the down-facing arrow (second icon in the upper right corner of th
 If we click the cog icon in the same tray, we can access the output options and manipulate where output appears and what it looks like, but that's beyond the scope of this review [![Settings Command](images/ChunkSettings.png)].
 
 
-# Week 2: Installing and Loading Packages
-
 ## What's a "Package"?
 
 Packages in R are synonymous with libraries in other languages. They are more or less convenient short-cuts or functions someone else already programmed to save us some work. Somebody else already figured out a very quick way to compute a function so now we don’t have to! We just use their tools to do it.
@@ -180,15 +177,15 @@ If we ever want to explore the functions contained within a package in conjuncti
 
 Let's try installing and loading in a few package for practice. Let's install and load the following packages in R: naniar, report, tidyverse, dplyr, Matrix, lme4, lmerTest, and ggplot2
 
-## Week 2 Exercise: Installing and Loading Packages
-```{r Week 2 Exercise, code="'\n\n\n\n'", results=F}
+## Week 1 Exercise: Installing and Loading Packages
+```{r Week 1 Exercise, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
 
-```{r Week 2 Exercise - hidden, eval=T, include=F}
+```{r Week 1 Exercise - hidden, eval=T, include=F}
 
 install.packages("naniar", repos = "http://cran.us.r-project.org")
 install.packages("report", repos = "http://cran.us.r-project.org")
@@ -210,11 +207,11 @@ library(ggplot2)
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week2_exercise.R)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week1_exercise.R)
 
 
 
-##  Week 2 Assignment: Install and Load "swirl" library and complete "R Programming: The basics of programming in R"  
+##  Week 1 Assignment: Install and Load "swirl" library and complete "R Programming: The basics of programming in R"  
 Swirl is a really cool package in R that teaches you R programming and data science interactively, at your own pace, and right in the R console! For our first assignment, I think swirl explains some fundamental concepts in a better way than I can, so let's tackle the **"R Programming: The basics of programming in R"** course and complete **Module 1: Basic Building Blocks** in swirl.
 
 Some of it will make sense, and some of it won't (and that's okay!), but I think swirl does a pretty good job of orienting people to how basic operations in R work, and I think this is especially helpful before we start working with any actual data. 
@@ -227,7 +224,7 @@ Let's give this a try and we can talk through any problems people ran into durin
 ![](images/R swirl 2.png){width=70%}
 
 
-# Week 3: Working Directories 
+# Week 2: Working Directories 
 
 ## Working Directories in R: What is a Working Directory?
 
@@ -384,20 +381,20 @@ Amazing! Now we have hundreds of columns of data, like we should. We might also 
 
 
 
-## Week 3 Exercise: Working Directories
+## Week 2 Exercise: Working Directories
 
 **1)** Read in the df_wide CSV file and store it in an object called "df_wide"
 
 **2)** Print out the first few rows using the head() function
 
 **3)** Open up the df_wide dataframe by using the View() function **OR** by clicking on the df_wide dataframe in the global environment
-```{r Week 3 Exercise, code="'\n\n\n\n'", results=F}
+```{r Week 2 Exercise, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
-```{r Week 3 Exercise - hidden, eval=F, include=F}
+```{r Week 2 Exercise - hidden, eval=F, include=F}
 
 # For Mac
 Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
@@ -416,18 +413,18 @@ View(df_wide)
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week3_exercise.R)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week2_exercise.R)
 
 
 
-## Week 3 Assignment: Working Directories 
-There will be no week 3 assignment :) 
+## Week 2 Assignment: Working Directories 
+There will be no week 2 assignment :) 
 
 
 
-# Week 4: Subsetting data
+# Week 3: Subsetting data
 
-For the Week 4 workshop, let's read in the frightnight_practice CSV file
+For the Week 3 workshop, let's read in the frightnight_practice CSV file
 
 ```{r}
 
@@ -567,7 +564,7 @@ df_sub <- subset(df, select=c(PID, Section, Stage, Recall))
 
 
 
-## Week 4 Exercise: Subsetting data
+## Week 3 Exercise: Subsetting data
 
 **2)** Create a new data frame called "df2" and subset the following columns from the df data frame: PID, Section, Stage, Fear.rating, and TOAccuracy.
 
@@ -575,13 +572,13 @@ df_sub <- subset(df, select=c(PID, Section, Stage, Recall))
 
 **4)** Repeat this using the subset() function.
 
-```{r Week 4 Exercise, code="'\n\n\n\n'", results=F}
+```{r Week 3 Exercise, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
-```{r Week 4 Exercise - hidden, eval=T, include=F}
+```{r Week 3 Exercise - hidden, eval=T, include=F}
 
 #Create a new data frame called "df2" and subset the following columns from the df data frame: PID, Section, Stage, Fear.rating, and TOAccuracy
 # Approach 1: Bracket notation
@@ -594,7 +591,7 @@ df2 <- subset(df, select=c(PID, Section, Stage, Fear.rating, TOAccuracy))
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week4_exercise.R)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week3_exercise.R)
 
 
 ## Missing data 
@@ -640,7 +637,7 @@ Here, we are again using bracket notation to tell R, within the df data frame, r
 
 
 
-## Week 4 Assignment: Subsetting data
+## Week 3 Assignment: Subsetting data
 
 For this week's assignment, let's continue focusing on subsetting in R.
 
@@ -652,13 +649,13 @@ For this week's assignment, let's continue focusing on subsetting in R.
 
 **4)** Remove any rows that have a missing value in any column
 
-```{r Week 4 Assignment, code="'\n\n\n\n'", results=F}
+```{r Week 3 Assignment, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
-```{r Week 4 Assignment - hidden, eval=T, include=F}
+```{r Week 3 Assignment - hidden, eval=T, include=F}
 
 #1) Read in the frightnight_raw_assignment CSV file
 Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
@@ -681,9 +678,10 @@ df_clean <- df_clean[complete.cases(df_clean), ]
 ```
 
 
-# Week 5: If Else statements 
 
-For the Week 5 workshop, let's read in the frightnight_practice CSV file
+# Week 4: If Else statements 
+
+For the Week 4 workshop, let's read in the frightnight_practice CSV file
 
 ```{r}
 
@@ -753,30 +751,30 @@ df_reorganized <- df %>% relocate(Threat, .before = Recall) #Can relocate column
 
 
 
-## Week 5 Exercise: If Else statements
+## Week 4 Exercise: If Else statements
 
 Given that Eastern State Penitentiary updates its haunted house segments every year, let's clarify which year haunted house segments were introduced. Infirmary and Ghostly Grounds were introduced in 2019, whereas Asylum and Devil's Den are newer segments and were introduced in 2021.
 
 **1)** Use the ifelse() function to create a new column called Year, where, if the Section was equal to Infirmary or Ghostly Grounds, assign a value of "2019", else, assign a value of "2021".
 
-```{r Week 5 Exercise, code="'\n\n\n\n'", results=F}
+```{r Week 4 Exercise, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
-```{r Week 5 Exercise - hidden, eval=T, include=F}
+```{r Week 4 Exercise - hidden, eval=T, include=F}
 
 df$Year <- ifelse(df$Section == "Infirmary" | df$Section == "GhostlyGrounds", "2019", "2021")
 
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week5_exercise.R)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week4_exercise.R)
 
 
 
-## Week 5: More advanced ifelse statements
+## Week 4: More advanced ifelse statements
 
 For the purposes of this example, let's subset a data frame with the following columns: PID, Section, Stage, Condition, TOAccuracy.
 
@@ -806,7 +804,7 @@ df_memory$MemoryStrength <-ifelse(df_memory$TOAccuracy >= .7, "High", df_memory$
 
 
 
-## Week 5 Assignment: If Else statements
+## Week 4 Assignment: If Else statements
 
 **1)** Read in the frightnight_practice.csv file
 
@@ -816,13 +814,13 @@ df_memory$MemoryStrength <-ifelse(df_memory$TOAccuracy >= .7, "High", df_memory$
 
 **4)** Use the ifelse() function to create a new column called "RecallLength" that meets the following criteria: Word count less than or equal to 40 is "Short", word count in between 40 and 60 is "Medium", and word count greater than oe equal to 60 is "Long"
 
-```{r Week 5 Assignment, code="'\n\n\n\n'", results=F}
+```{r Week 4 Assignment, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
-```{r Week 5 Assignment - hidden, eval=T, include=F}
+```{r Week 4 Assignment - hidden, eval=T, include=F}
 
 #1) Read in the frightnight_raw_assignment CSV file
 Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
@@ -852,9 +850,9 @@ df_recall$RecallLength <-ifelse(df_recall$WordCount >= 60, "Long", df_recall$Rec
 
 
 
-# Week 6: Intro to For Loops
+# Week 5: Intro to For Loops
 
-For the Week 6 workshop, let's read in the frightnight_practice CSV file. Before we start working with actual data, we'll work with some general examples first.
+For the Week 5 workshop, let's read in the frightnight_practice CSV file. Before we start working with actual data, we'll work with some general examples first.
 
 ```{r}
 
@@ -977,18 +975,18 @@ Lets break this code down in some more detail.
 
 
 
-## Week 6 Exercise: Intro to For Loops
+## Week 5 Exercise: Intro to For Loops
 
 **1)** Create a vector that includes the following letters: "A", "B", "C", "D", "E", "F"
 
 **2)** Create a for loop where, if i = A, print This value represents A", else, print "This value does not represent A"
-```{r Week 6 Exercise, code="'\n\n\n\n'", results=F}
+```{r Week 5 Exercise, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
-```{r Week 6 Exercise - hidden, eval=T, include=F}
+```{r Week 5 Exercise - hidden, eval=T, include=F}
 
 #Create a vector that includes the following letters: "A", "B", "C", "D", "E", "F"
 x3 <- c("A", "B", "C", "D", "E", "F")                     
@@ -1006,7 +1004,7 @@ for (i in 1:length(x3)) {
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week6_exercise.R)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week5_exercise.R)
 
 
 Next, let's map the for loop onto the data we've been using! I'll also try to convert the structure of the ifelse() function into the structure of a for loop "if else" statement in case that context would be helpful.
@@ -1056,19 +1054,19 @@ Hopefully these examples provide a helpful understanding of how for loops actual
   
   
 
-## Week 6 Assignment: Intro to For Loops
+## Week 5 Assignment: Intro to For Loops
 
 **1)** Let's create a vector called x4 that contains the following values: "A", "B", "A", "D", "A", "F"
 
 **2)** Create a for loop that iterates across all values in x4. If the value == A, print "This value represents A", else, print "This value represents, B, D, or F"
 
-```{r Week 6 Assignment, code="'\n\n\n\n'", results=F}
+```{r Week 5 Assignment, code="'\n\n\n\n'", results=F}
 
 
   
 ```
   
-```{r Week 6 Assignment - hidden, eval=T, include=F}
+```{r Week 5 Assignment - hidden, eval=T, include=F}
 
 #Let's use a new example vector for the purpose of this assignment
 x4 <- c("A", "B", "A", "D", "A", "F")
@@ -1089,7 +1087,7 @@ for (i in 1:length(x3)) {
 
 
 
-# Week 7: Pivoting data from wide to long and long to wide
+# Week 6: Pivoting data from wide to long and long to wide
 
 ## Pivot a data frame from wide to long
 When data exists in a "wide" format, that means that each participant only has 1 row.
@@ -1180,20 +1178,20 @@ Another row that reflects the participant's Temporal Memory Accuracy score durin
 
 
 
-## Week 7 Exercise: Pivoting data from wide to long and long to wide
+## Week 6 Exercise: Pivoting data from wide to long and long to wide
 
 **1)** Read in the df_wide_exercise CSV file
 
 **2)** Pivot the data frame from wide to long
 
 **3)** You should end up with 4 columns: PID, Group, Section, and TOAccuracy 
-```{r Week 7 Exercise, code="'\n\n\n\n'", results=F}
+```{r Week 6 Exercise, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
-```{r Week 7 Exercise - hidden, eval=F, include=F}
+```{r Week 6 Exercise - hidden, eval=F, include=F}
 
 # For Mac
 Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
@@ -1221,11 +1219,11 @@ df_long <- df_wide_exercise %>% pivot_longer(
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week7_exercise.R)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week6_exercise.R)
 
 
 
-## Week 7 Assignment: Pivoting data from wide to long and long to wide
+## Week 6 Assignment: Pivoting data from wide to long and long to wide
 
 **1)** Read in the frightnight_wide_assignment CSV file
 
@@ -1233,13 +1231,13 @@ df_long <- df_wide_exercise %>% pivot_longer(
 
 **3)** You should end up with a dataframe that has 4 columns: PID, Group, Section, and Word Count. 
 
-```{r Week 7 Assignment, code="'\n\n\n\n'", results=F}
+```{r Week 6 Assignment, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
-```{r Week 7 Assignment - hidden, eval=F, include=F}
+```{r Week 6 Assignment - hidden, eval=F, include=F}
 
 # For Mac
 Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
@@ -1270,9 +1268,9 @@ df_long <- df_wide_assignment %>% pivot_longer(
 
 
 
-# Week 8: Merging data frames
+# Week 7: Merging data frames
 
-For the Week 8 workshop, let's read in the frightnight_practice CSV file. 
+For the Week 7 workshop, let's read in the frightnight_practice CSV file. 
 
 ```{r}
 
@@ -1346,19 +1344,19 @@ The main takeaway here is that R needs to understand which columns you wish to m
 
 
 
-## Week 8 Exercise: Merging data frames
+## Week 7 Exercise: Merging data frames
 
 **1)** Subset two data frames from the df_new data frame that we created earlier: 1 data frame called "low_df" that only contains rows where the Temporal Memory Accuracy score is less than .5. A second data frame that only contains rows where the Temporal Memory Accuracy score is greater than .5.
 
 **2)** Merge the two data frames back together and create a new data frame called "merged_data"
 
-```{r Week 8 Exercise, code="'\n\n\n\n'", results=F}
+```{r Week 7 Exercise, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
-```{r Week 8 Exercise - hidden, eval=T, include=F}
+```{r Week 7 Exercise - hidden, eval=T, include=F}
 
 #Subset a data frame with the following columns: "PID", "Section", "Stage", "Group", "Condition", and "TOAccuracy"
 df_new <- subset(df, select=c("PID", "Section", "Stage", "Group", "Condition", "TOAccuracy"))
@@ -1374,10 +1372,10 @@ merged_data <- merge(low.df, high.df, by=c("PID", "Section", "Stage", "Group", "
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week8_exercise.R)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week7_exercise.R)
 
 
-## Week 8 Assignment: Merging data frames
+## Week 7 Assignment: Merging data frames
 
 **1)** Read in the frightnight_practice CSV file.
 
@@ -1389,13 +1387,13 @@ merged_data <- merge(low.df, high.df, by=c("PID", "Section", "Stage", "Group", "
 
 **5)** Merge the two data frames back together and store it in a new data frame!
 
-```{r Week 8 Assignment, code="'\n\n\n\n'", results=F}
+```{r Week 7 Assignment, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
-```{r Week 8 Assignment - hidden, eval=T, include=F}
+```{r Week 7 Assignment - hidden, eval=T, include=F}
 
 #1) Read in the frightnight_raw_assignment CSV file
 Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
@@ -1433,8 +1431,7 @@ data.merged <- merge(ID.df, DA.df, by=c("PID", "Section", "Stage", "Group", "fea
 
 
 
-# Week 9: Data cleaning
-
+# Week 8: Data cleaning
 
 Up until now, we've learned a lot of isolated functions, but we haven't really 'cleaned up' any data in the traditional sense. This workshop will focus on cleaning up data and for that, we'll plan to use the **frightnight_raw.csv** file, so let's read it in!
 
@@ -1551,7 +1548,7 @@ df_complete_clean <- df_complete_clean %>% relocate(Threat, .after = Group)
 Look at how nice our data frame looks now! If we wanted to, we could move forward with conducting some analyses. Speaking of analyses, we'll start talking about how to complete statistical analyses in R starting next week!
 
 
-## Week 9 Assignment: Data cleaning
+## Week 8 Assignment: Data cleaning
 
 **1)** Read in the frightnight_raw_assignment CSV file
 
@@ -1565,13 +1562,13 @@ Look at how nice our data frame looks now! If we wanted to, we could move forwar
 
 **6)** Re-organize the position of the columns so that the final data frame appears as follows: PID, Section, Group, Fear
 
-```{r Week 9 Assignment, code="'\n\n\n\n'", results=F}
+```{r Week 8 Assignment, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
-```{r Week 9 Assignment - hidden, eval=T, include=F}
+```{r Week 8 Assignment - hidden, eval=T, include=F}
 
 #1) Read in the frightnight_raw_assignment CSV file
 Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
@@ -1613,7 +1610,7 @@ df_assignment.comp <- subset(df_raw_assignment_long, select=c(PID, Section, Grou
 
 
 
-# Week 10: Analyzing Data w/ Categorical Independent Variables
+# Week 9: Analyzing Data w/ Categorical Independent Variables
 
 **Next, we are going to start talking about different types of statistical analyses in R!**
 
@@ -1621,7 +1618,7 @@ df_assignment.comp <- subset(df_raw_assignment_long, select=c(PID, Section, Grou
 ![](R memes/psychology statistics.jpeg){width=80%}
 
 
-Before we do that, let's read in the **frightnight_analyses** CSV file for the purposes of the Week 10 workshop!
+Before we do that, let's read in the **frightnight_analyses** CSV file for the purposes of the Week 9 workshop!
 
 ```{r}
 
@@ -1805,7 +1802,7 @@ summary(model3)
 All of a sudden, when we add Section into the model, we see that there is a significant difference in Temporal Memory Accuracy by Section. That’s pretty interesting! Of course, we don’t yet know whether Temporal Memory Accuracy was better for Devils Den or Ghostly Grounds.
 
 
-## Week 10 Exercise: Analyzing Data w/ Categorical Independent Variables
+## Week 9 Exercise: Analyzing Data w/ Categorical Independent Variables
 
 **1)** Conduct an ANOVA test assessing whether experimental condition predicted differences in how Analytically someone recalls their memory and store the model in an object called m1
 
@@ -1815,13 +1812,13 @@ All of a sudden, when we add Section into the model, we see that there is a sign
 
 **4)** Use the report() function to print the model interpretation
 
-```{r Week 10 Exercise, code="'\n\n\n\n'", results=F}
+```{r Week 9 Exercise, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
-```{r Week 10 Exercise - hidden, eval=T, include=F}
+```{r Week 9 Exercise - hidden, eval=T, include=F}
 
 #Conduct an ANOVA testing assessing whether experimental condition predicted differences in how Analytically someone recalls their memory and store the model in an object called m1
 m1 <- aov(Analytic ~ Condition, data = df_analyses)
@@ -1835,11 +1832,11 @@ report(m1)
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week10_exercise.R)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week9_exercise.R)
 
 
 
-## Week 10 Assignment: Analyzing Data w/ Categorical Independent Variables 
+## Week 9 Assignment: Analyzing Data w/ Categorical Independent Variables 
 
 I’m curious whether differences in Group (Goal-assigned versus Control) is associated with differences in how Authentically someone recalls their memory.
 
@@ -1859,13 +1856,13 @@ I’m curious whether differences in Group (Goal-assigned versus Control) is ass
 
 **8)** Run the report() function to try to see whether your interpretation matches.
 
-```{r Week 10 Assignment, code="'\n\n\n\n'", results=F}
+```{r Week 9 Assignment, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
-```{r Week 10 Assignment - hidden, eval=T, include=F}
+```{r Week 9 Assignment - hidden, eval=T, include=F}
 
 # For Mac
 Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
@@ -1903,16 +1900,14 @@ report(model2)
 ```
 
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week10_assignment.R)
 
 
 
-
-# Week 11: Analyzing Data w/ Continuous Independent Variables
+# Week 10: Analyzing Data w/ Continuous Independent Variables
 
 We just finished covering analyses that use qualitative, categorical predictors. Next, we'll cover analyses that use quantitative, numeric predictors, probably most common of which is linear regression. Regression can come in many flavors, including bivariate linear regression, multivariate linear regression, and binary logistic regression. We won’t get too much into the theory, but we'll work through some useful tools and syntax to get you prepared to use R on your own.
 
-For the Week 11 workshop, let's read in the **frightnight_analyses** CSV file!
+For the Week 10 workshop, let's read in the **frightnight_analyses** CSV file!
 
 ```{r}
 
@@ -1930,7 +1925,7 @@ df <- read.csv(file = "frightnight_analyses.csv") #Load in the fright night prac
 
 ## Create data frame for analyses
 
-And just like we did last week, let's subset a data frame with the columns that we want to focus on for our Week 11 analyses.
+And just like we did last week, let's subset a data frame with the columns that we want to focus on for our Week 10 analyses.
 
 ```{r}
 
@@ -2118,7 +2113,7 @@ In this case, TOAccuracy and Threat are our fixed effects, whereas (1|PID) is ou
 
 
 
-## Week 11 Exercise: Analyzing Data w/ Continuous Independent Variables
+## Week 10 Exercise: Analyzing Data w/ Continuous Independent Variables
 
 **1)** Conduct a multiple linear regression assessing whether Time of Haunted house and Temporal Memory Accuracy independently predicted differences in how Analytically someone recalled their memory and store the model in an object called m1.
 
@@ -2128,14 +2123,14 @@ In this case, TOAccuracy and Threat are our fixed effects, whereas (1|PID) is ou
 
 **4)** Use the report() function to print the model interpretation
 
-```{r Week 11 Exercise, code="'\n\n\n\n'", results=F}
+```{r Week 10 Exercise, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
 
-```{r Week 11 Exercise - hidden, eval=T, include=F}
+```{r Week 10 Exercise - hidden, eval=T, include=F}
 
 #Conduct a multiple linear regression assessing whether Time of Haunted house and Temporal Memory Accuracy independently predicted differences in how Analytically someone recalled their memory and store the model in an object called m1.
 m1 <- lm(Authentic ~ TOAccuracy + Time_HH, data = df_mixed)
@@ -2149,14 +2144,14 @@ report(m1)
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week11_exercise.R)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week10_exercise.R)
 
 
 
 
-## Week 11 Assignment: Analyzing Data w/ Continuous Independent Variables
+## Week 10 Assignment: Analyzing Data w/ Continuous Independent Variables
 
-As part of the Week 11 R assignment, let's explore a new research question.
+As part of the Week 10 R assignment, let's explore a new research question.
 
 **QUESTION**: Does temporal memory accuracy OR threat interact predict differences in how negatively someone communicates their memory?
 
@@ -2181,13 +2176,13 @@ As part of the Week 11 R assignment, let's explore a new research question.
 
 **7)** Use the report() function to print out an interpretation of the model and see if your interpretation matches
 
-```{r Week 11 Assignment, code="'\n\n\n\n'", results=F}
+```{r Week 10 Assignment, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
-```{r Week 11 Assignment - hidden, eval=T, include=F}
+```{r Week 10 Assignment - hidden, eval=T, include=F}
 
 
 # For Mac
@@ -2218,7 +2213,7 @@ report(m5)
 
 
 
-# Week 12: Visualizing data: Intro to ggplot
+# Week 11: Visualizing data: Intro to ggplot
 
 For the Week 11 workshop, let's read in the frightnight_analyses CSV file!
 
@@ -2304,13 +2299,13 @@ ggplot(data = df_plot, aes(x = Group, y = TOAccuracy, fill = Group)) + #Using fi
 
 
 
-## Week 12 Exercise: Visualizing data: Intro to ggplot
+## Week 11 Exercise: Visualizing data: Intro to ggplot
 
 **1)** Create a bar plot visualizing how Temporal Memory Accuracy scores differ by experimental condition across The Immediate and 1-week Delay study visits
 
 **2)** Add a plot title, x-axis title, and y-axis title
 
-```{r Week 12 Exercise, code="'\n\n\n\n'", results=F}
+```{r Week 11 Exercise, code="'\n\n\n\n'", results=F}
 
 
 
@@ -2318,7 +2313,7 @@ ggplot(data = df_plot, aes(x = Group, y = TOAccuracy, fill = Group)) + #Using fi
 ```
 
 
-```{r Week 12 Exercise - hidden, eval=T, include=F}
+```{r Week 11 Exercise - hidden, eval=T, include=F}
 
 #1) Create a bar plot visualizing how Temporal Memory Accuracy scores differ by experimental condition across The Immediate and 1-week Delay study visits
 #2) Add a plot title, x-axis title, and y-axis title
@@ -2330,7 +2325,7 @@ ggplot(data = df_plot, aes(x = Condition, y = TOAccuracy, fill = Condition)) + #
 
 ```
 
-[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week12_exercise.R)
+[Click for solution](https://github.com/steventmartinez/CABLAB-R-Workshop-Series/blob/main/exercise_solutions/week11_exercise.R)
 
 
 So we already learned how to add a plot title, an x-axis title, and a y-axis title, as well as how to change x-axis text labels and legend text labels. We can still customize additional plot aesthetics that we'll talk about below.
@@ -2567,7 +2562,7 @@ While we've only covered bar plots and violin plots in this section, there are t
 
 
 
-## Week 12 Assignment: Visualizing data: Intro to ggplot 
+## Week 11 Assignment: Visualizing data: Intro to ggplot 
 
 Let's create a violin plot that plots Temporal Memory Accuracy Scores by Condition! Let's customize this plot to meet the following criteria:
 
@@ -2597,13 +2592,13 @@ Let's create a violin plot that plots Temporal Memory Accuracy Scores by Conditi
 
 **12)** Change the legend title and legend text font size to 15
 
-```{r Week 12 Assignment, code="'\n\n\n\n'", results=F}
+```{r Week 11 Assignment, code="'\n\n\n\n'", results=F}
 
 
   
 ```
 
-```{r Week 12 Assignment - hidden, eval=T, include=F}
+```{r Week 11 Assignment - hidden, eval=T, include=F}
 
 # For Mac
 Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
