@@ -213,7 +213,7 @@ library(ggplot2)
 
 
 
-##  Week 1 Assignment: Install and Load "swirl" library and complete "R Programming: The basics of programming in R"  
+##  Week 1 Assignment: Install and Load "swirl" library and complete "Module 1: Basic Building Blocks"  
 Swirl is a really cool package in R that teaches you R programming and data science interactively, at your own pace, and right in the R console! For our first assignment, I think swirl explains some fundamental concepts in a better way than I can, so let's tackle the **"R Programming: The basics of programming in R"** course and complete **Module 1: Basic Building Blocks** in swirl.
 
 Some of it will make sense, and some of it won't (and that's okay!), but I think swirl does a pretty good job of orienting people to how basic operations in R work, and I think this is especially helpful before we start working with any actual data. 
