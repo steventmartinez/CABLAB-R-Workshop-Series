@@ -95,9 +95,9 @@ Before the workshop, we'll need to download R and RStudio. Throughout the worksh
 
 To get things started, open R Studio. Then, let's try opening a new R Markdown document, by clicking File > New File > R Markdown...
 
-![](images/R Markdown.png){width=100%}
-
 **First time R users will be asked to download packages once they open up an R Markdown file. Click "Yes" to downloading those packages!**
+
+![](images/R Markdown.png){width=100%}
 
 This should produce a dialogue box where you can enter the name of the script and your name before selecting OK.
 
