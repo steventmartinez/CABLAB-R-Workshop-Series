@@ -97,6 +97,8 @@ To get things started, open R Studio. Then, let's try opening a new R Markdown d
 
 ![](images/R Markdown.png){width=100%}
 
+*First time R users will be asked to download packages once they open up an R Markdown file. Click "Yes" to downloading those packages!*
+
 This should produce a dialogue box where you can enter the name of the script and your name before selecting OK.
 
 ![](images/R Markdown script.png){width=40%}
@@ -498,37 +500,68 @@ df$Section == "Infirmary"
 Notice the two equals signs (==). When two value operators (=, >, <, !) are placed next to each other in R, and many other languages, we aren’t assigning a value to an object; we are comparing the values between two different objects. In this instance, using two equals signs, if the two values are equal, it would produce a TRUE value; if not, then a FALSE. This variable which can only take the value of either TRUE or FALSE is called a boolean. When we tell R to compare the value on the right with this specific column, what it is mechanically doing is iterating through each row within this column, comparing the column value, and noting whether the conditional is TRUE or FALSE.
 
 
-## Subsetting rows!
+## Subsetting rows and columns using Bracket Notation!
 
 So, we could theoretically plug just about any conditional statement in our subset approaches and subset the data as we wish:
 
-Approach 1 will show how to subset specific rows that we care about using bracket notation.
+We can subset specific rows that we care about using bracket notation.
 
-Approach 2 will show how to subset specific rows using the very popular subset() function
+We can also subset specific columns using bracket notation.
 
-Let's subset the rows that belong to participant 1001.
+Let's use bracket notation to subset the rows that belong to participant 1001 and store these rows in a new data frame called "df_1001".
+
+Let's also use bracket notation to subset the PID, Section, Stage, and Recall columns and store these columns in a new data frame called "df_sub"
 ```{r}
 
 # The nrow() command outputs how many rows the data frame has
 # We're doing this to show that both approaches yield the same result
 
-# Approach 1: Bracket notation
+#Subseting rows using bracket notation
 df_1001 <- df[df$PID == "1001",]
 nrow(df_1001)
 
+#Subseting columns using bracket notation
+cols <- c("PID", "Section", "Stage", "Recall") #create a vector of column names that we want to subset
+df_sub <- df[, cols] #use bracket notation to pull the columns that we included in the "cols" vector from the df data frame.
 
-#Approach 2: subset() function
+
+```
+
+Understanding the structure of bracket notation [rows, columns] is super important and this structure will be used to carry out more complicated functions that we'll talk about later on in the workshop series!
+
+
+## Subsetting rows and columns using the very popular subset() function
+
+As mentioned above, we can also use the subset() function to subset rows and columns.
+
+We will first use the subset() function to subset specific rows.
+
+We will also use the subset() function to subset specific columns.
+
+Let's use the subset() function to subset the rows that belong to participant 1001 and store these rows in a new data frame called "df_1001".
+
+Let's also use the subset() function to subset the following columns: PID, Section, Stage, Recall and store these columns in a new data frame called "df_sub"
+
+```{r}
+
+#Subsetting rows using the subset() function
 df_1001 <- subset(df, PID == "1001")
 nrow(df_1001)
 
+#Subsetting columns using the subset() function
+df_sub <- subset(df, select=c(PID, Section, Stage, Recall))
+
+
 ```
+
+Most people prefer to use the subset() function compared to bracket notation since it's a little bit more readable, but it's totally okay to do whatever makes the most sense to you. They both accomplish the same thing, just in slightly different ways.
 
 
 ## Subsetting rows based on multiple conditions
 
 What if, rather than subsetting based on one condition (i.e., rows that belong to participant 1001), we wanted to subset based on multiple conditions? 
 
-We can take advantage of OR ( **|** ) and AND ( **&** ) operators.
+We can take advantage of OR ( **|** ) and AND ( **&** ) operators using the subset() function.
 
 Below, we will be subsetting all rows where the assessment is based on the Infirmary **OR** Asylum haunted house segments.
 ```{r}
@@ -539,31 +572,6 @@ df_multiple_conditions <- subset(df, Section == "Infirmary" | Section == "Asylum
 
 
 Here, we are telling R to subset all rows where Section is equal to Infirmary OR Asylum. As you can tell, leveraging the OR ( **|** ) and AND ( **&** ) operators within the subset() function can be especially powerful.
-
-Now that we've talked about subsetting rows, let's talk about subsetting columns.
-
-## Subsetting columns!
-
-As mentioned above, we can also subset columns! We can use the same 2 approaches (bracket notation and subset function) to subset columns
-
-Approach 1 will show how to subset specific columns that we care about using bracket notation.
-
-Approach 2 will show how to subset specific columns using the subset() function.
-
-Let's subset the following columns: PID, Section, Stage, Recall
-
-```{r}
-
-# Approach 1: Bracket notation
-cols <- c("PID", "Section", "Stage", "Recall") #create a vector of column names that we want to subset
-df_sub <- df[, cols] #use bracket notation to pull the columns that we included in the "cols" vector from the df data frame.
-
-
-#Approach 2: subset() function
-df_sub <- subset(df, select=c(PID, Section, Stage, Recall))
-
-```
-
 
 
 ## Week 3 Exercise: Subsetting data
@@ -2648,5 +2656,7 @@ TBD :)
 
 Congrats! You made it through an entire R workshop series! Hopefully you feel like you're starting to pick up on some things! It's also totally okay if things aren't clicking just yet, but regardless of how you may be feeling, I will always be happy to work with you 1 on 1 if you have any specific questions as you move forward on your coding journey. My email is stevent.martinez@temple.edu or you can always send me a Slack!
 
+
+![](R memes/chatGPT.jpeg)
 
 ![](R memes/twitter video.gif)
