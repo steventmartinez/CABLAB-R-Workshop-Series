@@ -500,7 +500,7 @@ df$Section == "Infirmary"
 Notice the two equals signs (==). When two value operators (=, >, <, !) are placed next to each other in R, and many other languages, we aren’t assigning a value to an object; we are comparing the values between two different objects. In this instance, using two equals signs, if the two values are equal, it would produce a TRUE value; if not, then a FALSE. This variable which can only take the value of either TRUE or FALSE is called a boolean. When we tell R to compare the value on the right with this specific column, what it is mechanically doing is iterating through each row within this column, comparing the column value, and noting whether the conditional is TRUE or FALSE.
 
 
-## Subsetting rows and columns using Bracket Notation!
+## Subsetting rows and columns using bracket notation
 
 So, we could theoretically plug just about any conditional statement in our subset approaches and subset the data as we wish:
 
@@ -530,7 +530,7 @@ df_sub <- df[, cols] #use bracket notation to pull the columns that we included 
 Understanding the structure of bracket notation [rows, columns] is super important and this structure will be used to carry out more complicated functions that we'll talk about later on in the workshop series!
 
 
-## Subsetting rows and columns using the very popular subset() function
+## Subsetting rows and columns using the subset() function
 
 As mentioned above, we can also use the subset() function to subset rows and columns.
 
