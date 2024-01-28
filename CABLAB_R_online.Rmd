@@ -85,6 +85,8 @@ Before the workshop, we'll need to download R and RStudio. Throughout the worksh
 
 3. Download the **CABLAB-R-Workshop-Series** folder from the CABLAB R Workshop Github by pressing the green 'Code' button and downloading the ZIP folder. This is the folder containing the all the files we will be working with for the purposes of this workshop.
 
+4. Open up a new R Markdown document by clicking File > New File > R Markdown. **First time R users will be asked to download packages once they open up an R Markdown file. Click “Yes” to downloading those packages!**
+
 
 ![](images/zip folder.png){width=100%}
 
