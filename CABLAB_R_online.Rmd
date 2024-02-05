@@ -389,7 +389,7 @@ Amazing! Now we have hundreds of columns of data, like we should. We might also 
 
 ## Week 2 Exercise: Working Directories
 
-**1)** Read in the df_wide CSV file and store it in an object called "df_wide"
+**1)** Read in the frightnight_wide_exercise.csv CSV file and store it in an object called "df_wide"
 
 **2)** Print out the first few rows using the head() function
 
@@ -409,7 +409,7 @@ Path <- "/Users/tuh20985/Desktop/CABLAB-R-Workshop-Series-main/datasets/"
 setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
 
 #Read in the df_wide CSV file
-df_wide <- read.csv(file = "df_wide.csv")
+df_wide <- read.csv(file = "frightnight_wide_exercise.csv")
 
 #head()
 head(df_wide)
