@@ -5,4 +5,4 @@ df2 <- df[, cols] #use bracket notation to pull the columns that we included in 
 
 
 #Approach 2: subset() function
-df2 <- subset(df, select=c(PID, Section, Stage, Fear.rating, and TOAccuracy))
+df2 <- subset(df, select=c(PID, Section, Stage, Fear.rating, TOAccuracy))

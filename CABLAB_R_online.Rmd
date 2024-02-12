@@ -578,11 +578,11 @@ Here, we are telling R to subset all rows where Section is equal to Infirmary OR
 
 ## Week 3 Exercise: Subsetting data
 
-**2)** Create a new data frame called "df2" and subset the following columns from the df data frame: PID, Section, Stage, Fear.rating, and TOAccuracy.
+**1)** Create a new data frame called "df2" and subset the following columns from the df data frame: PID, Section, Stage, Fear.rating, and TOAccuracy.
 
-**3)** Do this using bracket notation
+**2)** Do this using bracket notation
 
-**4)** Repeat this using the subset() function.
+**3)** Repeat this using the subset() function.
 
 ```{r Week 3 Exercise, code="'\n\n\n\n'", results=F}
 
@@ -657,9 +657,8 @@ For this week's assignment, let's continue focusing on subsetting in R.
 
 **2)** Create a new data frame and subset the following columns from the df data frame: PID, Section, Stage, Recall, TOAccuracy
 
-**3)** Create a subset of the data that only contains TOAccuracy scores greater than .40
+**3)** From this new data frame, subset only rows that only contains TOAccuracy scores greater than .40
 
-**4)** Remove any rows that have a missing value in any column
 
 ```{r Week 3 Assignment, code="'\n\n\n\n'", results=F}
 
@@ -676,16 +675,11 @@ setwd(Path) #use the setwd() function to assign the "Path" object that we create
 
 df<- read.csv(file = "frightnight_practice.csv") #Load in the fright night raw csv file
 
-
 #Subset the following columns: PID, Section, Stage, Recall, TOAccuracy
 df_clean <- subset(df, select=c(PID, Section, Stage, Recall, TOAccuracy))
 
 #Create a subset of the data that only contains TOAccuracy scores greater than .40
 df_clean <- subset(df_clean, TOAccuracy > .40)
-nrow(df_clean)
-
-#Remove any rows that have a missing value in any column
-df_clean <- df_clean[complete.cases(df_clean), ]
 
 ```
 
