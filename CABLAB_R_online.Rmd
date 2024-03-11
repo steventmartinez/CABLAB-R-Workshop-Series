@@ -1102,9 +1102,9 @@ When data exists in a "long" format, that means that each participant has more t
 
 For the purposes of understanding how to pivot data frames, we will be using a new CSV file where each participant will only have 1 row and for illustrative purposes, the columns will reflect each participant's Temporal Memory Accuracy score for a given haunted house segment.
 
-Importantly, in order to do most of the analyses that we did earlier (e.g., bivariate linear regression, multiple linear regression, linear mixed effects regression), we need to have the data in **long** format. The pivot_longer() function from the tidyr package in R can be used to pivot a data frame from a wide format to a long format.
+Importantly, in order to do most of the analyses that we'll do later (e.g., bivariate linear regression, multiple linear regression, linear mixed effects regression), we need to have the data in **long** format. The pivot_longer() function from the tidyr package in R can be used to pivot a data frame from a wide format to a long format.
 
-So let's walk through how to convert data from wide format to long format using the new CSV file. Let's read in the frightnight_wide CSV file.
+So let's walk through how to convert data from wide format to long format using the new CSV file. Let's read in the "frightnight_wide.csv" file, as well as the "frightnight_practice.csv" file that we've been working with over the past few weeks.
 
 ```{r pivot longer, eval=F, include=T}
 
@@ -1116,6 +1116,7 @@ setwd(Path) #use the setwd() function to assign the "Path" object that we create
 
 #Read in the df_wide.csv file
 df_wide <- read.csv(file = "frightnight_wide.csv")
+df <- read.csv(file = "frightnight_practice.csv")
 
 
 #Approach 1: Basic Pivot longer
@@ -1152,7 +1153,7 @@ Data can also be converted from long to wide!
 
 The pivot_wider() function from the tidyr package in R can be used to pivot a data frame from a long format to a wide format.
 
-For the purposes of this example and to make things easier, let's just focus on one participant and a few select columns.
+For the purposes of this example and to make things easier, let's use the df data frame and just focus on one participant and subset a few select columns.
 
 ```{r pivot wider}
 
@@ -1186,7 +1187,7 @@ Another row that reflects the participant's Temporal Memory Accuracy score durin
 
 ## Week 6 Exercise: Pivoting data from wide to long and long to wide
 
-**1)** Read in the df_wide_exercise CSV file
+**1)** Read in the "frightnight_wide_exercise.csv" file
 
 **2)** Pivot the data frame from wide to long
 
@@ -1231,7 +1232,7 @@ df_long <- df_wide_exercise %>% pivot_longer(
 
 ## Week 6 Assignment: Pivoting data from wide to long and long to wide
 
-**1)** Read in the frightnight_wide_assignment CSV file
+**1)** Read in the "frightnight_wide_assignment.csv" file
 
 **2)** Use the pivot_longer function to convert the data from wide to long format
 
@@ -1276,7 +1277,7 @@ df_long <- df_wide_assignment %>% pivot_longer(
 
 # Week 7: Merging data frames
 
-For the Week 7 workshop, let's read in the frightnight_practice CSV file. 
+For the Week 7 workshop, let's read in the "frightnight_practice.csv" file. 
 
 ```{r}
 
